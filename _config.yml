@@ -1,0 +1,42 @@
+title: "Alex Jones Ph.D"
+author: "Alex Jones"
+#description: '<img src="\assets\logo.png" alt="Python Logo" style="width:300px;height:290px;">'
+permalink: /:title/
+lang: "en"
+excerpt_separator: "\n\n\n"
+date_format: "%B %d, %Y"
+
+# Layout
+
+show_excerpts: true       # show article excerpts on the home page
+show_frame: true          # adds a gray frame to the site
+show_sidebar: true        # show a sidebar instead of the usual header
+minimal: true             # use a dark header
+mathjax: true             # formulas
+
+# Menu
+
+navigation:               # accepts {file, title, url, icon, sidebaricon}
+  - {file: "index.html", icon: warehouse}
+  - {file: "about_me.md", icon: user}
+  - {file: "publications.md", icon: book}
+  - {file: "teaching.md", icon: chalkboard}
+  - {file: "statistics.md", icon: chart-line}
+
+
+external:                 # shows a footer with social links - for available icons see fontawesome.com/icons
+  - {title: Data Analysis with Python, icon: python, url: "/python_data_analysis/"}
+  - {title: Mail, icon: envelope, url: "mailto:alexjonesphd@gmail.com"}
+  - {title: GitHub, icon: github, url: "https://github.com/alexjonesphd"}
+  - {title: ORCiD, icon: orcid, url: "https://orcid.org/0000-0003-3600-3644"}
+  - {title: Open Science Framework, icon: database, url: "https://osf.io/v3p5g"}
+  - {title: Google Scholar, icon: graduation-cap, url: "https://scholar.google.co.uk/citations?user=ddZUIYEAAAAJ&hl=en"}
+
+comments:
+#  disqus_shortname: ""   # see https://disqus.com/
+#  isso_domain: ""        # see https://posativ.org/isso/
+
+plugins:
+ - jekyll-feed
+
+theme: jekyll-theme-midnight

@@ -568,7 +568,7 @@ The posterior distribution implies:
 - the lower and upper 95% credible intervals are [0.11, 0.53], indicating effects of around a tenth of, and up to half, of a rating scale point are plausible difference sizes. 
 - The probability the effect is positive - that is, the central claim of higher levels of femininity are ascribed to those with green behaviour, is 99.9%. 
 
-It is also possible to estimate a Bayes Factor to test the null hypothesis, using the Savage-Dickey density ratio method. The difference to test was observed from marginal means, but the prior distribution is the same as what is implied in the model for the coefficients, $\mathcal{N(0, 0.25)}$.
+It is also possible to estimate a Bayes Factor to test the null hypothesis, using the Savage-Dickey density ratio method. The difference to test was observed from marginal means, but the prior distribution is the same as what is implied in the model for the coefficients, $$ \mathcal{N(0, 0.25)} $$ .
 
 
 ```python

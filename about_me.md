@@ -23,6 +23,8 @@ Over the last few years, my interests have shifted to improving scientific and s
 
 Have a look at my [publications](https://alexjonesphd.github.io/pubs) for more information!
 
+I am also a expert user of the **Python** programming language, having used it extensively for almost a decade, and teach a short course on using it for data science and statistical inference. The notes for this (which are expanded periodically) can be found [here](https://alexjonesphd.github.io/python_data_analysis/intro.html).
+
 # Where I've been
 
 |                         | **Education**|                |

@@ -9,6 +9,8 @@ Below is a list of my academic publications. You can click on the 📄 icon for 
 
 
 ## 2022
+- Childs, M. J., & **Jones, A.** (2022). Perceptions of individuals who engage in age concealment. *Evolutionary Behavioral Sciences*. DOI: 10.1037/ebs/0000305 [📄](https://alexjonesphd.github.io/assets/papers/2022/childs&jones2022.pdf)
+
 - Ong, J., Dawson, S., Taylor, H., Park, M., Burgess, H., Crawford, M., Rains, J., Smitherman, T., Espie, C., **Jones, A.**, & Wyatt, J. (2022). A micro-longitudinal study of naps, sleep disturbance, and headache severity in women with chronic migraine. *Behavioural Sleep Medicine*, DOI: 10.1080/15402002.2022.2050723
 
 - Jaeger, B. & **Jones, A.** (2022). Which facial features are central in impression formation? *Social Psychological and Personality Science, 13(2), 553-561.* DOI: 10.1177/19485506211034979 [📄](https://alexjonesphd.github.io/assets/papers/2022/jaeger&jones2022.pdf)

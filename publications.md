@@ -9,6 +9,8 @@ Below is a list of my academic publications. You can click on the 📄 icon for 
 
 
 ## 2022
+- Kramer, R. S. S., & **Jones, A.** (2022). Incomplete faces are completed using a more average face. *Cognitive Research: Principles and Implications, 7:708.* DOI: 10.1186/s41235-022-00429-y [📄](https://alexjonesphd.github.io/assets/papers/2022/kramer&jones2022.pdf)
+
 - Childs, M. J., & **Jones, A.** (2022). Perceptions of individuals who engage in age concealment. *Evolutionary Behavioral Sciences*. DOI: 10.1037/ebs/0000305 [📄](https://alexjonesphd.github.io/assets/papers/2022/childs&jones2022.pdf)
 
 - Ong, J., Dawson, S., Taylor, H., Park, M., Burgess, H., Crawford, M., Rains, J., Smitherman, T., Espie, C., **Jones, A.**, & Wyatt, J. (2022). A micro-longitudinal study of naps, sleep disturbance, and headache severity in women with chronic migraine. *Behavioural Sleep Medicine*, DOI: 10.1080/15402002.2022.2050723  [📄](https://alexjonesphd.github.io/assets/papers/2022/ongetal2022.pdf)

@@ -1,0 +1,438 @@
+DoctorID,Region,Category,Rank,Incidence rate,R rate,Satisfaction,Experience,Purchases
+AHDCBA,4 15,Specialist,Ambassador,49.0,0.9,53.85,1.2,49.0
+ABHAHF,1 8 T4,General Practitioner,Ambassador,37.0,0.0,100.00,0.0,38.0
+FDHFJ,1 9 T4,Specialist,Ambassador,33.0,1.53,--,0.0,34.0
+BJJHCA,1 10 T3,Specialist,Ambassador,28.0,2.03,--,0.48,29.0
+FJBEA,1 14 T4,Specialist,Ambassador,23.0,0.96,76.79,0.75,24.0
+BCJCED,1 10,Specialist,Platinum Plus,19.0,1.2,-50.00,0.1,20.0
+FCGIG,1 8 T3,Specialist,Titanium,18.0,1.68,--,0.26,19.0
+HFIDE,1 11,Specialist,Ambassador,15.0,1.19,--,0.38,16.0
+ICBGB,1 12,Specialist,Platinum Plus,15.0,0.81,--,0.25,16.0
+FCBDC,2 7 19,Specialist,Silver Plus,14.0,0.07,--,0.07,14.0
+HCIEB,1 19 T4,Specialist,Ambassador,14.0,1.63,--,0.0,30.0
+AADIFG,1 10,Specialist,Titanium,14.0,0.22,-50.00,0.47,45.0
+AICFDG,1 11,Specialist,Titanium,14.0,0.87,14.29,0.53,15.0
+BJJGJE,2 11,General Practitioner,Gold,14.0,0.36,66.67,0.57,14.0
+IFDIB,1 19 T3,Specialist,Titanium,13.0,1.29,37.50,0.14,14.0
+FCDIF,1 11,Specialist,Ambassador,12.0,0.15,--,0.62,13.0
+FDHGC,1 14,Specialist,Titanium,12.0,0.85,--,0.62,13.0
+ADDCAB,1 12 T3,Specialist,Platinum Plus,12.0,0.17,--,0.25,12.0
+BGEEHB,1 8 T3,Specialist,Titanium,12.0,0.5,--,0.17,12.0
+AHIEIG,1 12,Specialist,Ambassador,11.33,1.0,--,0.3,37.0
+FBEIF,1 13 T3,Specialist,Titanium,11.0,1.0,100.00,0.09,11.0
+ACJAIB,1 14,General Practitioner,Platinum,11.0,0.0,--,0.42,12.0
+IBIJD,1 14,Specialist,Ambassador,10.0,0.7,50.00,1.1,10.0
+AACHCG,1 11,Specialist,Ambassador,10.0,1.18,14.71,0.95,22.0
+AAHIHJ,1 19,Specialist,Platinum Plus,10.0,1.91,75.00,0.27,11.0
+AEFEAG,1 19 T3,Specialist,Platinum Plus,10.0,1.1,--,0.0,10.0
+AGICFF,1 21 T3,Specialist,Titanium,10.0,1.0,-16.67,0.27,11.0
+AHDDAI,1 10,Specialist,Titanium,10.0,1.45,46.67,0.18,11.0
+BDJHBC,1 11,Specialist,Platinum Plus,10.0,2.82,--,2.27,11.0
+FJIGJ,1 8 T3,Specialist,Platinum Plus,9.0,0.78,81.82,0.44,9.0
+FBEHD,2 7 13,Specialist,Gold,9.0,1.7,--,0.5,10.0
+FDAIE,1 14 T3,Specialist,Ambassador,9.0,1.67,10.00,1.0,9.0
+FDCDH,1 12 T4,Specialist,Ambassador,9.0,0.5,81.82,0.4,30.0
+GHDFB,1 13,Specialist,Silver Plus,9.0,1.11,-31.58,0.11,9.0
+HFDHG,1 13 T3,Specialist,Platinum Plus,9.0,1.67,--,0.89,9.0
+HGBDE,1 14 T3,Specialist,Platinum Plus,9.0,0.2,--,0.3,10.0
+AAFCFD,1 10,Specialist,Ambassador,9.0,0.3,71.05,0.7,10.0
+AAIJGC,1 19,General Practitioner,Titanium,9.0,1.0,61.54,1.44,9.0
+ABJEAI,1 19,Specialist,Ambassador,9.0,0.9,-100.00,0.7,10.0
+ACIEJG,2 6 13,General Practitioner,Gold Plus,9.0,0.33,50.00,0.22,9.0
+AFFEHI,1 8 T3,Specialist,Titanium,9.0,2.1,-41.18,0.0,10.0
+AGIIBD,1 14 T3,Specialist,Platinum Plus,9.0,0.67,100.00,0.0,9.0
+BDFCBA,1 12,Specialist,Platinum,9.0,0.5,60.00,0.3,10.0
+EIGBH,2 7 13,Specialist,Gold Plus,8.0,1.0,--,0.0,8.0
+EIHEC,2 7 9,Specialist,Gold Plus,8.0,0.56,50.00,0.0,9.0
+FAABD,1 13 T3,Specialist,Platinum Plus,8.0,0.89,--,0.0,9.0
+FBFGD,1 14 T3,Specialist,Platinum Plus,8.0,0.5,81.82,0.13,8.0
+FDDDD,1 14,Specialist,Platinum,8.0,1.11,--,0.11,9.0
+FDDIH,1 14 T3,Specialist,Titanium,8.0,1.11,31.58,0.67,18.0
+GHCGC,1 19 T3,Specialist,Platinum Plus,8.0,1.56,0.00,0.0,9.0
+HCBFF,1 8,Specialist,Platinum Plus,8.0,1.25,--,0.25,8.0
+HFDHF,1 9,Specialist,Platinum,8.0,1.11,94.12,2.56,9.0
+AADCEC,1 19,Specialist,Platinum,8.0,1.88,--,0.25,8.0
+AAGJEF,1 13,Specialist,Platinum,8.0,1.63,25.00,0.13,8.0
+ACIFIF,1 14 T3,Specialist,Platinum Plus,8.0,2.11,--,0.89,9.0
+ADFIAF,1 9,Specialist,Titanium,8.0,1.11,25.00,1.0,9.0
+AFHBCF,2 11,General Practitioner,Silver Plus,8.0,0.0,100.00,0.5,8.0
+AHIHIC,1 10,Specialist,Platinum,8.0,1.25,--,0.38,8.0
+BJEIBF,2 6 9,General Practitioner,Silver Plus,8.0,1.38,0.00,0.75,8.0
+CJIFAA,2 7 12,Specialist,Silver,8.0,1.13,-25.00,0.5,8.0
+CAEBGA,1 12,Specialist,Platinum,8.0,0.56,-50.00,0.44,9.0
+FBIGI,1 9,Specialist,Ambassador,7.5,2.65,3.45,0.53,17.0
+EHHFF,1 8 T3,Specialist,Titanium,7.0,1.0,--,0.14,7.0
+EIDID,1 19,Specialist,Ambassador,7.0,0.88,--,1.25,8.0
+EIFHE,1 21 T3,Specialist,Ambassador,7.0,1.5,--,0.63,8.0
+FJGAH,1 13 T3,Specialist,Platinum Plus,7.0,0.86,53.85,0.14,7.0
+FBHIB,1 10 T3,Specialist,Titanium,7.0,0.86,--,0.14,7.0
+FCJCC,1 9 T4,Specialist,Ambassador,7.0,1.69,--,0.13,16.0
+FCJHJ,1 13 T3,Specialist,Platinum Plus,7.0,0.38,--,0.13,8.0
+FCBIJ,1 9,Specialist,Platinum,7.0,1.13,12.50,0.25,8.0
+FDIJG,1 8,Specialist,Platinum,7.0,1.14,--,0.14,7.0
+GDAHJ,1 14,Specialist,Platinum,7.0,1.13,23.81,1.19,16.0
+HBIGG,1 13 T3,Specialist,Platinum Plus,7.0,1.63,68.75,0.0,8.0
+HDFJH,1 14,Specialist,Ambassador,7.0,1.0,17.65,0.5,8.0
+ABIGFJ,1 19,General Practitioner,Platinum,7.0,0.0,--,0.29,7.0
+ACJHIA,2 6 9,General Practitioner,Silver,7.0,3.57,-50.00,1.0,7.0
+ACCBHF,1 13,Specialist,Platinum,7.0,1.0,--,0.43,7.0
+ACGACH,1 14,Specialist,Ambassador,7.0,0.71,--,0.29,7.0
+ADJIHG,17,General Practitioner,Silver Plus,7.0,0.14,--,0.71,7.0
+AHAHIB,1 14 T3,Specialist,Platinum Plus,7.0,1.25,100.00,0.88,8.0
+AIBJAH,1 19,Specialist,Ambassador,7.0,1.5,55.10,0.13,8.0
+BADGEJ,1 14,Specialist,Platinum,7.0,0.14,-100.00,0.71,7.0
+CCCBCE,1 14 T3,Specialist,Titanium,7.0,1.29,--,0.14,7.0
+HDBEF,1 14 T4,Specialist,Ambassador,6.6,1.13,-13.33,0.47,38.0
+BABGJG,1 8,Specialist,Ambassador,6.55,1.05,100.00,0.83,83.0
+FBIHE,1 19 T4,Specialist,Ambassador,6.5,1.24,100.00,0.04,45.0
+FBIII,1 8 T4,Specialist,Ambassador,6.5,0.73,100.00,0.0,15.0
+ACBGIB,1 13 T3,Specialist,Titanium,6.5,0.37,--,0.17,30.0
+AICHFJ,1 14,General Practitioner,Titanium,6.5,1.87,40.00,1.07,15.0
+EIEJB,1 19,Specialist,Platinum,6.0,1.83,56.25,1.17,6.0
+EIHDC,1 13,Specialist,Platinum,6.0,0.67,66.67,0.5,6.0
+FJJHH,1 8,Specialist,Gold Plus,6.0,1.17,28.57,0.17,6.0
+FADGD,1 14 T4,Specialist,Ambassador,6.0,1.0,--,0.67,6.0
+FAFIH,1 12,Specialist,Titanium,6.0,0.33,50.00,0.14,21.0
+FBAHD,1 19,Specialist,Ambassador,6.0,1.19,-100.00,0.62,21.0
+FBFJB,2 7 13,Specialist,Gold Plus,6.0,1.29,--,0.29,7.0
+FDDJI,1 9 T3,Specialist,Titanium,6.0,1.07,--,2.07,14.0
+FDEAE,1 9,Specialist,Platinum,6.0,1.57,100.00,1.29,7.0
+HBFAA,1 19 T3,Specialist,Platinum Plus,6.0,1.0,50.00,0.14,7.0
+ABFBHC,2 6 8,General Practitioner,Silver Plus,6.0,0.0,--,0.0,6.0
+ABHBED,1 19 T4,Specialist,Ambassador,6.0,1.14,5.26,0.29,21.0
+ADIDAJ,1 13,General Practitioner,Platinum,6.0,2.0,--,1.57,7.0
+ADIEIF,1 19,Specialist,Silver,6.0,0.5,0.00,0.0,6.0
+AFEHDF,1 8 T4,Specialist,Ambassador,6.0,0.86,50.00,0.07,14.0
+AHHHEC,1 12,Specialist,Titanium,6.0,1.21,60.00,0.36,14.0
+AIBJGI,1 8,Specialist,Ambassador,6.0,1.86,--,0.21,14.0
+AIEDED,1 9,General Practitioner,Titanium,6.0,0.57,-100.00,0.57,7.0
+BJCHAD,1 10 T3,Specialist,Platinum Plus,6.0,2.33,--,0.17,6.0
+BJGJBI,1 4CP,Specialist,Titanium,6.0,0.83,36.36,0.0,6.0
+BABEFH,1 13,Specialist,Platinum,6.0,1.29,--,0.57,7.0
+BBAHCA,5 18,Specialist,,6.0,3.14,--,1.43,7.0
+BBGEDE,1 9 T3,Specialist,Platinum Plus,6.0,1.29,--,0.0,7.0
+BBGFGA,2 11,General Practitioner,Gold,6.0,1.71,--,0.43,7.0
+BCGHCF,2 7 12,Specialist,Silver Plus,6.0,0.86,--,0.71,7.0
+CAGHHC,1 13 T3,Specialist,Titanium,6.0,1.57,--,0.43,7.0
+BJDEHJ,1 12 T3,Specialist,Titanium,5.75,0.26,100.00,0.48,27.0
+AAAEAH,1 19,Specialist,Ambassador,5.67,1.4,100.00,1.3,20.0
+ADGGJB,1 12,Specialist,Platinum Plus,5.5,0.77,-83.33,0.85,13.0
+AGEHHD,1 12,Specialist,Titanium,5.5,2.0,--,0.92,13.0
+BJDGBB,1 19 T4,General Practitioner,Ambassador,5.25,0.8,--,0.0,25.0
+EHEEI,4 15,Specialist,Platinum,5.0,1.8,--,0.8,5.0
+EIDFF,1 9 T3,Specialist,Titanium,5.0,1.5,55.17,0.67,6.0
+EIDGE,22 18,Specialist,Gold,5.0,1.0,--,0.83,6.0
+FJGBD,1 11,Specialist,Ambassador,5.0,1.33,-100.00,2.0,6.0
+FAJIB,1 8,Specialist,Titanium,5.0,1.6,83.33,0.6,5.0
+FAIEE,1 19,Specialist,Platinum Plus,5.0,1.83,71.43,0.83,6.0
+FBCAF,1 8,Specialist,Platinum,5.0,0.6,66.67,0.0,5.0
+FBGCC,2 7 8,Specialist,Gold Plus,5.0,2.0,--,0.17,6.0
+FCBDH,1 14,Specialist,Platinum,5.0,2.2,58.33,0.6,5.0
+FCIJH,1 14,Specialist,Platinum,5.0,1.6,100.00,1.4,5.0
+FDJBB,1 8,Specialist,Titanium,5.0,0.17,--,0.5,6.0
+FDDAA,1 9,Specialist,Titanium,5.0,1.0,-17.39,0.83,6.0
+FDDHC,1 9,Specialist,Gold Plus,5.0,0.2,-66.67,0.0,5.0
+FDFAC,1 13,Specialist,Ambassador,5.0,0.75,0.00,0.92,12.0
+GHFHE,1 9 T3,Specialist,Titanium,5.0,2.0,100.00,0.4,5.0
+HBAHA,1 10 T3,Specialist,Platinum Plus,5.0,2.2,97.73,0.8,5.0
+HCDJF,2 7 19,Specialist,Silver Plus,5.0,1.2,--,0.8,5.0
+AJFCDH,1 13,General Practitioner,Titanium,5.0,0.33,100.00,0.17,6.0
+AABBEB,1 14,Specialist,Platinum,5.0,1.2,-100.00,0.0,5.0
+AAGHII,1 9,General Practitioner,Titanium,5.0,0.17,-12.50,2.5,6.0
+ABAIEG,1 11,General Practitioner,Gold,5.0,2.6,75.00,0.8,5.0
+ABDHHI,2 6 13,General Practitioner,Gold Plus,5.0,0.6,--,0.0,5.0
+ACBBCA,1 9,Specialist,Ambassador,5.0,0.72,93.55,0.28,18.0
+ACBBGF,1 13,Specialist,Titanium,5.0,1.0,--,1.25,12.0
+ADFIEI,1 14,Specialist,Platinum,5.0,1.17,--,0.33,6.0
+AEGFAA,1 12,General Practitioner,Platinum,5.0,0.33,-6.67,1.0,6.0
+AFCADC,1 10,Specialist,Platinum,5.0,1.0,--,0.0,5.0
+AFCGAH,1 14,Specialist,Ambassador,5.0,0.4,--,0.4,5.0
+AGBHAC,1 11,General Practitioner,Ambassador,5.0,0.67,100.00,0.0,12.0
+AHEBBE,2 7 12,Specialist,Gold Plus,5.0,0.33,--,0.17,6.0
+AIDHHG,1 13,Specialist,Gold Plus,5.0,0.83,--,0.0,6.0
+BJCEID,1 8,Specialist,Ambassador,5.0,1.0,-50.00,0.2,5.0
+BACHDJ,1 11,Specialist,Ambassador,5.0,1.17,100.00,0.5,6.0
+BBCHEH,1 9,General Practitioner,Platinum Plus,5.0,2.2,-75.00,0.4,5.0
+BCECCB,1 11,Specialist,Gold Plus,5.0,1.5,--,0.0,6.0
+BCGFDD,1 8 T3,Specialist,Platinum Plus,5.0,0.2,--,0.2,5.0
+BCHIGJ,2 6 10,General Practitioner,Silver Plus,5.0,0.0,100.00,1.2,5.0
+BDAIBI,1 14,Specialist,Platinum,5.0,1.0,--,0.2,5.0
+BHIJBJ,2 7 14,Specialist,Gold Plus,5.0,2.2,--,0.8,5.0
+CCAGCF,2 7 19,Specialist,Gold Plus,5.0,0.8,-20.00,0.2,5.0
+AGEAHA,1 9,Specialist,Gold Plus,4.75,0.0,100.00,0.61,23.0
+FAFEG,22 18,Specialist,Gold Plus,4.5,1.82,89.47,0.64,11.0
+FAICB,1 19,Specialist,Ambassador,4.5,0.97,--,0.76,33.0
+HJCDC,1 8 T3,Specialist,Titanium,4.5,0.73,--,0.09,11.0
+HJDFA,1 9,Specialist,Ambassador,4.5,1.14,-33.33,0.36,44.0
+AAEIEG,1 8 T3,Specialist,Titanium,4.5,1.64,-50.00,0.18,11.0
+GDGFF,1 14 T3,Specialist,Titanium,4.4,1.15,7.14,0.7,27.0
+ABCGFA,1 12,Specialist,Ambassador,4.4,0.19,--,1.0,27.0
+AFDEJE,1 10,General Practitioner,Ambassador,4.33,0.69,-29.41,0.81,16.0
+BGAHGD,1 9 T3,Specialist,Titanium,4.33,0.63,--,0.0,16.0
+HIFAE,1 9,Specialist,Ambassador,4.2,0.23,--,0.35,26.0
+HCHIJ,1 9 T4,Specialist,Ambassador,4.1,0.82,33.33,0.02,51.0
+EHECC,2 7 14,Specialist,Gold Plus,4.0,1.25,--,0.25,4.0
+EIJGE,1 19,Specialist,Ambassador,4.0,1.3,--,0.7,20.0
+EICEC,1 13,Specialist,Gold Plus,4.0,0.75,94.44,1.25,4.0
+EIFEG,2 7 19,Specialist,Silver Plus,4.0,0.2,--,0.0,5.0
+EIHDD,2 7 19,Specialist,Gold Plus,4.0,0.8,-100.00,0.0,5.0
+FJBGJ,1 19,Specialist,Platinum,4.0,1.5,-5.88,1.25,4.0
+FJFFA,2 11,Specialist,Gold Plus,4.0,0.5,--,0.0,4.0
+FAGIE,1 10,Specialist,Ambassador,4.0,0.5,30.77,0.75,4.0
+FBHBI,1 8,Specialist,Platinum Plus,4.0,1.0,100.00,0.0,5.0
+FCJCH,1 21 T4,Specialist,Ambassador,4.0,1.0,90.48,0.0,4.0
+FCGBJ,1 9,Specialist,Platinum,4.0,0.6,--,0.0,5.0
+FCGCI,1 9,Specialist,Platinum,4.0,0.2,100.00,1.2,5.0
+FCGDF,1 13,Specialist,Titanium,4.0,1.47,37.50,0.6,15.0
+FCIII,2 7 10,Specialist,Gold Plus,4.0,1.2,-90.91,0.2,10.0
+FDHBD,1 9,Specialist,Platinum,4.0,0.6,--,0.0,5.0
+GDGGA,1 19,Specialist,Platinum,4.0,1.0,-16.67,0.2,5.0
+GHFAG,1 9 T4,Specialist,Ambassador,4.0,0.2,--,0.2,5.0
+HCAIC,1 13,Specialist,Ambassador,4.0,1.1,100.00,0.28,40.0
+HCGDD,1 9 T3,Specialist,Ambassador,4.0,0.5,--,0.0,4.0
+HCIGF,1 19 T3,Specialist,Titanium,4.0,1.2,--,0.2,10.0
+HIDEF,1 8,Specialist,Ambassador,4.0,0.5,37.04,0.0,10.0
+IBIAH,1 9,Specialist,Platinum Plus,4.0,0.0,--,0.25,4.0
+IHCIH,1 12,Specialist,Ambassador,4.0,1.25,--,0.25,4.0
+AJBGGI,1 19,Specialist,Platinum,4.0,1.0,-100.00,0.6,5.0
+AJCAGD,1 11,General Practitioner,Platinum Plus,4.0,0.4,0.00,0.4,5.0
+AJCBFE,1 12,Specialist,Titanium,4.0,0.8,69.57,0.4,5.0
+AJGICE,1 19,Specialist,Ambassador,4.0,0.75,28.57,1.0,4.0
+AJHDJB,1 10,Specialist,Platinum Plus,4.0,1.25,-41.18,0.25,4.0
+AJHIHH,2 7 9,Specialist,Gold Plus,4.0,1.5,--,0.0,4.0
+AJICGD,1 14 T3,Specialist,Platinum Plus,4.0,3.0,-12.50,0.2,5.0
+AABGAB,1 8 T3,Specialist,Platinum Plus,4.0,2.0,--,0.75,4.0
+AADDIG,1 9 T3,Specialist,Titanium,4.0,0.6,--,0.0,5.0
+AAHIHB,2 11,Specialist,Gold Plus,4.0,2.75,11.11,0.75,4.0
+ABCEFF,2 6 12,General Practitioner,Gold Plus,4.0,0.0,66.67,0.2,5.0
+ABIGIB,1 13,General Practitioner,Ambassador,4.0,0.75,75.00,1.25,4.0
+ACFFFF,1 14,Specialist,Platinum,4.0,3.25,38.46,0.75,4.0
+ADBEEF,1 14,Specialist,Titanium,4.0,1.0,-20.00,1.0,4.0
+ADGAIC,1 13 T3,Specialist,Titanium,4.0,1.0,--,0.0,4.0
+ADHACC,1 9,Specialist,Platinum,4.0,1.5,--,0.0,4.0
+ADICBB,2 7 19,Specialist,Silver Plus,4.0,0.0,--,0.5,4.0
+AEEDGJ,1 13,General Practitioner,Titanium,4.0,0.5,90.91,0.25,4.0
+AFDBEF,1 13,Specialist,Gold Plus,4.0,1.25,--,0.25,4.0
+AFEHJH,1 8,Specialist,Gold Plus,4.0,1.5,0.00,0.75,4.0
+AFIFCC,1 11,Specialist,Titanium,4.0,1.0,62.07,0.2,5.0
+AGFGJH,2 7 13,Specialist,Silver Plus,4.0,0.3,--,0.7,10.0
+AHABIB,5 18,General Practitioner,,4.0,1.0,83.33,2.0,4.0
+AHCAFI,22 18,Specialist,Ambassador,4.0,0.75,--,1.0,4.0
+AIFAIJ,1 10,Specialist,Platinum,4.0,0.25,53.85,0.0,4.0
+BJCFGJ,1 13,General Practitioner,Titanium,4.0,0.5,-53.85,0.25,4.0
+BJDEGI,2 7 19,Specialist,Gold Plus,4.0,3.0,--,0.4,5.0
+BABEFF,1 8,Specialist,Platinum,4.0,0.8,--,0.8,5.0
+BBFDCG,2 7 9,Specialist,Gold Plus,4.0,0.0,-100.00,0.0,4.0
+BBGJJA,2 6 19,General Practitioner,Gold,4.0,0.25,--,0.25,4.0
+BCFJAB,1 13,Specialist,Platinum,4.0,1.4,-20.00,0.4,5.0
+BCGGFB,2 7 19,Specialist,Silver Plus,4.0,0.4,--,1.2,5.0
+BDDCCJ,1 14 T4,Specialist,Ambassador,4.0,0.8,66.67,0.7,10.0
+BHCADG,1 9,Specialist,Platinum,4.0,1.0,--,0.2,5.0
+FBJHB,1 14 T3,Specialist,Titanium,3.83,0.55,66.67,0.34,29.0
+EIAHC,1 14,Specialist,Ambassador,3.67,1.93,86.21,2.57,14.0
+FAGBJ,3 16,Specialist,Ambassador,3.67,0.21,--,1.07,14.0
+FBJIB,1 14,Specialist,Platinum Plus,3.67,1.14,-33.33,0.93,14.0
+HCDHE,1 10,Specialist,Platinum,3.67,1.57,0.00,0.43,14.0
+BAEEJB,1 19 T4,Specialist,Ambassador,3.6,2.61,--,0.87,23.0
+EICFE,1 10 T3,Specialist,Titanium,3.5,1.22,60.00,0.78,9.0
+FBAHB,1 19 T3,Specialist,Ambassador,3.5,0.33,--,0.0,9.0
+FCFJF,1 19,Specialist,Gold Plus,3.5,1.22,100.00,0.22,9.0
+FDHAJ,1 13,Specialist,Platinum,3.5,1.56,-11.76,0.67,9.0
+HDFGG,1 12,Specialist,Ambassador,3.5,0.67,100.00,1.67,9.0
+IJDHE,1 11,Specialist,Ambassador,3.5,1.33,--,0.78,18.0
+ABECJH,1 14,General Practitioner,Platinum Plus,3.5,1.33,75.00,0.22,9.0
+ADEIBA,1 19,Specialist,Ambassador,3.5,0.67,--,0.11,9.0
+AEBDAB,1 13,Specialist,Ambassador,3.5,0.44,100.00,1.22,9.0
+BCGHBE,1 8,Specialist,Platinum Plus,3.5,2.11,--,1.11,9.0
+CJFIHG,2 7 12,Specialist,Gold Plus,3.5,0.22,--,0.11,9.0
+EIBIE,1 19 T3,Specialist,Ambassador,3.33,0.92,65.00,0.0,13.0
+EICFJ,1 19 T3,Specialist,Ambassador,3.33,1.23,-100.00,0.46,13.0
+FJAJH,1 14,Specialist,Ambassador,3.33,1.5,10.71,0.63,52.0
+FJG,1 13 T3,Specialist,Titanium,3.33,2.0,28.57,0.23,13.0
+FCBJC,1 12,Specialist,Ambassador,3.33,0.62,100.00,0.54,13.0
+GDGHI,1 12,Specialist,Ambassador,3.33,0.38,--,0.15,26.0
+ABCGDJ,1 13,Specialist,Platinum,3.33,0.46,--,0.08,13.0
+BCGHCE,1 12 T3,Specialist,Platinum Plus,3.33,1.69,44.44,1.0,13.0
+HBBCA,1 12,Specialist,Titanium,3.25,1.65,83.33,0.29,17.0
+ADHBHG,1 9,Specialist,Ambassador,3.25,1.24,--,0.59,17.0
+EHDCH,1 14,Specialist,Platinum Plus,3.0,0.25,--,0.25,4.0
+EHDDC,2 7 13,Specialist,Silver Plus,3.0,0.67,-66.67,0.0,3.0
+EHEGI,1 8,Specialist,Platinum,3.0,1.5,--,0.25,4.0
+EHIIF,1 8 T3,Specialist,Ambassador,3.0,0.88,0.00,0.13,8.0
+EIBJG,1 19 T3,Specialist,Platinum Plus,3.0,1.13,--,0.88,24.0
+EIBAF,1 14,Specialist,Platinum,3.0,1.0,41.67,0.33,3.0
+FJAGH,1 19,Specialist,Platinum Plus,3.0,1.58,87.50,0.92,12.0
+FJAIF,2 7 13,Specialist,Gold Plus,3.0,1.75,--,0.5,8.0
+FJEEE,2 7 19,Specialist,Gold Plus,3.0,0.67,--,0.33,3.0
+FJFJJJJJJJ,2 7 9,Specialist,Silver Plus,3.0,0.0,--,0.33,3.0
+FAJGG,1 13,Specialist,Platinum,3.0,1.33,65.22,0.0,3.0
+FABAI,1 19,Specialist,Titanium,3.0,1.75,100.00,0.0,8.0
+FAGEH,1 10,Specialist,Ambassador,3.0,1.38,12.50,0.28,32.0
+FAICE,1 9,Specialist,Ambassador,3.0,2.5,--,0.5,24.0
+FBJBG,1 9 T3,Specialist,Titanium,3.0,0.67,88.89,0.33,3.0
+FBEAF,22 18,Specialist,Gold Plus,3.0,0.0,--,0.25,4.0
+FBFJH,1 13,Specialist,Ambassador,3.0,0.67,87.50,0.0,3.0
+FBFHB,2 7 14,Specialist,Gold Plus,3.0,4.25,--,1.5,4.0
+FBHDC,2 7 8,Specialist,Gold Plus,3.0,1.67,0.00,0.33,3.0
+FBHEA,1 14,Specialist,Platinum,3.0,1.25,--,1.25,4.0
+FCJDB,2 7 14,Specialist,Silver Plus,3.0,1.0,--,1.0,3.0
+FCCFD,2 7 14,Specialist,Gold Plus,3.0,0.67,--,0.33,3.0
+FCDEJ,1 12,Specialist,Platinum,3.0,0.0,--,0.67,3.0
+FCDID,1 9,Specialist,Platinum,3.0,1.25,41.18,0.0,4.0
+FCDIG,1 13 T3,Specialist,Gold,3.0,1.67,--,0.0,3.0
+FCEDH,1 13,Specialist,Titanium,3.0,0.69,--,0.63,16.0
+FCGBA,1 13,Specialist,Platinum,3.0,1.25,--,1.0,4.0
+FCGHC,1 9,Specialist,Platinum,3.0,1.75,25.00,0.5,4.0
+FCHBE,22 18,Specialist,Gold,3.0,0.13,--,1.0,8.0
+FCIIJ,2 7 14,Specialist,Silver Plus,3.0,0.33,100.00,0.33,3.0
+FDJAF,1 8,Specialist,Platinum,3.0,1.75,43.75,0.25,4.0
+FDAAB,1 19,Specialist,Platinum,3.0,2.25,33.33,0.0,4.0
+FDGBC,1 8,Specialist,Titanium,3.0,2.0,60.00,0.75,4.0
+GCIHA,1 11,Specialist,Ambassador,3.0,3.0,27.27,1.5,4.0
+GDJBG,2 7 9,Specialist,Gold Plus,3.0,2.0,100.00,0.25,4.0
+GDDJA,1 14 T3,Specialist,Platinum Plus,3.0,1.25,-6.25,0.75,4.0
+GDHEC,22 18,Specialist,Gold,3.0,2.33,-100.00,1.0,3.0
+GDIGD,1 19,Specialist,Titanium,3.0,0.38,-20.00,0.75,8.0
+GEJFE,2 7 10,Specialist,Silver Plus,3.0,3.0,--,0.75,4.0
+GGBFD,1 21 T3,Specialist,Ambassador,3.0,3.33,--,0.0,3.0
+GGCCD,2 7 9,Specialist,Silver Plus,3.0,0.33,-25.00,0.0,3.0
+GGCDI,1 9,Specialist,Platinum Plus,3.0,1.75,0.00,0.25,4.0
+GGDEA,1 19,Specialist,Titanium,3.0,2.0,-50.00,0.67,3.0
+GGFAG,1 14,Specialist,Platinum Plus,3.0,1.0,--,0.67,3.0
+GGHAA,1 13,Specialist,Platinum,3.0,1.67,100.00,1.0,3.0
+GIEAH,1 8 T4,Specialist,Ambassador,3.0,0.95,12.50,0.0,20.0
+HBIEA,2 7 19,Specialist,Silver Plus,3.0,1.0,--,0.33,3.0
+HCACA,2 7 19,Specialist,Silver Plus,3.0,0.67,--,0.0,3.0
+HCCJG,2 7 19,Specialist,Gold,3.0,2.33,25.00,0.67,3.0
+HCCIE,1 9,Specialist,Platinum,3.0,1.75,60.00,0.63,8.0
+HCGFC,1 19 T3,Specialist,Platinum Plus,3.0,1.13,--,0.38,8.0
+HDJCD,1 19,Specialist,Platinum,3.0,2.33,100.00,0.67,3.0
+HEEIF,2 7 19,Specialist,Silver Plus,3.0,0.0,--,0.0,3.0
+HFHII,1 9 T4,Specialist,Ambassador,3.0,1.42,74.47,5.42,12.0
+HGGAF,1 13,Specialist,Platinum,3.0,0.0,--,0.33,3.0
+IABCA,1 13,Specialist,Ambassador,3.0,1.31,71.43,0.31,16.0
+IDFHH,1 9,Specialist,Platinum,3.0,2.33,11.76,1.0,3.0
+IDIAG,1 10,Specialist,Titanium,3.0,1.0,--,0.75,4.0
+IGFGA,1 14 T3,Specialist,Platinum Plus,3.0,3.33,--,1.0,3.0
+IIDBD,17,General Practitioner,Gold,3.0,0.33,--,0.0,3.0
+AJACEB,2 6 8,General Practitioner,Silver Plus,3.0,1.0,--,0.0,4.0
+AJBEFA,1 8,Specialist,Platinum,3.0,0.38,-100.00,0.0,8.0
+AJDBBA,2 6 13,General Practitioner,Gold,3.0,0.33,--,0.33,3.0
+AJEFEG,1 12,Specialist,Platinum Plus,3.0,0.5,83.33,0.5,4.0
+AJFBID,17,General Practitioner,Silver Plus,3.0,0.0,--,0.33,3.0
+AABAAC,17,General Practitioner,Silver Plus,3.0,0.33,--,0.33,3.0
+ABBBGD,2 6 13,General Practitioner,Silver Plus,3.0,0.0,--,0.67,3.0
+ABCAFG,5 18,Specialist,Gold Plus,3.0,2.5,--,1.0,4.0
+ABEAFF,1 8 T4,Specialist,Ambassador,3.0,0.63,23.08,0.0,8.0
+ABHGCJ,2 7 8,Specialist,Gold,3.0,1.0,100.00,0.0,3.0
+ABICJC,2 6 19,General Practitioner,Gold,3.0,1.0,--,0.33,3.0
+ACJADJ,2 7 12,Specialist,Gold Plus,3.0,1.0,-100.00,1.0,4.0
+ACDBJE,1 8 T4,Specialist,Ambassador,3.0,0.81,80.00,0.0,16.0
+ACEHEG,2 7 12,Specialist,Gold Plus,3.0,2.0,33.33,0.67,3.0
+ACFJEF,1 11,General Practitioner,Platinum,3.0,0.0,--,3.0,3.0
+ACGIJH,2 7 10,Specialist,Silver Plus,3.0,0.88,-50.00,1.5,8.0
+ACHADI,2 7 14,Specialist,Silver Plus,3.0,0.0,--,1.0,3.0
+ACHCAG,1 8,Specialist,Platinum,3.0,1.38,14.29,0.25,8.0
+ADBJFE,2 6 12,General Practitioner,Gold,3.0,0.0,-100.00,1.0,3.0
+ADCAEI,2 6 8,General Practitioner,Silver Plus,3.0,0.0,--,0.0,3.0
+ADEFFC,1 11,General Practitioner,Platinum,3.0,0.75,100.00,1.0,4.0
+ADFECC,2 7 9,Specialist,Gold Plus,3.0,1.33,90.00,1.0,3.0
+ADIJBE,2 11,Specialist,Silver Plus,3.0,1.67,66.67,0.0,3.0
+ADIFBD,1 19 T3,Specialist,Platinum Plus,3.0,1.0,28.57,0.0,3.0
+AEEJCH,17,General Practitioner,Gold Plus,3.0,0.13,100.00,0.38,8.0
+AEFJHG,2 7 10,Specialist,Gold,3.0,1.0,37.50,0.33,3.0
+AFBJIE,2 6 19,General Practitioner,Silver Plus,3.0,0.75,33.33,0.5,4.0
+AFCEGG,2 7 9,Specialist,Gold Plus,3.0,1.33,--,0.0,3.0
+AFEHCG,2 6 14,General Practitioner,Silver Plus,3.0,0.0,--,1.33,3.0
+AFFCCA,2 6 12,General Practitioner,Silver Plus,3.0,1.25,37.50,0.75,4.0
+AFICJC,1 19,Specialist,Platinum,3.0,1.0,-100.00,0.33,3.0
+AGBJFF,1 19,General Practitioner,Platinum,3.0,0.5,--,0.0,4.0
+AGCDEJ,2 6 9,General Practitioner,Silver Plus,3.0,0.25,--,1.0,4.0
+AGDFDJ,1 9,Specialist,Platinum,3.0,1.75,--,0.5,4.0
+AHCFGJ,2 6 19,General Practitioner,Gold Plus,3.0,2.0,--,0.0,3.0
+AHGDBD,4 15,Specialist,Ambassador,3.0,1.19,--,0.06,16.0
+AHGGFF,2 7 8,Specialist,Gold Plus,3.0,1.0,-100.00,0.75,4.0
+AHHEGJ,2 6 12,General Practitioner,Silver Plus,3.0,1.25,--,0.25,4.0
+AHIAEA,2 6 19,General Practitioner,Silver Plus,3.0,1.0,--,1.0,4.0
+AHIBDA,2 6 9,General Practitioner,Silver Plus,3.0,0.33,--,0.0,3.0
+AIBEEA,2 6 14,General Practitioner,Silver Plus,3.0,0.0,--,5.33,3.0
+AIEBFJ,2 7 10,Specialist,Gold,3.0,0.0,-100.00,1.0,4.0
+AIEBFD,1 8 T3,Specialist,Titanium,3.0,1.25,--,0.5,8.0
+AIFDCI,2 6 9,General Practitioner,Silver Plus,3.0,0.0,-100.00,0.0,4.0
+BJDFFJ,2 11,General Practitioner,Gold,3.0,0.25,100.00,0.0,4.0
+BJEACG,1 11,General Practitioner,Platinum,3.0,0.75,--,0.25,4.0
+BJGCHG,1 14,Specialist,Platinum Plus,3.0,0.67,50.00,1.0,3.0
+BAJCJJ,2 7 10,Specialist,Gold Plus,3.0,1.0,100.00,0.75,4.0
+BABGCI,1 9,Specialist,Gold Plus,3.0,4.25,25.00,0.25,4.0
+BACJAD,2 6 8,General Practitioner,Gold,3.0,0.0,--,0.0,4.0
+BACJCC,1 8,General Practitioner,Platinum,3.0,1.0,100.00,0.0,4.0
+BACAGE,1 19 T4,Specialist,Ambassador,3.0,1.42,--,0.38,24.0
+BBBFHC,2 11,General Practitioner,Silver Plus,3.0,0.0,100.00,1.0,3.0
+BBBFHH,1 11,General Practitioner,Ambassador,3.0,0.75,100.00,0.25,4.0
+BCGGDI,2 7 19,Specialist,Gold,3.0,1.75,--,0.25,4.0
+BDGBAA,1 13,Specialist,Platinum,3.0,2.25,--,0.75,4.0
+BDGCAB,17,General Practitioner,Gold,3.0,0.0,--,0.33,3.0
+BDGHAH,2 6 12,General Practitioner,Silver Plus,3.0,0.0,--,0.33,3.0
+BDHEJE,2 6 13,General Practitioner,Silver Plus,3.0,0.25,--,1.0,4.0
+BEAGDA,1 12,General Practitioner,Ambassador,3.0,2.33,-33.33,1.0,3.0
+BEDIAF,1 14,General Practitioner,Platinum,3.0,0.88,--,0.88,8.0
+BFADBF,2 6 13,General Practitioner,Gold Plus,3.0,0.0,--,2.0,3.0
+BFIBIE,2 11,Specialist,Gold,3.0,0.5,--,0.0,4.0
+BGABAC,2 7 10,Specialist,Silver Plus,3.0,1.0,-75.00,1.33,3.0
+BHJBFE,22 18,Specialist,Silver Plus,3.0,1.88,--,0.25,8.0
+IACHF,1 14,Specialist,Ambassador,2.89,1.51,88.89,0.89,35.0
+EIFEJ,1 9 T4,Specialist,Ambassador,2.86,0.81,--,0.0,27.0
+FAFFH,1 12 T3,Specialist,Platinum Plus,2.83,1.57,--,0.57,23.0
+FDBFC,1 8,Specialist,Ambassador,2.83,1.09,100.00,0.48,23.0
+FAJBA,1 13,Specialist,Ambassador,2.8,1.47,48.57,0.53,19.0
+BDFHAC,1 14 T3,Specialist,Titanium,2.8,0.53,--,0.37,19.0
+FDDHA,1 12,Specialist,Ambassador,2.78,1.12,--,0.94,34.0
+FDGCE,1 11,Specialist,Ambassador,2.75,1.03,0.00,1.13,30.0
+IDBDE,1 12 T4,Specialist,Ambassador,2.75,0.93,--,0.07,15.0
+GDADF,1 14,Specialist,Ambassador,2.69,1.35,66.67,0.79,48.0
+FJDEA,1 10 T3,Specialist,Platinum Plus,2.67,1.18,--,0.91,11.0
+FBHHI,1 10 T3,Specialist,Platinum,2.67,2.18,70.00,0.64,11.0
+GIHBE,1 8 T3,Specialist,Titanium,2.67,3.0,--,0.0,11.0
+HBDID,1 19 T4,Specialist,Ambassador,2.67,1.27,-33.33,0.05,22.0
+BAFIJH,1 11,Specialist,Ambassador,2.67,1.64,-29.17,2.09,11.0
+GDJGB,1 21 T4,Specialist,Ambassador,2.6,1.17,20.00,0.33,18.0
+FDHDI,1 12,Specialist,Ambassador,2.56,0.72,5.88,0.16,32.0
+FAHDI,1 14,Specialist,Ambassador,2.55,0.85,0.00,0.82,39.0
+EHHCB,1 19 T3,Specialist,Platinum,2.5,2.86,--,0.0,7.0
+EHHGF,1 12 T3,Specialist,Titanium,2.5,1.86,-100.00,0.57,7.0
+FJEEA,1 19,Specialist,Platinum,2.5,1.29,27.27,0.0,7.0
+FAACH,1 13,Specialist,Ambassador,2.5,0.14,100.00,0.43,7.0
+FAHJJ,1 9 T3,Specialist,Titanium,2.5,0.57,40.00,0.14,7.0
+FAICH,1 9,Specialist,Ambassador,2.5,1.14,85.96,0.64,14.0
+FCFCJ,1 8 T3,Specialist,Titanium,2.5,1.61,--,0.18,28.0
+FDEIA,2 7 8,Specialist,Gold Plus,2.5,2.57,60.00,0.57,7.0
+GDFHE,1 12,Specialist,Platinum Plus,2.5,1.57,-26.32,0.29,7.0
+AABCGD,1 14,Specialist,Gold Plus,2.5,1.57,-33.33,1.14,7.0
+ABDJAA,23 3,Specialist,Titanium Plus,2.5,1.64,--,4.07,14.0
+ADJHAB,1 12 T3,Specialist,Titanium,2.5,0.57,--,0.0,7.0
+BJBFJC,1 9 T3,Specialist,Platinum Plus,2.5,1.14,64.71,0.71,7.0
+FCABB,1 9,Specialist,Ambassador,2.4,1.41,100.00,0.35,17.0
+EIEJD,1 11,Specialist,Platinum,2.33,1.5,100.00,0.2,10.0
+FJDAD,1 19,Specialist,Ambassador,2.33,0.8,42.86,0.3,10.0
+FBIHF,1 8 T3,Specialist,Platinum,2.33,1.4,-33.33,0.3,10.0
+FCDBG,1 12,Specialist,Ambassador,2.33,1.05,87.10,1.0,20.0
+FCHHD,1 14 T3,Specialist,Platinum Plus,2.33,1.4,--,0.5,10.0
+GGCCG,1 19,Specialist,Platinum,2.33,1.3,--,0.6,10.0
+AJJHDH,1 13,General Practitioner,Ambassador,2.33,1.7,100.00,1.0,10.0
+AJCACF,1 13 T4,Specialist,Ambassador,2.33,0.63,83.33,0.13,30.0
+AABDHC,1 13,Specialist,Titanium,2.33,2.3,31.82,0.6,10.0
+AAEAAJ,1 9 T3,Specialist,Platinum Plus,2.33,1.6,-22.22,0.7,10.0
+AAHAEH,1 11,General Practitioner,Ambassador,2.33,0.45,0.00,0.55,20.0
+AFJFJB,1 14,Specialist,Gold Plus,2.33,0.8,-100.00,0.7,10.0
+IAEBD,1 19 20,Specialist,Ambassador,2.31,1.29,84.29,1.09,129.0
+FBJHH,1 10 T3,Specialist,Titanium,2.25,1.08,-33.33,0.38,13.0
+FCFFF,1 19 T3,Specialist,Titanium,2.25,1.69,-13.33,0.23,13.0
+AEFJCG,1 10,Specialist,Platinum,2.25,1.54,40.00,0.23,13.0
+AHDFJE,1 11,Specialist,Titanium,2.25,0.92,100.00,0.92,13.0
+BABIEG,1 21 T3,Specialist,Platinum,2.25,0.23,-33.33,0.0,13.0
+HGAFG,1 19 T4,Specialist,Ambassador,2.2,0.88,--,0.06,16.0
+AIABDJ,1 10,Specialist,Ambassador,2.18,0.8,11.76,0.77,35.0
+BBAJCF,1 9 T4,Specialist,Ambassador,2.17,1.68,--,0.11,19.0
+GGCFB,1 19 T4,Specialist,Ambassador,2.14,0.77,--,0.27,22.0
+FDCEG,1 9,Specialist,Ambassador,2.13,0.84,100.00,0.32,25.0
+EIEIB,1 13,Specialist,Ambassador,2.05,1.56,11.11,0.39,64.0

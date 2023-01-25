@@ -8,9 +8,10 @@ Below is a list of my academic publications. You can click on the 📄 icon for 
 
 
 
-## 2022
-- Hadden, L. M., Penny, H., **Jones, A.**, Partridge, A. M., Lancaster, T. M., & Allen, C. (2022). Pre-front stimulation does not reliably increase reward responsiveness. *Cortex. 159, 268-285*, DOI: 10.1016/j.cortex.2022.11.011 [📄](https://alexjonesphd.github.io/assets/papers/2022/haddenetal2022.pdf)
+## 2023
+- Hadden, L. M., Penny, H., **Jones, A.**, Partridge, A. M., Lancaster, T. M., & Allen, C. (2023). Pre-front stimulation does not reliably increase reward responsiveness. *Cortex. 159, 268-285*, DOI: 10.1016/j.cortex.2022.11.011 [📄](https://alexjonesphd.github.io/assets/papers/2022/haddenetal2022.pdf)
 
+## 2022
 - Kramer, R. S. S., & **Jones, A.** (2022). Incomplete faces are completed using a more average face. *Cognitive Research: Principles and Implications, 7:708.* DOI: 10.1186/s41235-022-00429-y [📄](https://alexjonesphd.github.io/assets/papers/2022/kramer&jones2022.pdf)
 
 - Childs, M. J., & **Jones, A.** (2022). Perceptions of individuals who engage in age concealment. *Evolutionary Behavioral Sciences*. DOI: 10.1037/ebs/0000305 [📄](https://alexjonesphd.github.io/assets/papers/2022/childs&jones2022.pdf)

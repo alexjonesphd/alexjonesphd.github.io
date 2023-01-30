@@ -9,7 +9,7 @@ Below is a list of my academic publications. You can click on the 📄 icon for 
 
 
 ## 2023
-- Embling, R., Price, M. J., Lee, M. D., *Jones, A.*, & Wilkinson, L. L. (2023). Associations between dietary variety, portion size and body weight: Prospective evidence from UK Biobank participants. *British Journal of Nutrition, 1-11*, DOI: 10.1017/S0007114523000156 [📄](https://alexjonesphd.github.io/assets/papers/2023/emblingetal2023.pdf)
+- Embling, R., Price, M. J., Lee, M. D., **Jones, A.**, & Wilkinson, L. L. (2023). Associations between dietary variety, portion size and body weight: Prospective evidence from UK Biobank participants. *British Journal of Nutrition, 1-11*, DOI: 10.1017/S0007114523000156 [📄](https://alexjonesphd.github.io/assets/papers/2023/emblingetal2023.pdf)
 
 - Hadden, L. M., Penny, H., **Jones, A.**, Partridge, A. M., Lancaster, T. M., & Allen, C. (2023). Pre-front stimulation does not reliably increase reward responsiveness. *Cortex. 159, 268-285*, DOI: 10.1016/j.cortex.2022.11.011 [📄](https://alexjonesphd.github.io/assets/papers/2023/haddenetal2023.pdf)
 

@@ -540,13 +540,7 @@ with sns.plotting_context('poster'):
 
     
 ![png](/assets/predictions/output_24_0.png)
-    
 
-
-
-```python
-
-```
 
 ### Type 2 - predicting new scores for specific, observed groups
 

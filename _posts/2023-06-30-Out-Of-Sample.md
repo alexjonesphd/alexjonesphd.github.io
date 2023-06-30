@@ -106,7 +106,7 @@ sns.kdeplot(data=sleep, x='Reaction', hue='Days');
 
 
     
-![png](output_3_1.png)
+![png](/assets/predictions/output_3_1.png)
     
 
 
@@ -229,7 +229,7 @@ az.plot_ppc(idata, num_pp_samples=500);
 
 
     
-![png](output_8_3.png)
+![png](/assets/predictions/output_8_3.png)
     
 
 
@@ -316,7 +316,7 @@ with sns.plotting_context('poster'):
 
 
     
-![png](output_12_0.png)
+![png](/assets/predictions/output_12_0.png)
     
 
 
@@ -428,7 +428,7 @@ az.plot_trace(idata, figsize=(10, 15));
 
 
     
-![png](output_18_0.png)
+![png](/assets/predictions/output_18_0.png)
     
 
 
@@ -539,7 +539,7 @@ with sns.plotting_context('poster'):
 
 
     
-![png](output_24_0.png)
+![png](/assets/predictions/output_24_0.png)
     
 
 
@@ -659,7 +659,7 @@ with sns.plotting_context('talk', font_scale=0.8):
 
 
     
-![png](output_30_0.png)
+![png](/assets/predictions/output_30_0.png)
     
 
 
@@ -758,7 +758,7 @@ az.plot_forest([predictions3['predictions'], hierarchical_idata],
 
 
     
-![png](output_34_0.png)
+![png](/assets/predictions/output_34_0.png)
     
 
 
@@ -786,7 +786,7 @@ with sns.plotting_context('poster'):
 
 
     
-![png](output_36_0.png)
+![png](/assets/predictions/output_36_0.png)
     
 
 
@@ -817,7 +817,7 @@ with sns.plotting_context('poster'):
 
 
     
-![png](output_38_0.png)
+![png](/assets/predictions/output_38_0.png)
     
 
 

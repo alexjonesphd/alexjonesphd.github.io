@@ -89,7 +89,7 @@ print(cut1_cdf)
     0.022750131948179195
 
 
-We are essentially computing the area under the highlighted area below:
+We are essentially computing the area in the shaded region below:
 
 
 ```python

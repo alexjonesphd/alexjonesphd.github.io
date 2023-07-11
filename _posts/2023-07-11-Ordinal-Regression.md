@@ -1610,7 +1610,7 @@ We can see a clear pattern here. For high skin exposure, the odds a high self-ob
 ## A final note on priors for cutpoints
 Throughout the examples used above, I've been placing normally distributed priors on each of the cutpoints. This has been mostly fine, though the standard deviation of those normal distributions has sometimes been quite small to make the distribution about each cutpoint narrow. Some may object to this, and indeed, in some of the examples above, reduction of the prior width was required to get the model to estimate. 
 
-The Bayesian modelling community have been advocating the use of a Dirichlet prior over the cutpoints (see [here](https://github.com/pymc-devs/pymc/discussions/5066)). The Dirichlet distribution is a multivariate generalisation of the Bernoulli, generating a set of probabilities that all sum to one. With some tricks and transforms, its possible to use the Dirichlet to set strictly ordered cutpoints.
+The Bayesian modelling community have been advocating the use of a Dirichlet prior over the cutpoints (see [here](https://github.com/pymc-devs/pymc/discussions/5066)). The Dirichlet is a multivariate generalisation of the Beta distribution, generating a set of probabilities that all sum to one. With some tricks and transforms, its possible to use the Dirichlet to set strictly ordered cutpoints.
 
 The trick is to take the cumulative sum across the draws from a Dirichlet, and add and multiply values to it to expand its range (which is naturally always between 0-1). We'll revisit the data from Kruschke a final time to put Dirichlet priors on the cutpoints. First, lets see a draw from a Dirichlet.
 

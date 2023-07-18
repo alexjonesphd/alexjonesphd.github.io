@@ -259,7 +259,7 @@ That is a pretty close match to the normal distribution cutpoints we generated! 
 So far, we've generated some data from scratch, working backwards from the latent distribution to the observed data. But how would we model this data if we collected it in the wild, where we can only work from the observed ordinal data to make inference about the latent distribution? PyMC will make this easy for us, but we first need to make some assumptions and pin some things down, in a statistical sense.
 
 When we are working with ordinal models, we have several parameters we may want to estimate:
-- The K-1 thresholds. With responses that can run from zero to K (e.g. 0, 1, 2, 3, 4, K being 4), we can estimate K-1 *ordered* thresholds. 
+- The K-1 thresholds. With responses that can run from zero to K (e.g. 0, 1, 2, 3, 4, K being 5), we can estimate K-1 *ordered* thresholds. 
 - The location or mean of the underlying latent distribution.
 - The scale or standard deviation of the underlying distribution.
 

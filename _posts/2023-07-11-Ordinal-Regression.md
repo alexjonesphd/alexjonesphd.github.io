@@ -89,7 +89,7 @@ print(cut1_cdf)
     0.022750131948179195
 
 
-We are essentially computing the area under the highlighted area below:
+We are essentially computing the area in the shaded region below:
 
 
 ```python
@@ -259,7 +259,7 @@ That is a pretty close match to the normal distribution cutpoints we generated! 
 So far, we've generated some data from scratch, working backwards from the latent distribution to the observed data. But how would we model this data if we collected it in the wild, where we can only work from the observed ordinal data to make inference about the latent distribution? PyMC will make this easy for us, but we first need to make some assumptions and pin some things down, in a statistical sense.
 
 When we are working with ordinal models, we have several parameters we may want to estimate:
-- The K-1 thresholds. With responses that can run from zero to K (e.g. 0, 1, 2, 3, 4, K being 4), we can estimate K-1 *ordered* thresholds. 
+- The K-1 thresholds. With responses that can run from zero to K (e.g. 0, 1, 2, 3, 4, K being 5), we can estimate K-1 *ordered* thresholds. 
 - The location or mean of the underlying latent distribution.
 - The scale or standard deviation of the underlying distribution.
 
@@ -1610,7 +1610,7 @@ We can see a clear pattern here. For high skin exposure, the odds a high self-ob
 ## A final note on priors for cutpoints
 Throughout the examples used above, I've been placing normally distributed priors on each of the cutpoints. This has been mostly fine, though the standard deviation of those normal distributions has sometimes been quite small to make the distribution about each cutpoint narrow. Some may object to this, and indeed, in some of the examples above, reduction of the prior width was required to get the model to estimate. 
 
-The Bayesian modelling community have been advocating the use of a Dirichlet prior over the cutpoints (see [here](https://github.com/pymc-devs/pymc/discussions/5066)). The Dirichlet distribution is a multivariate generalisation of the Bernoulli, generating a set of probabilities that all sum to one. With some tricks and transforms, its possible to use the Dirichlet to set strictly ordered cutpoints.
+The Bayesian modelling community have been advocating the use of a Dirichlet prior over the cutpoints (see [here](https://github.com/pymc-devs/pymc/discussions/5066)). The Dirichlet is a multivariate generalisation of the Beta distribution, generating a set of probabilities that all sum to one. With some tricks and transforms, its possible to use the Dirichlet to set strictly ordered cutpoints.
 
 The trick is to take the cumulative sum across the draws from a Dirichlet, and add and multiply values to it to expand its range (which is naturally always between 0-1). We'll revisit the data from Kruschke a final time to put Dirichlet priors on the cutpoints. First, lets see a draw from a Dirichlet.
 

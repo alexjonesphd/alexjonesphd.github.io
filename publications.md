@@ -9,7 +9,7 @@ Below is a list of my academic publications. You can click on the 📄 icon for 
 
 
 ## 2023
-- Kramer, R. S. S., Flanagan, E., **Jones, A.**, & Gous, G. (2023). Wisdom of the inner crowd benefits both face and voice matching. *Applied Cognitive Psychology, 1-9*. DOI: 10.1002/acp.4133 [ 📄](https://alexjonesphd.github.io/assets/2023/kramerflanaganjonesgous2023.pdf)
+- Kramer, R. S. S., Flanagan, E., **Jones, A.**, & Gous, G. (2023). Wisdom of the inner crowd benefits both face and voice matching. *Applied Cognitive Psychology, 1-9*. DOI: 10.1002/acp.4133 [ 📄](https://alexjonesphd.github.io/assets/papers/2023/krameretal2023.pdf)
 
 - Bobak, A. K., **Jones, A.**, Hilker, Z., Mestry, N., Bate, S., & Hancock, P. J. B. (2023). Data-driven studies in face identity processing rely on the quality of the tests and data sets. *Cortex. 166, 348-364*, DOI: 10.1016/j.cortex.2023.05.018 [📄](https://alexjonesphd.github.io/assets/papers/2023/bobakjones2023.pdf)
 

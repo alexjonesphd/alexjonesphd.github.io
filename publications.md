@@ -7,9 +7,10 @@ layout: page
 Below is a list of my academic publications. You can click on the 📄 icon for a copy. If you do, that will constitute you asking for a copy for your own personal use, and me fulfilling that request.
 
 
-
 ## 2023
-- Satchell, L. P., Jaeger, B., **Jones, A.**, López, B., & Schild, C. (2023). Beyond reliability in first impressions research: Considering validity and the need to "mix it up with folks". *Social Psychological Bulletin, 18*, e10211, DOI: 10.32872/spb.10211  [ 📄](https://alexjonesphd.github.io/assets/papers/2023/satchelletal2023.pdf)
+- Kramer, R. S. S., Jarvis, J-L., Green, M., & **Jones, A.** (2023). The relationship between facial attractiveness and perceived guilt across crime type. *Quarterly Journal of Experimental Psychology, 1-9*. DOI: 10.1177/17470218231218651 [📄](https://alexjonesphd.github.io/assets/papers/2023/kramerjarvisgreenjones2023.pdf)
+
+- Satchell, L. P., Jaeger, B., **Jones, A.**, López, B., & Schild, C. (2023). Beyond reliability in first impressions research: Considering validity and the need to "mix it up with folks". *Social Psychological Bulletin, 18*, e10211, DOI: 10.32872/spb.10211  [📄](https://alexjonesphd.github.io/assets/papers/2023/satchelletal2023.pdf)
 
 - Kramer, R. S. S., Flanagan, E., **Jones, A.**, & Gous, G. (2023). Wisdom of the inner crowd benefits both face and voice matching. *Applied Cognitive Psychology, 1-9*. DOI: 10.1002/acp.4133 [ 📄](https://alexjonesphd.github.io/assets/papers/2023/krameretal2023.pdf)
 

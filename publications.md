@@ -7,6 +7,9 @@ layout: page
 Below is a list of my academic publications. You can click on the 📄 icon for a copy. If you do, that will constitute you asking for a copy for your own personal use, and me fulfilling that request.
 
 
+## 2024
+- Jaeger, B., Sleegers, W. WA, Stern, J., Penke, L., & **Jones, A.** (2024). Testing perceivers' accuracy and accuracy awareness when forming personality impressions from faces. *European Journal of Personality*, 1-21. DOI: 10.1177/08902070231225728  [📄](https://alexjonesphd.github.io/assets/papers/2024/jaegeretal2024.pdf)
+
 ## 2023
 - Kramer, R. S. S., Jarvis, J-L., Green, M., & **Jones, A.** (2023). The relationship between facial attractiveness and perceived guilt across crime type. *Quarterly Journal of Experimental Psychology, 1-9*. DOI: 10.1177/17470218231218651 [📄](https://alexjonesphd.github.io/assets/papers/2023/kramerjarvisgreenjones2023.pdf)
 

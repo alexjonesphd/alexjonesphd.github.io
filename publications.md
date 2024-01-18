@@ -17,6 +17,8 @@ Below is a list of my academic publications. You can click on the 📄 icon for 
 
 - Kramer, R. S. S., Flanagan, E., **Jones, A.**, & Gous, G. (2023). Wisdom of the inner crowd benefits both face and voice matching. *Applied Cognitive Psychology, 1-9*. DOI: 10.1002/acp.4133 [ 📄](https://alexjonesphd.github.io/assets/papers/2023/krameretal2023.pdf)
 
+- Turner, A. D., Ong, J. C., **Jones, A.**, Tu, A., Salanitro, Crawford, M. R. (2023). Neurocognitive functioning in comorbid insomnia and sleep apnea patients is better after positive airway pressure therapy, but worse after cognitive behavioral therapy for insomnia: exploratory analysis of cognitive outcomes from the Multidisciplinary Approach to the Treatment of Insomnia and Comorbid Sleep Apnea study. *Sleep*, 46, 1-12. DOI: 10.1093/sleep/zsad128  [📄](https://alexjonesphd.github.io/assets/papers/2023/turneretal2023.pdf)
+
 - Bobak, A. K., **Jones, A.**, Hilker, Z., Mestry, N., Bate, S., & Hancock, P. J. B. (2023). Data-driven studies in face identity processing rely on the quality of the tests and data sets. *Cortex. 166, 348-364*, DOI: 10.1016/j.cortex.2023.05.018 [📄](https://alexjonesphd.github.io/assets/papers/2023/bobakjones2023.pdf)
 
 - Embling, R., Price, M. J., Lee, M. D., **Jones, A.**, & Wilkinson, L. L. (2023). Associations between dietary variety, portion size and body weight: Prospective evidence from UK Biobank participants. *British Journal of Nutrition, 1-11*, DOI: 10.1017/S0007114523000156 [📄](https://alexjonesphd.github.io/assets/papers/2023/emblingetal2023.pdf)

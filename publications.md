@@ -8,6 +8,9 @@ Below is a list of my academic publications. You can click on the 📄 icon for 
 
 
 ## 2024
+- *Jones, A.* Shiramizu, V, & Jones,, B. C. (2024). Decoding the language of first impressions: Comparing models of first impressions of faces derived from free-text descriptions and trait ratings. *British Journal of Psychology*. 1-16. DOI: 10.1111/bjop.12717  [📄](https://alexjonesphd.github.io/assets/papers/2024/jonesetal2024.pdf)
+
+
 - Kramer, R. S. S., Ritchie, K. L., Flack, T. R., Mireku, M. O., & *Jones, A.* (2024). The psychometrics of rating facial attractiveness using different response scales. *Perception*. 1-16. DOI: 10.1177/03010066241256221  [📄](https://alexjonesphd.github.io/assets/papers/2024/krameretal2024.pdf)
 
 - Jaeger, B., Sleegers, W. WA, Stern, J., Penke, L., & **Jones, A.** (2024). Testing perceivers' accuracy and accuracy awareness when forming personality impressions from faces. *European Journal of Personality*, 1-21. DOI: 10.1177/08902070231225728  [📄](https://alexjonesphd.github.io/assets/papers/2024/jaegeretal2024.pdf)

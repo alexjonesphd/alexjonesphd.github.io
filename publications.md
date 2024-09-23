@@ -8,8 +8,9 @@ Below is a list of my academic publications. You can click on the 📄 icon for 
 
 
 ## 2024
-- **Jones, A.** Shiramizu, V, & Jones,, B. C. (2024). Decoding the language of first impressions: Comparing models of first impressions of faces derived from free-text descriptions and trait ratings. *British Journal of Psychology*. 1-16. DOI: 10.1111/bjop.12717  [📄](https://alexjonesphd.github.io/assets/papers/2024/jonesetal2024.pdf)
+- Kramer, R. S. S., Javorkova, N., **Jones, A.** (2024). No influence of face familiarity on the cheerleader effect. *Visual Cognition*. 1-11. DOI: 10.1080/13506285.2024.2405700 [📄](https://alexjonesphd.github.io/assets/papers/2024/kramerjavorkovajones2024.pdf)
 
+- **Jones, A.** Shiramizu, V, & Jones,, B. C. (2024). Decoding the language of first impressions: Comparing models of first impressions of faces derived from free-text descriptions and trait ratings. *British Journal of Psychology*. 1-16. DOI: 10.1111/bjop.12717  [📄](https://alexjonesphd.github.io/assets/papers/2024/jonesetal2024.pdf)
 
 - Kramer, R. S. S., Ritchie, K. L., Flack, T. R., Mireku, M. O., & **Jones, A.** (2024). The psychometrics of rating facial attractiveness using different response scales. *Perception*. 1-16. DOI: 10.1177/03010066241256221  [📄](https://alexjonesphd.github.io/assets/papers/2024/krameretal2024.pdf)
 

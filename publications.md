@@ -6,6 +6,9 @@ layout: page
 
 Below is a list of my academic publications. You can click on the 📄 icon for a copy. If you do, that will constitute you asking for a copy for your own personal use, and me fulfilling that request.
 
+## 2025
+- James, M. L., Stiles, V. H., von Lieres un Wilkau, H. C., **Jones, A.**, Willy, R. W., Ashford, K. J., & Moore, I. S. (2025). Predictors of pelvic acceleration during treadmill running across various stride frequency conditions. 
+*Sports Biomechanics*, 1-15. DOI: 10.1080/14763141.2024.2446179 [📄](https://alexjonesphd.github.io/assets/papers/2025/jamesetal2025.pdf)
 
 ## 2024
 - Kramer, R. S. S., Javorkova, N., **Jones, A.** (2024). No influence of face familiarity on the cheerleader effect. *Visual Cognition*. 1-11. DOI: 10.1080/13506285.2024.2405700 [📄](https://alexjonesphd.github.io/assets/papers/2024/kramerjavorkovajones2024.pdf)

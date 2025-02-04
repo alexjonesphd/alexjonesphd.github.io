@@ -44,6 +44,8 @@ Below is a list of my academic publications. You can click on the 📄 icon for 
 - Jaeger, B. & **Jones, A.** (2022). Which facial features are central in impression formation? *Social Psychological and Personality Science, 13(2), 553-561.* DOI: 10.1177/19485506211034979 [📄](https://alexjonesphd.github.io/assets/papers/2022/jaeger&jones2022.pdf)
 
 ## 2021
+- **Jones, A.** (2021). Height shows no clear association with self-serving beliefs about wealth redistribution: A commentary on Richardson (2020). *Evolution and Human Behaviour, 42*, 593-596. DOI: 10.1016/j.evolhumbehav.2021.09.002 [📄](https://alexjonesphd.github.io/assets/papers/2021/Jones_commentary_2021.pdf)
+
 - Kramer, R. & **Jones, A.** (2021). Wanting or having children predicts age preferences in online dating. *Evolutionary Behavioral Sciences*, DOI: 10.1037/ebs0000274 [📄](https://alexjonesphd.github.io/assets/papers/2021/Kramer & Jones 2021.pdf)
 
 - Holzleitner, I., **Jones, A.**, O’Shea, K., Cassar, R., Fasolt, V., Shiramizu, V., Jones, B., & DeBruine, L. (2021). Do 3D face images capture cues of strength, weight, and height better than 2D face images do? *Adaptive Human Behavior and Physiology, 7(3), 209-219*. DOI: 10.1007/s40750-021-00170-8 [📄](https://alexjonesphd.github.io/assets/papers/2021/Holzleitner_etal_2021.pdf)

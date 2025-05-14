@@ -7,6 +7,9 @@ layout: page
 Below is a list of my academic publications. You can click on the 📄 icon for a copy. If you do, that will constitute you asking for a copy for your own personal use, and me fulfilling that request.
 
 ## 2025
+- Tree, J. J., Kramer, R. S. S., & **Jones, A. L.** (2025). Upright and inverted unfamiliar face-matching tasks – everything correlates everywhere all at once. *Memory & Cognition*, DOI: 10.3758/s13421-025-01725-w [📄](https://alexjonesphd.github.io/assets/papers/2025/treekramerjones2025b.pdf)
+
+
 - Tree, J. J., & **Jones, A. L.** (2025). Exploring insight into unfamiliar face recognition ability: The case from developmental prosopagnosia. *Cortex*. DOI: 10.1016/j.cortex.2025.03.009 [📄](https://alexjonesphd.github.io/assets/papers/2025/tree&jones2025b.pdf)
 
 - Tree, J. J., & **Jones, A. L.** (2025). How prevalent is “other ethnicity blindness”? Exploring the extremes of recognition performance across categories of faces. *Journal of Experimental Psychology: General*. DOI: 10.1037/xge0001730  [📄](https://alexjonesphd.github.io/assets/papers/2025/tree&jones2025.pdf)

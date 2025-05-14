@@ -7,7 +7,7 @@ layout: page
 Below is a list of my academic publications. You can click on the 📄 icon for a copy. If you do, that will constitute you asking for a copy for your own personal use, and me fulfilling that request.
 
 ## 2025
-- Kanna, C., **Jones, A. L.**, Towler, J., Tree, J. J. (2025). Do young and older adult populations perform
+- Kannan, C., **Jones, A. L.**, Towler, J., Tree, J. J. (2025). Do young and older adult populations perform
 equivalently across different automatic face-trait judgements? Evidence for differential impacts of ageing. *PLOS ONE*, 20(5), e0322165, DOI: 10.1371/journal.pone.0322165  [📄](https://alexjonesphd.github.io/assets/papers/2025/kannanetal2025.pdf)
 
 - Kramer, R. S. S., **Jones, A. L.**, & Fitousi, D. (2025). Face familiarity and similarity: Within- and between-identity representations are altered by learning. *Journal of Experimental Psychology: Human Perception & Performance*, DOI: 10.1037/xhp0001317 [📄](https://alexjonesphd.github.io/assets/papers/2025/kramerjonesfitousi2025.pdf)

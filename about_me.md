@@ -5,7 +5,7 @@ layout: page
 ---
 
 # What I do
-I am a **Senior Lecturer** in Psychology at [Swansea University](https://www.swansea.ac.uk/staff/alex.l.jones).
+I am an **Associate Professor** in Psychology at [Swansea University](https://www.swansea.ac.uk/staff/alex.l.jones).
 
 Historically, I've broadly researched face perception from various angles. Over the years I've explored topics like:
 
@@ -35,7 +35,7 @@ I am also a expert user of the **Python** programming language, having used it e
 |-----------------------|----------------|-----------|
 | **Bangor University** | Research Officer in the [SOBA Lab](https://www.soba-lab.com) | 2013-2014 |
 | **Gettysburg College**| Postdoctoral Researcher in the [Perception Lab](http://www.richard-russell.net) | 2014-2015 |
-| **Swansea University**| Lecturer -> Senior Lecturer | 2016 - Present |
+| **Swansea University**| Lecturer -> Senior Lecturer -> Associate Professor | 2016 - Present |
 
 
 

@@ -7,6 +7,8 @@ layout: page
 Below is a list of my academic publications. You can click on the 📄 icon for a copy. If you do, that will constitute you asking for a copy for your own personal use, and me fulfilling that request.
 
 ## 2025
+- Rayner C. L., Davies, J., Bradshaw, C. A., & **Jones, A. L.** (2025). Patterns of recreational substance use, help seeking and harm reduction among UK music festival attendees. *Drug Science, Policy and Law* 11, 1-12. DOI: 110.1177/20503245251371721  [📄](https://alexjonesphd.github.io/assets/papers/2025/rayner2025.pdf)
+
 - Kannan, C., **Jones, A. L.**, Towler, J., Tree, J. J. (2025). Do young and older adult populations perform
 equivalently across different automatic face-trait judgements? Evidence for differential impacts of ageing. *PLOS ONE*, 20(5), e0322165, DOI: 10.1371/journal.pone.0322165  [📄](https://alexjonesphd.github.io/assets/papers/2025/kannanetal2025.pdf)
 

@@ -4,7 +4,7 @@ permalink: "/pubs/"
 layout: page
 ---
 
-Below is a list of my academic publications. You can click on the 📄 icon for a copy. If you do, that will constitute you asking for a copy for your own personal use, and me fulfiling that request.
+Below is a list of my academic publications. You can click on the 📄 icon for a copy. If you do, that will constitute you asking for a copy for your own personal use, and me fulfilling that request.
 
 ## 2025
 - Kramer, R. S. S., **Jones, A. L.**, Fitousi, D., & Tree, J. J. (2025). AI-generated images of familiar faces are indistinguishable from real photographs. *Cognitive Research: Principles and Implications*, 10(70), DOI: 10.1186/s41235-025-00683-w [📄](https://alexjonesphd.github.io/assets/papers/2025/kramerjonesfitousitree2025.pdf)

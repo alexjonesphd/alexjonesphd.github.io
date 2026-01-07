@@ -7,6 +7,8 @@ layout: page
 Below is a list of my academic publications. You can click on the 📄 icon for a copy. If you do, that will constitute you asking for a copy for your own personal use, and me fulfilling that request.
 
 ## 2025
+- Satchell, L. P., Hall, J., & **Jones, A. L.** (2025). Do we look at a threatening person's face? The relationship between perception and observation of walking strangers. *Quarterly Journal of Experimental Psychology*, DOI: 10.1177/17470218251406631 [📄](https://alexjonesphd.github.io/assets/papers/2025/satchell2025.pdf)
+
 - Kramer, R. S. S., **Jones, A. L.**, Fitousi, D., & Tree, J. J. (2025). AI-generated images of familiar faces are indistinguishable from real photographs. *Cognitive Research: Principles and Implications*, 10(70), DOI: 10.1186/s41235-025-00683-w [📄](https://alexjonesphd.github.io/assets/papers/2025/kramerjonesfitousitree2025.pdf)
 
 - **Jones, A. L.**, Kordsmeyer, T. L., Kramer, R. S. S., Stern, J., & Penke, L. (2025). Updating evidence on facial metrics: A Bayesian perspective on sexual dimorphism in facial width-to-height ratio and bizygomatic width. *Evolution and Human Behavior*, 46, 106781. DOI: 10.1016/j.evolhumbehav.2025.106781  [📄](https://alexjonesphd.github.io/assets/papers/2025/jonesetal2025.pdf)

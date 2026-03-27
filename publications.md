@@ -6,6 +6,9 @@ layout: page
 
 Below is a list of my academic publications. You can click on the 📄 icon for a copy. If you do, that will constitute you asking for a copy for your own personal use, and me fulfilling that request.
 
+## 2026
+- Jaeger, B., **Jones, A. L.**, Satchell, L., Schild, C., & van Leeuwen, F. (2026). Who likes extraverts? Testing the interplay between perceiver needs and target appearance in impression formation. International Review of Social Psychology, 39(1): 2, 1–13. DOI: 10.5334/irsp.996 [📄](https://alexjonesphd.github.io/assets/papers/2026/jaegeretal2026.pdf)
+
 ## 2025
 - Satchell, L. P., Hall, J., & **Jones, A. L.** (2025). Do we look at a threatening person's face? The relationship between perception and observation of walking strangers. *Quarterly Journal of Experimental Psychology*, DOI: 10.1177/17470218251406631 [📄](https://alexjonesphd.github.io/assets/papers/2025/satchell2025.pdf)
 

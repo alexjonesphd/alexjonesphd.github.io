@@ -1,0 +1,45 @@
+project:
+  type: website
+  output-dir: docs
+
+website:
+  title: "Alex Jones"
+  description: "Associate Professor of Psychological Data Science, Swansea University"
+  site-url: "https://alexjonesphd.github.io"
+  navbar:
+    left:
+      - href: index.qmd
+        text: Home
+      - href: about.qmd
+        text: About
+      - href: publications.qmd
+        text: Publications
+      - href: teaching.qmd
+        text: Teaching
+      - href: consulting.qmd
+        text: Consulting
+      - href: blog.qmd
+        text: Blog
+    right:
+      - icon: envelope
+        href: mailto:alex.l.jones@swansea.ac.uk
+        aria-label: Email
+      - icon: github
+        href: https://github.com/alexjonesphd
+        aria-label: GitHub
+      - text: "{{< iconify academicons orcid >}}"
+        href: https://orcid.org/0000-0003-3600-3644
+        aria-label: ORCID
+      - text: "{{< iconify academicons google-scholar >}}"
+        href: https://scholar.google.co.uk/citations?user=ddZUIYEAAAAJ&hl=en
+        aria-label: Google Scholar
+      - text: "{{< iconify academicons osf >}}"
+        href: https://osf.io/v3p5g
+        aria-label: OSF
+
+format:
+  html:
+    theme:
+      light: [cosmo, styles.scss]
+    toc: false
+    page-layout: full

@@ -1,0 +1,1585 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.9.30">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="dcterms.date" content="2022-07-08">
+<meta name="description" content="A Bayesian hierarchical re-analysis of Brough et al.&nbsp;(2016) for the Centre for Open Science’s Multi100 project, including a Savage-Dickey Bayes Factor.">
+
+<title>Multi100 Collaboration Project: Is Eco-Friendly Unmanly? – Alex Jones</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-5ea3527156cf6f0e8b0efe0fc3010f44.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-c87e74dbbe8360d6fa22bef1db7e1e21.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../../site_libs/quarto-contrib/iconify-3.0.0/iconify-icon.min.js"></script>
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+</head>
+
+<body class="nav-fixed quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">Alex Jones</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../index.html"> 
+<span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../about.html"> 
+<span class="menu-text">About</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../publications.html"> 
+<span class="menu-text">Publications</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../teaching.html"> 
+<span class="menu-text">Teaching</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../consulting.html"> 
+<span class="menu-text">Consulting</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../blog.html"> 
+<span class="menu-text">Blog</span></a>
+  </li>  
+</ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item compact">
+    <a class="nav-link" href="mailto:alex.l.jones@swansea.ac.uk"> <i class="bi bi-envelope" role="img" aria-label="Email">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/alexjonesphd"> <i class="bi bi-github" role="img" aria-label="GitHub">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="https://orcid.org/0000-0003-3600-3644"> 
+<span class="menu-text"><iconify-icon role="img" inline="" icon="academicons:orcid" aria-label="Icon orcid from academicons Iconify.design set." title="Icon orcid from academicons Iconify.design set."></iconify-icon></span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="https://scholar.google.co.uk/citations?user=ddZUIYEAAAAJ&amp;hl=en"> 
+<span class="menu-text"><iconify-icon role="img" inline="" icon="academicons:google-scholar" aria-label="Icon google-scholar from academicons Iconify.design set." title="Icon google-scholar from academicons Iconify.design set."></iconify-icon></span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="https://osf.io/v3p5g"> 
+<span class="menu-text"><iconify-icon role="img" inline="" icon="academicons:osf" aria-label="Icon osf from academicons Iconify.design set." title="Icon osf from academicons Iconify.design set."></iconify-icon></span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    
+<!-- main -->
+<main class="content column-page" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Multi100 Collaboration Project: Is Eco-Friendly Unmanly?</h1>
+  <div class="quarto-categories">
+    <div class="quarto-category">Bayesian</div>
+    <div class="quarto-category">PyMC</div>
+    <div class="quarto-category">bambi</div>
+    <div class="quarto-category">reanalysis</div>
+  </div>
+  </div>
+
+<div>
+  <div class="description">
+    A Bayesian hierarchical re-analysis of Brough et al.&nbsp;(2016) for the Centre for Open Science’s Multi100 project, including a Savage-Dickey Bayes Factor.
+  </div>
+</div>
+
+
+<div class="quarto-title-meta column-page">
+
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">July 8, 2022</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<p>Earlier this year I responded to an invitation to take part in the <strong>MultiAnalysis Collaboration Project</strong>, run by the Centre for Open Science. The project aims to obtain at least five different analyses for 100 different papers published, with open data, in psychology. I opted for the below paper, published in 2016 — <em>Is Eco-Friendly Unmanly? The Green-Feminine Stereotype and Its Effect on Sustainable Consumption</em>. The organisers selected a single claim from each paper that appears to be the ‘central’ conclusion, and participants in the project have to test it — that’s more or less it. The claim in this paper is:</p>
+<blockquote class="blockquote">
+<p><em>…consumers who engaged in green behavior were perceived …. as more feminine than consumers who engaged in nongreen behavior. (p.&nbsp;571.)</em></p>
+</blockquote>
+<p>I used a Bayesian hierarchical model here, and because the project required it, I had to figure out how to carry out a Bayes Factor hypothesis test with Python. This led me down a rabbit hole of reading about the Savage-Dickey density ratio, which is surprisingly (magically, even) quite easy to compute in comparison to the horror of marginal likelihoods of complex models. That said, I’m still not certain this is all correct, but I’m satisfied the posterior probabilities, if not the Bayes Factor, are good. The analysis and data is all on the <a href="https://osf.io/37vpj/">OSF</a>.</p>
+<section id="multi100-analysis-nf503" class="level2">
+<h2 class="anchored" data-anchor-id="multi100-analysis-nf503">Multi100 Analysis — NF503</h2>
+<section id="is-eco-friendly-unmanly-the-green-feminine-stereotype-and-its-effect-on-sustainable-consumption" class="level3">
+<h3 class="anchored" data-anchor-id="is-eco-friendly-unmanly-the-green-feminine-stereotype-and-its-effect-on-sustainable-consumption">Is Eco-Friendly Unmanly? The Green-Feminine Stereotype and Its Effect on Sustainable Consumption</h3>
+<div id="ac0362e0" class="cell" data-execution_count="1">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Imports</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> arviz <span class="im">as</span> az</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> bambi <span class="im">as</span> bmb</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pymc <span class="im">as</span> pm</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> scipy.stats <span class="im">as</span> st</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Set matplotlib style</span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>plt.style.use(<span class="st">'bmh'</span>)</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a><span class="co"># Read in data</span></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>data <span class="op">=</span> pd.read_csv(<span class="st">'Phase 2 Reproduction Materials/Study 2 Data September 2015.csv'</span>)</span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>data.head()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div>
+<table class="dataframe table table-sm table-striped small">
+<thead>
+<tr>
+<th>
+</th>
+<th>
+SubPool
+</th>
+<th>
+V1
+</th>
+<th>
+V8
+</th>
+<th>
+V9
+</th>
+<th>
+Intro
+</th>
+<th>
+M_NG_19
+</th>
+<th>
+M_NG_20
+</th>
+<th>
+M_NG_23
+</th>
+<th>
+M_NG_24
+</th>
+<th>
+M_NG_25
+</th>
+<th>
+…
+</th>
+<th>
+F_G_32
+</th>
+<th>
+F_G_33
+</th>
+<th>
+F_G_34
+</th>
+<th>
+Q13
+</th>
+<th>
+Age
+</th>
+<th>
+Gender
+</th>
+<th>
+GenderIden_1
+</th>
+<th>
+Dating_1
+</th>
+<th>
+Dating_2
+</th>
+<th>
+Status
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>
+0
+</th>
+<td>
+ND
+</td>
+<td>
+R_a2xOgJn7aY967yJ
+</td>
+<td>
+9/25/2015 7:00
+</td>
+<td>
+9/25/2015 7:02
+</td>
+<td>
+1
+</td>
+<td>
+1.0
+</td>
+<td>
+2.0
+</td>
+<td>
+4.0
+</td>
+<td>
+3.0
+</td>
+<td>
+3.0
+</td>
+<td>
+…
+</td>
+<td>
+NaN
+</td>
+<td>
+NaN
+</td>
+<td>
+NaN
+</td>
+<td>
+how we perceive ourselves
+</td>
+<td>
+33
+</td>
+<td>
+2
+</td>
+<td>
+84.0
+</td>
+<td>
+100.0
+</td>
+<td>
+0.0
+</td>
+<td>
+1
+</td>
+</tr>
+<tr>
+<th>
+1
+</th>
+<td>
+ND
+</td>
+<td>
+R_9KB7Aqj8Dw5NYAR
+</td>
+<td>
+9/25/2015 7:00
+</td>
+<td>
+9/25/2015 7:02
+</td>
+<td>
+1
+</td>
+<td>
+NaN
+</td>
+<td>
+NaN
+</td>
+<td>
+NaN
+</td>
+<td>
+NaN
+</td>
+<td>
+NaN
+</td>
+<td>
+…
+</td>
+<td>
+3.0
+</td>
+<td>
+4.0
+</td>
+<td>
+1.0
+</td>
+<td>
+Environmental awareness
+</td>
+<td>
+21
+</td>
+<td>
+1
+</td>
+<td>
+76.0
+</td>
+<td>
+0.0
+</td>
+<td>
+100.0
+</td>
+<td>
+1
+</td>
+</tr>
+<tr>
+<th>
+2
+</th>
+<td>
+ND
+</td>
+<td>
+R_78605PJdv9gl2g5
+</td>
+<td>
+9/25/2015 7:00
+</td>
+<td>
+9/25/2015 7:02
+</td>
+<td>
+1
+</td>
+<td>
+1.0
+</td>
+<td>
+1.0
+</td>
+<td>
+1.0
+</td>
+<td>
+1.0
+</td>
+<td>
+1.0
+</td>
+<td>
+…
+</td>
+<td>
+NaN
+</td>
+<td>
+NaN
+</td>
+<td>
+NaN
+</td>
+<td>
+perceptions
+</td>
+<td>
+27
+</td>
+<td>
+1
+</td>
+<td>
+65.0
+</td>
+<td>
+0.0
+</td>
+<td>
+100.0
+</td>
+<td>
+2
+</td>
+</tr>
+<tr>
+<th>
+3
+</th>
+<td>
+ND
+</td>
+<td>
+R_6o5G3vGXbEi8LTT
+</td>
+<td>
+9/25/2015 7:00
+</td>
+<td>
+9/25/2015 7:03
+</td>
+<td>
+1
+</td>
+<td>
+NaN
+</td>
+<td>
+NaN
+</td>
+<td>
+NaN
+</td>
+<td>
+NaN
+</td>
+<td>
+NaN
+</td>
+<td>
+…
+</td>
+<td>
+NaN
+</td>
+<td>
+NaN
+</td>
+<td>
+NaN
+</td>
+<td>
+attitudinal perceptions to reusable bags
+</td>
+<td>
+29
+</td>
+<td>
+1
+</td>
+<td>
+75.0
+</td>
+<td>
+2.0
+</td>
+<td>
+99.0
+</td>
+<td>
+2
+</td>
+</tr>
+<tr>
+<th>
+4
+</th>
+<td>
+ND
+</td>
+<td>
+R_4IYda5xCDnq0Kln
+</td>
+<td>
+9/25/2015 7:01
+</td>
+<td>
+9/25/2015 7:03
+</td>
+<td>
+1
+</td>
+<td>
+NaN
+</td>
+<td>
+NaN
+</td>
+<td>
+NaN
+</td>
+<td>
+NaN
+</td>
+<td>
+NaN
+</td>
+<td>
+…
+</td>
+<td>
+1.0
+</td>
+<td>
+4.0
+</td>
+<td>
+1.0
+</td>
+<td>
+Perception of recycling.
+</td>
+<td>
+29
+</td>
+<td>
+1
+</td>
+<td>
+83.0
+</td>
+<td>
+0.0
+</td>
+<td>
+100.0
+</td>
+<td>
+2
+</td>
+</tr>
+</tbody>
+</table>
+<p>
+5 rows × 56 columns
+</p>
+</div>
+<p>There is no coding scheme evident for <code>Gender</code>, i.e.&nbsp;it is not clear whether 1 or 2 is female/male. The paper reports 45.9% were male, so we should be able to infer from that:</p>
+<div id="37a694c6" class="cell" data-execution_count="2">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># What is what?</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>data[<span class="st">'Gender'</span>].value_counts(normalize<span class="op">=</span><span class="va">True</span>).<span class="bu">round</span>(<span class="dv">2</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<pre><code>2    0.54
+1    0.46
+Name: Gender, dtype: float64</code></pre>
+<p>‘1’ is probably male.</p>
+</section>
+<section id="step-1" class="level3">
+<h3 class="anchored" data-anchor-id="step-1">Step 1</h3>
+<p>First we must tidy the data up into a long-form dataset, and clear up the variable names (e.g.&nbsp;<code>M_NG_19</code>) to get a clearer sense of conditions. We also use the variable coding for each perception from <code>Study 2 Survey September 2015.docx</code> to more clearly label the perceptual trait ratings the participants gave.</p>
+<div id="2b09c119" class="cell" data-execution_count="3">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Variable coding from 'Study 2 Survey September 2015.docx'</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>recoding <span class="op">=</span> {<span class="dv">34</span>: <span class="st">'wasteful'</span>, <span class="dv">32</span>: <span class="st">'masculine'</span>,</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>            <span class="dv">27</span>: <span class="st">'macho'</span>, <span class="dv">28</span>: <span class="st">'aggressive'</span>,</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>            <span class="dv">24</span>: <span class="st">'eco-friendly'</span>, <span class="dv">25</span>: <span class="st">'feminine'</span>,</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>            <span class="dv">33</span>: <span class="st">'sensitive'</span>, <span class="dv">26</span>: <span class="st">'gentle'</span>,</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>            <span class="dv">19</span>: <span class="st">'athletic'</span>, <span class="dv">20</span>: <span class="st">'attractive'</span>,</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>            <span class="dv">23</span>: <span class="st">'curious'</span></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>           }</span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Convert to long format and do some cleaning up</span></span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>data_l <span class="op">=</span> (data</span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>          .melt(id_vars<span class="op">=</span>[<span class="st">'SubPool'</span>, <span class="st">'V1'</span>, <span class="st">'Age'</span>, <span class="st">'Gender'</span>, <span class="st">'GenderIden_1'</span>, <span class="st">'Dating_1'</span>, <span class="st">'Dating_2'</span>, <span class="st">'Status'</span>],</span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>                value_vars<span class="op">=</span>data.loc[:,<span class="st">'M_NG_19'</span>:<span class="st">'F_G_34'</span>].columns,</span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>                var_name<span class="op">=</span><span class="st">'condition'</span>, value_name<span class="op">=</span><span class="st">'rating'</span>)</span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>          .pipe(<span class="kw">lambda</span> df_: df_.join(df_[<span class="st">'condition'</span>].<span class="bu">str</span>.split(<span class="st">'_'</span>, expand<span class="op">=</span><span class="va">True</span>)))</span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a>          .rename(columns<span class="op">=</span>{<span class="dv">0</span>: <span class="st">'target_sex'</span>, <span class="dv">1</span>: <span class="st">'green'</span>, <span class="dv">2</span>: <span class="st">'perception'</span>, <span class="st">'V1'</span>: <span class="st">'pid'</span>})</span>
+<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a>          .rename(columns<span class="op">=</span><span class="bu">str</span>.lower)</span>
+<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a>          .assign(perception<span class="op">=</span><span class="kw">lambda</span> x: x[<span class="st">'perception'</span>].astype(<span class="bu">int</span>))</span>
+<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a>          .replace({<span class="st">'perception'</span>: recoding,</span>
+<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a>                    <span class="st">'target_sex'</span>: {<span class="st">'M'</span>: <span class="st">'male'</span>, <span class="st">'F'</span>: <span class="st">'female'</span>},</span>
+<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a>                    <span class="st">'green'</span>: {<span class="st">'NG'</span>: <span class="st">'non-green'</span>, <span class="st">'G'</span>: <span class="st">'green'</span>},</span>
+<span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a>                    <span class="st">'gender'</span>: {<span class="dv">1</span>: <span class="st">'male'</span>, <span class="dv">2</span>: <span class="st">'female'</span>}})</span>
+<span id="cb4-23"><a href="#cb4-23" aria-hidden="true" tabindex="-1"></a>          .drop(columns<span class="op">=</span><span class="st">'condition'</span>)</span>
+<span id="cb4-24"><a href="#cb4-24" aria-hidden="true" tabindex="-1"></a>         )</span>
+<span id="cb4-25"><a href="#cb4-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-26"><a href="#cb4-26" aria-hidden="true" tabindex="-1"></a><span class="co"># Drop missing values in 'rating' - between-participants design means not everyone rated all combinations</span></span>
+<span id="cb4-27"><a href="#cb4-27" aria-hidden="true" tabindex="-1"></a>data_l <span class="op">=</span> data_l.dropna(subset<span class="op">=</span><span class="st">'rating'</span>).reset_index(drop<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb4-28"><a href="#cb4-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-29"><a href="#cb4-29" aria-hidden="true" tabindex="-1"></a>display(data_l.head())</span>
+<span id="cb4-30"><a href="#cb4-30" aria-hidden="true" tabindex="-1"></a>display(<span class="st">'Participant counts'</span>, data_l.groupby(<span class="st">'green'</span>)[<span class="st">'pid'</span>].nunique())</span>
+<span id="cb4-31"><a href="#cb4-31" aria-hidden="true" tabindex="-1"></a>display(<span class="st">'Missing data'</span>, data_l.isna().<span class="bu">any</span>())</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div>
+<table class="dataframe table table-sm table-striped small">
+<thead>
+<tr>
+<th>
+</th>
+<th>
+subpool
+</th>
+<th>
+pid
+</th>
+<th>
+age
+</th>
+<th>
+gender
+</th>
+<th>
+genderiden_1
+</th>
+<th>
+dating_1
+</th>
+<th>
+dating_2
+</th>
+<th>
+status
+</th>
+<th>
+rating
+</th>
+<th>
+target_sex
+</th>
+<th>
+green
+</th>
+<th>
+perception
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>
+0
+</th>
+<td>
+ND
+</td>
+<td>
+R_a2xOgJn7aY967yJ
+</td>
+<td>
+33
+</td>
+<td>
+female
+</td>
+<td>
+84.0
+</td>
+<td>
+100.0
+</td>
+<td>
+0.0
+</td>
+<td>
+1
+</td>
+<td>
+1.0
+</td>
+<td>
+male
+</td>
+<td>
+non-green
+</td>
+<td>
+athletic
+</td>
+</tr>
+<tr>
+<th>
+1
+</th>
+<td>
+ND
+</td>
+<td>
+R_78605PJdv9gl2g5
+</td>
+<td>
+27
+</td>
+<td>
+male
+</td>
+<td>
+65.0
+</td>
+<td>
+0.0
+</td>
+<td>
+100.0
+</td>
+<td>
+2
+</td>
+<td>
+1.0
+</td>
+<td>
+male
+</td>
+<td>
+non-green
+</td>
+<td>
+athletic
+</td>
+</tr>
+<tr>
+<th>
+2
+</th>
+<td>
+ND
+</td>
+<td>
+R_cNrHv7l4bzAPzo1
+</td>
+<td>
+19
+</td>
+<td>
+female
+</td>
+<td>
+68.0
+</td>
+<td>
+100.0
+</td>
+<td>
+0.0
+</td>
+<td>
+1
+</td>
+<td>
+1.0
+</td>
+<td>
+male
+</td>
+<td>
+non-green
+</td>
+<td>
+athletic
+</td>
+</tr>
+<tr>
+<th>
+3
+</th>
+<td>
+ND
+</td>
+<td>
+R_cIl6ai9lZGVTEih
+</td>
+<td>
+28
+</td>
+<td>
+male
+</td>
+<td>
+87.0
+</td>
+<td>
+0.0
+</td>
+<td>
+100.0
+</td>
+<td>
+2
+</td>
+<td>
+2.0
+</td>
+<td>
+male
+</td>
+<td>
+non-green
+</td>
+<td>
+athletic
+</td>
+</tr>
+<tr>
+<th>
+4
+</th>
+<td>
+ND
+</td>
+<td>
+R_0xi4MaYTLcWON7v
+</td>
+<td>
+25
+</td>
+<td>
+male
+</td>
+<td>
+66.0
+</td>
+<td>
+0.0
+</td>
+<td>
+100.0
+</td>
+<td>
+1
+</td>
+<td>
+2.0
+</td>
+<td>
+male
+</td>
+<td>
+non-green
+</td>
+<td>
+athletic
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<pre><code>'Participant counts'
+
+green
+green         94
+non-green    100
+Name: pid, dtype: int64</code></pre>
+<p>There is also missing data in the <code>genderiden_1</code> and <code>dating_</code> variables. These will be used as additional predictors, so these missing values will be dropped — i.e.&nbsp;a complete-case design will be used.</p>
+<div id="14a7fb7d" class="cell" data-execution_count="4">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Complete cases - drop all missing in the three named variables</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>data_l <span class="op">=</span> data_l.dropna(subset<span class="op">=</span>[<span class="st">'genderiden_1'</span>, <span class="st">'dating_1'</span>, <span class="st">'dating_2'</span>]).reset_index(drop<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>data_l.pid.nunique()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<pre><code>171</code></pre>
+</section>
+<section id="step-2" class="level3">
+<h3 class="anchored" data-anchor-id="step-2">Step 2</h3>
+<p>We now ready to specify a model, and lay out an inference plan.</p>
+<p>The aim is to assess whether consumers who engaged in green behaviour are perceived as more feminine, with participants making ratings of vignettes. The claim is straightforward; however the data-generating process is more complex, with participants being allocated to one of four conditions (e.g.&nbsp;male-green, female-nongreen), and provided multiple ratings of the same vignette. In addition, there are variables that may affect these ratings (e.g., participant gender, interest in dating males or females) that could feasibly impact the ratings.</p>
+<p>The original paper created a ‘femininity index’ by averaging together several traits (feminine, gentle, sensitive). This is perhaps fine, but it seems more direct to work with the rating of femininity itself, and not to open up other measurement issues from averaging variables (e.g., Flake &amp; Fried, 2020). However, it is sensible to acknowledge that all trait ratings are correlated (e.g., Sutherland et al., 2013), and that other trait ratings could impact femininity, and thus estimate the effects jointly with other variables.</p>
+<p>The approach taken here is to build a hierarchical Bayesian model that adjusts for other covariates, and accounts for correlations within-participants given repeated trait ratings, and to examine the posterior distributions of the estimated marginal means.</p>
+<p>The model includes main effects of gender, gender identity, and male and female dating intention. The interaction between target sex (male or female) and green behaviour (green or non-green) is estimated for each of the 11 trait ratings the participant provided (i.e., a three way interaction). While it would be simple to examine a given coefficient that represents the differences between green-nongreen for the <code>feminine</code> perception, this becomes difficult with the inclusion of the <code>target_sex</code> variable, as this difference will be tied to <em>either</em> female or male targets given the nature of dummy coding. The clearest answer to the claim question is averaged over the <code>target_sex</code> variable — the claim makes no reference to target sex, but it is a core component of the design.</p>
+<p>As such, the solution is to fit the model and have it make marginal mean predictions, from which differences can be drawn from the posterior.</p>
+<p>As the inclusion of the interaction with perception increases the size of the predictor space, regularising priors are chosen to constrain estimates. Coefficient priors are set to a <span class="math inline">\(\mathcal{N}(0, 0.25)\)</span> prior, representing a state of information that most effects will be no larger than half a rating-scale unit change.</p>
+<div id="96797de2" class="cell" data-execution_count="5">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Set out a model formula and orders of levels for categoricals</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>attr_levels <span class="op">=</span> (y <span class="op">:=</span> <span class="bu">list</span>(data_l[<span class="st">'perception'</span>].unique()))[<span class="dv">1</span>::<span class="op">-</span><span class="dv">1</span>] <span class="op">+</span> y[<span class="dv">2</span>:]</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>green_levels <span class="op">=</span> [<span class="st">'non-green'</span>, <span class="st">'green'</span>]</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>sex_levels <span class="op">=</span> [<span class="st">'male'</span>, <span class="st">'female'</span>]</span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>mdspec <span class="op">=</span> <span class="st">"""rating </span></span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a><span class="st">            ~ C(perception, levels=attr_levels)</span></span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a><span class="st">            * C(green, levels=green_levels)</span></span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a><span class="st">            * C(target_sex, levels=sex_levels)</span></span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a><span class="st">            + gender</span></span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a><span class="st">            + scale(genderiden_1)</span></span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a><span class="st">            + scale(dating_1)</span></span>
+<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a><span class="st">            + scale(dating_2)</span></span>
+<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a><span class="st">            + (1|pid)</span></span>
+<span id="cb8-15"><a href="#cb8-15" aria-hidden="true" tabindex="-1"></a><span class="st">            """</span></span>
+<span id="cb8-16"><a href="#cb8-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-17"><a href="#cb8-17" aria-hidden="true" tabindex="-1"></a><span class="co"># Instantiate the model with regularising N(0, 0.25) priors</span></span>
+<span id="cb8-18"><a href="#cb8-18" aria-hidden="true" tabindex="-1"></a>model <span class="op">=</span> bmb.Model(mdspec, </span>
+<span id="cb8-19"><a href="#cb8-19" aria-hidden="true" tabindex="-1"></a>                  priors<span class="op">=</span>{<span class="st">'common'</span>: bmb.Prior(<span class="st">'Normal'</span>, mu<span class="op">=</span><span class="dv">0</span>, sigma<span class="op">=</span><span class="fl">0.25</span>)},</span>
+<span id="cb8-20"><a href="#cb8-20" aria-hidden="true" tabindex="-1"></a>                  data<span class="op">=</span>data_l)</span>
+<span id="cb8-21"><a href="#cb8-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-22"><a href="#cb8-22" aria-hidden="true" tabindex="-1"></a><span class="co"># Sample the posterior</span></span>
+<span id="cb8-23"><a href="#cb8-23" aria-hidden="true" tabindex="-1"></a>posterior_idata <span class="op">=</span> model.fit(draws<span class="op">=</span><span class="dv">3000</span>, random_seed<span class="op">=</span><span class="dv">34</span>)</span>
+<span id="cb8-24"><a href="#cb8-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-25"><a href="#cb8-25" aria-hidden="true" tabindex="-1"></a><span class="co"># Marginal mean predictions</span></span>
+<span id="cb8-26"><a href="#cb8-26" aria-hidden="true" tabindex="-1"></a>model.predict(posterior_idata, kind<span class="op">=</span><span class="st">'mean'</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<pre><code>Auto-assigning NUTS sampler...
+Initializing NUTS using jitter+adapt_diag...
+Multiprocess sampling (4 chains in 4 jobs)
+Sampling 4 chains for 1_000 tune and 3_000 draw iterations (4_000 + 12_000 draws total) took 198 seconds.</code></pre>
+</section>
+<section id="step-3" class="level3">
+<h3 class="anchored" data-anchor-id="step-3">Step 3</h3>
+<p>Below we recover the estimated means from the model and aggregate them across the green/non-green for each perception, obtaining a posterior distribution for the estimated marginal means.</p>
+<div id="8335e917" class="cell" data-execution_count="6">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Extract aggregate marginal mean for the femininity/green-nongreen comparison</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>feminine_emm <span class="op">=</span> (posterior_idata[<span class="st">'posterior'</span>]</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>                [<span class="st">'rating_mean'</span>]</span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>                .to_dataframe()</span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>                .reset_index()</span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>                .merge(data_l, left_on<span class="op">=</span><span class="st">'rating_obs'</span>, right_index<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>                .groupby([<span class="st">'perception'</span>, <span class="st">'green'</span>, <span class="st">'chain'</span>, <span class="st">'draw'</span>])</span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>                .agg(mu<span class="op">=</span>(<span class="st">'rating_mean'</span>, <span class="st">'mean'</span>))</span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>                .query(<span class="st">'perception == "feminine"'</span>)</span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a>                .unstack(<span class="st">'green'</span>)</span>
+<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a>                .droplevel(<span class="dv">0</span>, axis<span class="op">=</span><span class="st">'columns'</span>)</span>
+<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a>                .reset_index(drop<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a>                .assign(difference<span class="op">=</span><span class="kw">lambda</span> x: x[<span class="st">'green'</span>] <span class="op">-</span> x[<span class="st">'non-green'</span>])</span>
+<span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a>              )</span>
+<span id="cb10-15"><a href="#cb10-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-16"><a href="#cb10-16" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot</span></span>
+<span id="cb10-17"><a href="#cb10-17" aria-hidden="true" tabindex="-1"></a><span class="cf">with</span> sns.plotting_context(<span class="st">'poster'</span>):</span>
+<span id="cb10-18"><a href="#cb10-18" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb10-19"><a href="#cb10-19" aria-hidden="true" tabindex="-1"></a>    fig, ax <span class="op">=</span> plt.subplot_mosaic(<span class="st">"""AAB"""</span>, gridspec_kw<span class="op">=</span>{<span class="st">'wspace'</span>: <span class="fl">0.05</span>}, <span class="op">**</span>{<span class="st">'figsize'</span>: (<span class="dv">30</span>, <span class="dv">10</span>)})</span>
+<span id="cb10-20"><a href="#cb10-20" aria-hidden="true" tabindex="-1"></a>    sns.despine(fig)</span>
+<span id="cb10-21"><a href="#cb10-21" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb10-22"><a href="#cb10-22" aria-hidden="true" tabindex="-1"></a>    az.plot_dist(feminine_emm[<span class="st">'green'</span>], color<span class="op">=</span><span class="st">'green'</span>, ax<span class="op">=</span>ax[<span class="st">'A'</span>], rug<span class="op">=</span><span class="va">True</span>, fill_kwargs<span class="op">=</span>{<span class="st">'alpha'</span>: <span class="fl">.2</span>}, rug_kwargs<span class="op">=</span>{<span class="st">'alpha'</span>: <span class="fl">.05</span>}, label<span class="op">=</span><span class="st">'Green'</span>)</span>
+<span id="cb10-23"><a href="#cb10-23" aria-hidden="true" tabindex="-1"></a>    az.plot_dist(feminine_emm[<span class="st">'non-green'</span>], color<span class="op">=</span><span class="st">'black'</span>, ax<span class="op">=</span>ax[<span class="st">'A'</span>], rug<span class="op">=</span><span class="va">True</span>, fill_kwargs<span class="op">=</span>{<span class="st">'alpha'</span>: <span class="fl">.2</span>}, rug_kwargs<span class="op">=</span>{<span class="st">'alpha'</span>: <span class="fl">.05</span>}, label<span class="op">=</span><span class="st">'Non-Green'</span>)</span>
+<span id="cb10-24"><a href="#cb10-24" aria-hidden="true" tabindex="-1"></a>    ax[<span class="st">'A'</span>].<span class="bu">set</span>(title<span class="op">=</span><span class="st">'Feminine</span><span class="ch">\n</span><span class="st">Green|Non-Green'</span>, xlabel<span class="op">=</span><span class="st">'Estimated Distribution of Femininity Ratings'</span>)</span>
+<span id="cb10-25"><a href="#cb10-25" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb10-26"><a href="#cb10-26" aria-hidden="true" tabindex="-1"></a>    az.plot_posterior(feminine_emm[<span class="st">'difference'</span>].values,</span>
+<span id="cb10-27"><a href="#cb10-27" aria-hidden="true" tabindex="-1"></a>                      color<span class="op">=</span><span class="st">'green'</span>, lw<span class="op">=</span><span class="dv">3</span>, </span>
+<span id="cb10-28"><a href="#cb10-28" aria-hidden="true" tabindex="-1"></a>                      ref_val<span class="op">=</span><span class="dv">0</span>, hdi_prob<span class="op">=</span><span class="fl">.95</span>,</span>
+<span id="cb10-29"><a href="#cb10-29" aria-hidden="true" tabindex="-1"></a>                      point_estimate<span class="op">=</span><span class="st">'mean'</span>,</span>
+<span id="cb10-30"><a href="#cb10-30" aria-hidden="true" tabindex="-1"></a>                      ax<span class="op">=</span>ax[<span class="st">'B'</span>])</span>
+<span id="cb10-31"><a href="#cb10-31" aria-hidden="true" tabindex="-1"></a>    ax[<span class="st">'B'</span>].<span class="bu">set</span>(title<span class="op">=</span><span class="st">'Feminine</span><span class="ch">\n</span><span class="st">Green - Non-green'</span>, xlabel<span class="op">=</span><span class="st">'θ Difference between conditions'</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p><img src="output_13_0.png" class="img-fluid"></p>
+<p>The posterior distribution implies:</p>
+<ul>
+<li>The average difference is 0.33 rating scale points.</li>
+<li>The lower and upper 95% credible intervals are [0.11, 0.53], indicating effects of around a tenth of, and up to half, of a rating scale point are plausible difference sizes.</li>
+<li>The probability the effect is positive — that is, that higher levels of femininity are ascribed to those with green behaviour — is 99.9%.</li>
+</ul>
+<p>It is also possible to estimate a Bayes Factor to test the null hypothesis, using the Savage-Dickey density ratio method. The difference to test was observed from marginal means, but the prior distribution is the same as what is implied in the model for the coefficients, <span class="math inline">\(\mathcal{N}(0, 0.25)\)</span>.</p>
+<div id="227af4a0" class="cell" data-execution_count="7">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Estimate a Bayes Factor and plot</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>prior <span class="op">=</span> st.norm(<span class="dv">0</span>, <span class="fl">0.25</span>)</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>post <span class="op">=</span> st.gaussian_kde(feminine_emm[<span class="st">'difference'</span>].values)</span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Compute BF</span></span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>BF <span class="op">=</span> <span class="dv">1</span> <span class="op">/</span> (post.pdf(<span class="dv">0</span>) <span class="op">/</span> prior.pdf(<span class="dv">0</span>))</span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>eval_ <span class="op">=</span> np.linspace(<span class="op">-</span><span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">5000</span>)</span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a><span class="cf">with</span> sns.plotting_context(<span class="st">'poster'</span>):</span>
+<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb11-12"><a href="#cb11-12" aria-hidden="true" tabindex="-1"></a>    fig, ax <span class="op">=</span> plt.subplots(<span class="dv">1</span>, <span class="dv">1</span>, figsize<span class="op">=</span>(<span class="dv">15</span>, <span class="dv">10</span>))</span>
+<span id="cb11-13"><a href="#cb11-13" aria-hidden="true" tabindex="-1"></a>    sns.despine(fig)</span>
+<span id="cb11-14"><a href="#cb11-14" aria-hidden="true" tabindex="-1"></a>    ax.plot(eval_, prior.pdf(eval_), color<span class="op">=</span><span class="st">'grey'</span>, lw<span class="op">=</span><span class="dv">4</span>, linestyle<span class="op">=</span><span class="st">'--'</span>, label<span class="op">=</span><span class="st">'Prior'</span>)</span>
+<span id="cb11-15"><a href="#cb11-15" aria-hidden="true" tabindex="-1"></a>    ax.plot(eval_, post.pdf(eval_), color<span class="op">=</span><span class="st">'black'</span>, lw<span class="op">=</span><span class="dv">4</span>, label<span class="op">=</span><span class="st">'Posterior'</span>)</span>
+<span id="cb11-16"><a href="#cb11-16" aria-hidden="true" tabindex="-1"></a>    ax.plot([<span class="dv">0</span>, <span class="dv">0</span>], [prior.pdf(<span class="dv">0</span>), <span class="op">*</span>post.pdf(<span class="dv">0</span>)], <span class="st">'ko'</span>, markersize<span class="op">=</span><span class="dv">15</span>)</span>
+<span id="cb11-17"><a href="#cb11-17" aria-hidden="true" tabindex="-1"></a>    ax.plot([<span class="dv">0</span>, <span class="dv">0</span>], [prior.pdf(<span class="dv">0</span>), <span class="op">*</span>post.pdf(<span class="dv">0</span>)], <span class="st">'k-'</span>)</span>
+<span id="cb11-18"><a href="#cb11-18" aria-hidden="true" tabindex="-1"></a>    ax.legend()</span>
+<span id="cb11-19"><a href="#cb11-19" aria-hidden="true" tabindex="-1"></a>    ax.<span class="bu">set</span>(ylabel<span class="op">=</span><span class="st">'Density'</span>, xlabel<span class="op">=</span><span class="st">'Green - Nongreen</span><span class="ch">\n</span><span class="st">Difference'</span>)</span>
+<span id="cb11-20"><a href="#cb11-20" aria-hidden="true" tabindex="-1"></a>    ax.text(<span class="op">-</span><span class="fl">0.9</span>, <span class="fl">3.2</span>, <span class="ss">f'$BF_</span><span class="ch">{{</span><span class="sc">{</span><span class="dv">10</span><span class="sc">}</span><span class="ch">}}</span><span class="ss">$ = </span><span class="sc">{</span>BF[<span class="dv">0</span>]<span class="sc">:.2f}</span><span class="ss">'</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p><img src="output_15_0.png" class="img-fluid"></p>
+</section>
+<section id="step-4" class="level3">
+<h3 class="anchored" data-anchor-id="step-4">Step 4</h3>
+<p>Thus far, the conclusion is that there is a positive effect of green behaviour on perceptions of femininity in general — the probability that the ratings of femininity are higher for green behaviour is 99.9%, and the BF for the alternative is 48.87. While this indicates the presence of an effect, the overall effect is relatively small, with the upper bound being only around half a rating scale point. This may — or may not — be psychologically practical or relevant.</p>
+<p>It is also possible to examine the posterior predictive distribution of the data, which takes into account both the uncertainty in the sampling of participants, as well as the uncertainty in the parameters of the model. By generating the posterior predictive distribution, it will be possible to examine the differences between green/nongreen behaviour that could be expected in future, as opposed to a focus on the average effect. Examining this may give more insight into the expected size of the effect in actual data-point terms, as opposed to the mean. We conduct this analysis below, focused on the green/non-green difference for femininity ratings.</p>
+<div id="8dffb706" class="cell" data-execution_count="8">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Take a posterior predictive distribution</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>model.predict(posterior_idata, kind<span class="op">=</span><span class="st">'pps'</span>)</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Extract posterior predictive</span></span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>ppc <span class="op">=</span> (posterior_idata[<span class="st">'posterior_predictive'</span>]</span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>       .to_dataframe()</span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>       .reset_index()</span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a>       .merge(data_l, left_on<span class="op">=</span><span class="st">'rating_dim_0'</span>, right_index<span class="op">=</span><span class="va">True</span>, suffixes<span class="op">=</span>(<span class="st">'_pp'</span>, <span class="st">'_observed'</span>))</span>
+<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a>       .groupby([<span class="st">'perception'</span>, <span class="st">'green'</span>, <span class="st">'chain'</span>, <span class="st">'draw'</span>])</span>
+<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a>       .agg({<span class="st">'rating_pp'</span>: <span class="st">'mean'</span>})</span>
+<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a>       .query(<span class="st">'perception == "feminine"'</span>)</span>
+<span id="cb12-12"><a href="#cb12-12" aria-hidden="true" tabindex="-1"></a>       .unstack(<span class="st">'green'</span>)</span>
+<span id="cb12-13"><a href="#cb12-13" aria-hidden="true" tabindex="-1"></a>       .droplevel(<span class="dv">0</span>, axis<span class="op">=</span><span class="st">'columns'</span>)</span>
+<span id="cb12-14"><a href="#cb12-14" aria-hidden="true" tabindex="-1"></a>       .assign(difference<span class="op">=</span><span class="kw">lambda</span> x: x[<span class="st">'green'</span>] <span class="op">-</span> x[<span class="st">'non-green'</span>])</span>
+<span id="cb12-15"><a href="#cb12-15" aria-hidden="true" tabindex="-1"></a>      )</span>
+<span id="cb12-16"><a href="#cb12-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-17"><a href="#cb12-17" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot</span></span>
+<span id="cb12-18"><a href="#cb12-18" aria-hidden="true" tabindex="-1"></a><span class="cf">with</span> sns.plotting_context(<span class="st">'poster'</span>):</span>
+<span id="cb12-19"><a href="#cb12-19" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb12-20"><a href="#cb12-20" aria-hidden="true" tabindex="-1"></a>    fig, ax <span class="op">=</span> plt.subplot_mosaic(<span class="st">"""AAB"""</span>, gridspec_kw<span class="op">=</span>{<span class="st">'wspace'</span>: <span class="fl">0.05</span>}, <span class="op">**</span>{<span class="st">'figsize'</span>: (<span class="dv">30</span>, <span class="dv">10</span>)})</span>
+<span id="cb12-21"><a href="#cb12-21" aria-hidden="true" tabindex="-1"></a>    sns.despine(fig)</span>
+<span id="cb12-22"><a href="#cb12-22" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb12-23"><a href="#cb12-23" aria-hidden="true" tabindex="-1"></a>    az.plot_dist(ppc[<span class="st">'green'</span>], color<span class="op">=</span><span class="st">'green'</span>, ax<span class="op">=</span>ax[<span class="st">'A'</span>], rug<span class="op">=</span><span class="va">True</span>, fill_kwargs<span class="op">=</span>{<span class="st">'alpha'</span>: <span class="fl">.2</span>}, rug_kwargs<span class="op">=</span>{<span class="st">'alpha'</span>: <span class="fl">.05</span>}, label<span class="op">=</span><span class="st">'Green'</span>)</span>
+<span id="cb12-24"><a href="#cb12-24" aria-hidden="true" tabindex="-1"></a>    az.plot_dist(ppc[<span class="st">'non-green'</span>], color<span class="op">=</span><span class="st">'black'</span>, ax<span class="op">=</span>ax[<span class="st">'A'</span>], rug<span class="op">=</span><span class="va">True</span>, fill_kwargs<span class="op">=</span>{<span class="st">'alpha'</span>: <span class="fl">.2</span>}, rug_kwargs<span class="op">=</span>{<span class="st">'alpha'</span>: <span class="fl">.05</span>}, label<span class="op">=</span><span class="st">'Non-Green'</span>)</span>
+<span id="cb12-25"><a href="#cb12-25" aria-hidden="true" tabindex="-1"></a>    ax[<span class="st">'A'</span>].<span class="bu">set</span>(title<span class="op">=</span><span class="st">'Posterior Predictive</span><span class="ch">\n</span><span class="st">Feminine - Green|Non-Green'</span>, xlabel<span class="op">=</span><span class="st">'Posterior Predictive Distribution of Femininity Ratings'</span>)</span>
+<span id="cb12-26"><a href="#cb12-26" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb12-27"><a href="#cb12-27" aria-hidden="true" tabindex="-1"></a>    az.plot_posterior(ppc[<span class="st">'difference'</span>].values,</span>
+<span id="cb12-28"><a href="#cb12-28" aria-hidden="true" tabindex="-1"></a>                      color<span class="op">=</span><span class="st">'green'</span>, lw<span class="op">=</span><span class="dv">3</span>, </span>
+<span id="cb12-29"><a href="#cb12-29" aria-hidden="true" tabindex="-1"></a>                      ref_val<span class="op">=</span><span class="dv">0</span>, hdi_prob<span class="op">=</span><span class="fl">.95</span>,</span>
+<span id="cb12-30"><a href="#cb12-30" aria-hidden="true" tabindex="-1"></a>                      point_estimate<span class="op">=</span><span class="st">'mean'</span>,</span>
+<span id="cb12-31"><a href="#cb12-31" aria-hidden="true" tabindex="-1"></a>                      ax<span class="op">=</span>ax[<span class="st">'B'</span>])</span>
+<span id="cb12-32"><a href="#cb12-32" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb12-33"><a href="#cb12-33" aria-hidden="true" tabindex="-1"></a>    ax[<span class="st">'B'</span>].<span class="bu">set</span>(title<span class="op">=</span><span class="st">'Posterior Predictive Green - Nongreen'</span>, xlabel<span class="op">=</span><span class="st">'θ Difference between conditions'</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p><img src="output_17_0.png" class="img-fluid"></p>
+<p>There is slightly greater uncertainty in the difference, and thus more overlap between the conditions. However, it is still very probable that green behaviour will be rated as more feminine, though this is not a large effect.</p>
+</section>
+</section>
+<section id="conclusion" class="level2">
+<h2 class="anchored" data-anchor-id="conclusion">Conclusion</h2>
+<p>Given this data, there is convincing evidence that green behaviours, as described in the study, are associated with higher ratings of femininity, and the magnitude of this effect is around a tenth to half a rating scale point.</p>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/alexjonesphd\.github\.io");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

@@ -1,0 +1,26 @@
+[
+  {
+    "listing": "/blog.html",
+    "items": [
+      "/posts/customer-segmentation/index.html",
+      "/posts/ordinal-regression/index.html",
+      "/posts/out-of-sample/index.html",
+      "/posts/multi-100-analysis/index.html",
+      "/posts/bambi-competition/index.html",
+      "/posts/vaccine-effects/index.html",
+      "/posts/bayesian-bookshelf/index.html"
+    ]
+  },
+  {
+    "listing": "/index.html",
+    "items": [
+      "/posts/customer-segmentation/index.html",
+      "/posts/ordinal-regression/index.html",
+      "/posts/out-of-sample/index.html",
+      "/posts/multi-100-analysis/index.html",
+      "/posts/bambi-competition/index.html",
+      "/posts/vaccine-effects/index.html",
+      "/posts/bayesian-bookshelf/index.html"
+    ]
+  }
+]

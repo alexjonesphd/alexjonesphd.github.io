@@ -1,0 +1,32 @@
+---
+title: "About"
+toc: false
+---
+
+I am an Associate Professor of Psychological Data Science at Swansea University, based in the School of Psychology.
+
+## Research
+
+My research spans face perception, facial morphometrics, and the statistical methods used to study them. Over the years I've worked on topics including:
+
+- how facial colouration relates to actual and perceived health
+- how cosmetics are used to alter appearance, and what that signals
+- the structure of first impressions from faces, and what drives them
+- hierarchical and latent-variable models for psychological and psychometric data
+
+I'm a devout Bayesian, and much of my recent work uses PyMC for generative modelling of face-rating and morphometric data, and various other challenges in the social sciences.
+
+## Teaching
+
+I teach statistics, data analysis, and programming to psychology students. I've written two free online courses in Python:
+
+- [Data Analysis with Python](https://alexjonesphd.github.io/python_data_analysis/) — an introduction aimed at social-science students.
+- [Statistical Modelling with Python](https://alexjonesphd.github.io/statistical_models_python/) — a more advanced take on building and interpreting statistical models.
+
+## Background
+
+I completed my Ph.D at Bangor University, and went to postdoctoral research in Gettysburg College, USA. I joined the School of Psychology at Swansea as a Lecturer in 2016.
+
+## Contact
+
+Email: [alex.l.jones@swansea.ac.uk](mailto:alex.l.jones@swansea.ac.uk)

@@ -1,0 +1,35 @@
+---
+title: ""
+pagetitle: "Alex Jones"
+page-layout: full
+toc: false
+listing:
+  - id: recent-posts
+    contents: posts
+    type: default
+    max-items: 3
+    sort: "date desc"
+    fields: [date, title, description]
+---
+
+::: {.hero}
+![](images/profile.jpg){fig-alt="Photo of Alex Jones"}
+
+::: {}
+# Alex Jones
+
+::: {.tagline}
+Associate Professor of Psychological Data Science · Swansea University
+::: 
+
+I work on face perception, facial morphometrics, and the statistical methods used to study them — with a particular love for Bayesian inference. I teach Python for data analysis and statistical modelling, and have a long history of consulting with industry partners on behavioural data problems.
+
+[About](about.qmd){.btn .btn-outline-secondary .btn-sm} &nbsp;
+[Publications](publications.qmd){.btn .btn-outline-secondary .btn-sm} &nbsp;
+[Blog](blog.qmd){.btn .btn-outline-secondary .btn-sm}
+:::
+
+## Recent writing
+
+::: {#recent-posts}
+:::

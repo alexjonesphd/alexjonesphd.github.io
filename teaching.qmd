@@ -1,0 +1,33 @@
+---
+title: "Teaching and Public Speaking"
+toc: true
+---
+
+## Courses
+
+I've written two free online courses in Python for social-science researchers and students. Both are self-paced, with runnable code.
+These have been inspired by years of teaching these concepts to Research Methods MSc students, and reflect their feedback and what works for learners in behavioural science.
+
+### Data Analysis with Python
+
+[alexjonesphd.github.io/python_data_analysis](https://alexjonesphd.github.io/python_data_analysis/)
+
+An introductory course covering the core Python scientific stack — NumPy, pandas, matplotlib, seaborn — oriented around the kinds of data and analyses social scientists use regularly. No prior programming experience assumed.
+
+### Statistical Modelling with Python
+
+[alexjonesphd.github.io/statistical_models_python](https://alexjonesphd.github.io/statistical_models_python/)
+
+A more advanced course on building and interpreting statistical models in Python, including linear and generalised linear models, mixed-effects models, and multivariate methods such as factor analysis and clustering.
+
+## University teaching
+
+At Swansea, I teach across undergraduate and postgraduate psychology, with a focus on statistics and research methods, as well as theoretical modules on evolutionary approaches to understanding psychology, and social and personality psychology.
+
+## Public speaking
+
+I've given talks on face perception, beauty, and Bayesian methods to academic and public audiences, appearing regularly in the news - from the BBC to The Conversation.
+
+## Supervision
+
+I supervise PhD students working on face perception, psychological measurement, and Bayesian methods. If you're interested in doctoral work with me, feel free to [get in touch](mailto:alex.l.jones@swansea.ac.uk).

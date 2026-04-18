@@ -1,0 +1,22 @@
+---
+title: "Consulting"
+toc: false
+---
+
+I have over 15 years of experience working with social and behavioural data — primarily self-report and behavioural, with some psychophysiological — in both academic and industry settings.
+
+## Past and current partners
+
+Over the years I've worked with industry partners including Boots, Chanel, CyDen Ltd, eharmony, and Vanquis, among others.
+
+## What I can help with
+
+- **Study design** for behavioural and survey research, including sample size calculations for standard and Bayesian designs.
+- **Statistical analysis**, including hierarchical / mixed-effects models, structural equation models, and Bayesian modelling of all the above.
+- **Psychometrics** — scale development, reliability and validity analysis, IRT modelling.
+- **Data visualisation** and communication of statistical results to non-technical stakeholders.
+- **Facial morphometrics** and related image-based measurement problems.
+
+## Get in touch
+
+If you think I might be useful for a project, drop me an email at [alex.l.jones@swansea.ac.uk](mailto:alex.l.jones@swansea.ac.uk). I am happy to have an initial conversation to see whether it's a good fit!

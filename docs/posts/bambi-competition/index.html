@@ -8,7 +8,7 @@
 
 <meta name="dcterms.date" content="2022-07-08">
 
-<title>Predicting Concrete Strength - and winning competitions with Bayes – Alex Jones</title>
+<title>Predicting Concrete Strength - and winning competitions with Bayes – Alex Jones Ph.D</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -148,7 +148,7 @@ window.Quarto = {
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
     <a class="navbar-brand" href="../../index.html">
-    <span class="navbar-title">Alex Jones</span>
+    <span class="navbar-title">Alex Jones Ph.D</span>
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
@@ -296,7 +296,7 @@ window.Quarto = {
 </section>
 <section id="step-0---imports" class="level1">
 <h1>Step 0 - Imports</h1>
-<div id="efc2b0e5" class="cell" data-execution_count="1">
+<div id="5d5d983d" class="cell" data-execution_count="1">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> re                       <span class="co"># Regular expressions</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> arviz <span class="im">as</span> az              <span class="co"># Bayesian plotting</span></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> bambi <span class="im">as</span> bmb             <span class="co"># Bayesian model building</span></span>
@@ -313,7 +313,7 @@ window.Quarto = {
 <section id="step-1---exploratory-data-analysis" class="level1">
 <h1>Step 1 - Exploratory Data Analysis</h1>
 <p>First we check for missing values, examine the datatypes of the dataframe, and examine the distribution of the target variable - <code>strength</code>.</p>
-<div id="0e8862fb" class="cell" data-execution_count="2">
+<div id="14eb3aad" class="cell" data-execution_count="2">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Read in the data</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.read_csv(<span class="st">'concrete_data.csv'</span>)</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -363,13 +363,13 @@ dtype: object
 <p>The brief clearly lays out the foundations of a <em>linear model</em> for the relationship between <code>strength</code> and the other given variables. There are many approaches to linear models (and many other kinds of modelling strategies that could be used here), but the aim seems to be to estimate the β coefficients in the model and use those to predict the strengths of different ages of concrete.</p>
 <p>Bayesian inference is a natural method here because it allows us to estimate these coefficients with uncertainty, and best of all - we get uncertainty in our estimates for free, which would be absolutely vital in civil engineering (in fact check out episode number 59 of the <a href="https://www.learnbayesstats.com/">Learning Bayesian Statistics</a> podcast!)</p>
 <p>Bayesian inference does require a prior for each of the coefficients. There isn’t any clear indication of these effects in the brief, so we will use very wide, general priors. First though, let us set up the model using <code>bambi</code>.</p>
-<div id="93e7dcf3" class="cell" data-execution_count="3">
+<div id="3ab94254" class="cell" data-execution_count="3">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Models are built in bambi using a formula string, much like statsmodels or R</span></span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="co"># We lay out this model according to the brief!</span></span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>modelspec <span class="op">=</span> <span class="st">'strength ~ cement + slag + fly_ash + water + superplasticizer + coarse_aggregate + fine_aggregate + age'</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p><strong>However</strong>, unlike frequentist estimators, Bayesian inference is very picky about the <em>scale</em> of the data. The above model would cause the MCMC sampler to struggle given the hugely different scales of the variables. The solution is to <strong>scale</strong> the predictors. A z-score standardisation works particularly well here. In fact, <code>bambi</code> is clever enough to allow this in the model specification - we simply wrap each term in a <code>scale</code> function. We do this below, and build a model instance</p>
-<div id="be3a5c59" class="cell" data-execution_count="4">
+<div id="f6023e6e" class="cell" data-execution_count="4">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Set a scaled model</span></span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>modelspec <span class="op">=</span> <span class="st">"""strength</span></span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="st">               ~ scale(cement) + scale(slag) </span></span>
@@ -386,14 +386,14 @@ dtype: object
 <section id="step-3---examining-the-prior-beliefs" class="level1">
 <h1>Step 3 - Examining the prior beliefs</h1>
 <p>With the model built (but not yet fitted), it is time to check the priors. First, let us examine a plot of the prior distribution of each of the coefficients - a good way to think of this is what the model <em>thinks</em> the coefficients could be before it sees the data.</p>
-<div id="994742c8" class="cell" data-execution_count="5">
+<div id="287f6b27" class="cell" data-execution_count="5">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Show the priors</span></span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>model.plot_priors(draws<span class="op">=</span><span class="dv">10_000</span>, hdi_prob<span class="op">=</span><span class="fl">.95</span>, kind<span class="op">=</span><span class="st">'hist'</span>, bins<span class="op">=</span><span class="dv">100</span>)<span class="op">;</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p><img src="output_14_0.png" class="img-fluid"></p>
 <p>This is great. It shows us that the most likely effects for the main predictors are hovering around zero, but that the effect could be as big or small as about ±80 <code>strength</code> units. Sometimes people accuse priors of ‘influencing’ the data; but this is clearly not happening much here as those effects are very broad. Next, we check a ‘prior predictive’ distribution, which will give us an idea of what the model thinks the <code>strength</code> variable itself looks like, based on - The observed data for our predictors, and - Our prior distributions for the coefficients</p>
 <p>In simple terms - we can ask the model to make some predictions before its seen the data, just to get a sense of what it thinks.</p>
-<div id="3891866b" class="cell" data-execution_count="6">
+<div id="e1530caa" class="cell" data-execution_count="6">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Build prior predictive</span></span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>prpc <span class="op">=</span> model.prior_predictive(draws<span class="op">=</span><span class="dv">10_000</span>)</span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -407,7 +407,7 @@ dtype: object
 <section id="step-4---fitting-the-model" class="level1">
 <h1>Step 4 - Fitting the model</h1>
 <p>Inspired by <code>sklearn</code>, we can fit a Bayesian model in <code>bambi</code> using MCMC with the <code>.fit()</code> method. We do this below and sample from the posterior distribution (which we can then use to predict on new data).</p>
-<div id="3b2ec79e" class="cell" data-execution_count="7">
+<div id="15ce0222" class="cell" data-execution_count="7">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Fit the model using the NUTS sampler in PyMC</span></span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>posterior <span class="op">=</span> model.fit(draws<span class="op">=</span><span class="dv">2000</span>, tune<span class="op">=</span><span class="dv">1000</span>)</span>
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -441,7 +441,7 @@ NUTS: [Intercept, scale(cement), scale(slag), scale(fly_ash), scale(water), scal
 <pre><code>Sampling 4 chains for 1_000 tune and 2_000 draw iterations (4_000 + 8_000 draws total) took 58 seconds.</code></pre>
 <p><img src="output_19_4.png" class="img-fluid"></p>
 <p>This contains all the information about the coefficients we may need, but we need to bear in mind scaling the predictor variables now means that - for exmaple - a 1 standard deviation increase in the <code>cement</code> variable is associated with a 13 point increase in <code>strength</code>; and we’re 95% certain the effect is between 11 and 14 units. This is an issue for age in particular as we need to predict specific ages, and now we have age on the scale of the standard deviation. First, let us examine the predictions of the model, and see if it maps closely to the data. We do that using a posterior predictive check:</p>
-<div id="abaa792e" class="cell" data-execution_count="8">
+<div id="bb44270b" class="cell" data-execution_count="8">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Conduct a posterior predictive check</span></span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>model.predict(posterior, kind<span class="op">=</span><span class="st">'pps'</span>)</span>
 <span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -456,7 +456,7 @@ NUTS: [Intercept, scale(cement), scale(slag), scale(fly_ash), scale(water), scal
 <h1>Step 5 - Delivering the answers</h1>
 <p>Now we turn to answering the question. The project leader wants: - The average strength of the concrete samples at 1, 7, 14, and 28 days of age. - The coefficients <span class="math display">\[ \beta_{0}, \beta_{1},  ...  \beta_{8} \]</span></p>
 <p>We almost have the second part, but the first part involves making some specific predictions - we want the model to tell us specifically what it thinks the <code>strength</code> value will be at 1, 7, 14, and 28 days. This will invovle building a new dataset for the model to predict on. What we then want is to send to the model a dataset with four new observations for age (set at the desired levels). For all other predictors, we will hold them constant at their mean levels. <code>bambi</code> will transform this data and give us our predictions!</p>
-<div id="e065dd47" class="cell" data-execution_count="9">
+<div id="d0077986" class="cell" data-execution_count="9">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># First, compute the means of the other predictors (not age, or strength), and repeat them four times</span></span>
 <span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>new_data <span class="op">=</span> (df</span>
 <span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>            .drop(columns<span class="op">=</span>[<span class="st">'age'</span>, <span class="st">'strength'</span>])</span>
@@ -627,7 +627,7 @@ age
 </table>
 </div>
 <p>This can now be handed to the model.</p>
-<div id="1a86aeb7" class="cell" data-execution_count="10">
+<div id="a218fcd6" class="cell" data-execution_count="10">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Get predictions of the mean of those datapoints</span></span>
 <span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>mean_predictions <span class="op">=</span> model.predict(posterior, kind<span class="op">=</span><span class="st">'mean'</span>, data<span class="op">=</span>new_data, inplace<span class="op">=</span><span class="va">False</span>)</span>
 <span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -775,7 +775,7 @@ draw
 </table>
 </div>
 <p>Our posterior predictions for the mean concrete strength for different ages are in hand. Let us analyse and plot these: - Averages and highest density intervals - Density plots for visualisation purposes</p>
-<div id="47e15f26" class="cell" data-execution_count="11">
+<div id="d5571d63" class="cell" data-execution_count="11">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create the summary per age</span></span>
 <span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> summarise_bayesian(col, coverage<span class="op">=</span><span class="fl">.95</span>):</span>
 <span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>    </span>
@@ -905,7 +905,7 @@ age
 <p>Back transformation is a little tricky but not impossible, following the formula:</p>
 <p><span class="math display">\[ \hat \beta_0 - \sum_{j=1}^k \hat \beta_j \frac{\bar x_j}{S_j} \]</span> for the intercept, and</p>
 <p><span class="math display">\[ \frac{\hat \beta_j}{S_j} \]</span> for the coefficients, where <span class="math display">\[ {S_j} \]</span> represents the standard deviation of the predictor.</p>
-<div id="b49abf6a" class="cell" data-execution_count="12">
+<div id="1cd07ddd" class="cell" data-execution_count="12">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co"># As it is simpler, let us convert the coefficients back first</span></span>
 <span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="co"># First get the coefficient distributions</span></span>
 <span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>posterior_draws <span class="op">=</span> (posterior[<span class="st">'posterior'</span>]</span>
@@ -1174,7 +1174,7 @@ draw
 </table>
 </div>
 <p>With some <code>pandas</code> wrangling, we now have the posterior distributions on the original scale. This is one of the downsides of Bayesian modelling - sometimes you need the coefficients on the scale of the input variables, but MCMC sampling struggles with varying scales, so most estimation is done on a standardised scale. But we have it; and now we can give the <em>three</em> regression equations for the mean and upper/lower uncertainty:</p>
-<div id="4bb3bd2d" class="cell" data-execution_count="13">
+<div id="22048c62" class="cell" data-execution_count="13">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="co"># State the regression equation for the project lead, as well as upper/lower credible bounds</span></span>
 <span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>display(posterior_draws.<span class="bu">apply</span>(summarise_bayesian).<span class="bu">round</span>(<span class="dv">3</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
@@ -1331,7 +1331,7 @@ Upper Strength Credible Limit 95%
 <p>That is, our observed data is expected to be normally distributed with the mean parameter generated by the linear combination of predictors, and a standard deviation parameter.</p>
 <p>What is not obvious from looking at this formula is that it implies that there is a distribution per-observation governed by the model, and not a distribution around the <em>mean</em> parameter, which is what is focused on in the above analysis. In fact, using Bayesian estimation, it is possible to obtained a distribution of a given data point, known as the <strong>posterior predictive distribution</strong>, which is the distribution of future data points, given observed data points, integrating out the parameters in the model.</p>
 <p>While this sounds complex, in reality what it gives us is simple: a probability distribution for a single datapoint for what it may look like in future, after taking the model into account. This is really important for the application at hand, given that concrete strength is critical for a lot of work! Specifically we can look past the mean of the distributions - that is, what is the average concrete strength for a given 14 day old sample - but instead estimate likely values we may see in future. Let’s examine this below and see what the distributions look like for the different ages using an empirical cumulative distribution plot. As will be seen, density plots will be too messy here.</p>
-<div id="dbc50ea9" class="cell" data-execution_count="14">
+<div id="5705a36c" class="cell" data-execution_count="14">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Sample the posterior predictive distribution</span></span>
 <span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>ppd <span class="op">=</span> model.predict(posterior, kind<span class="op">=</span><span class="st">'pps'</span>, data<span class="op">=</span>new_data, inplace<span class="op">=</span><span class="va">False</span>)</span>
 <span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a></span>

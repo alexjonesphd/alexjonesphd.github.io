@@ -9,7 +9,7 @@
 <meta name="dcterms.date" content="2023-06-30">
 <meta name="description" content="How out of sample predictions work with PyMC">
 
-<title>Out-of-sample predictions with PyMC: A hieararchical linear model case study – Alex Jones</title>
+<title>Out-of-sample predictions with PyMC: A hieararchical linear model case study – Alex Jones Ph.D</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -120,7 +120,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
     <a class="navbar-brand" href="../../index.html">
-    <span class="navbar-title">Alex Jones</span>
+    <span class="navbar-title">Alex Jones Ph.D</span>
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
@@ -231,7 +231,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>This problem is especially compounded with hierarchial models, because they several kinds of choices when doing out-of-sample predictions! For example: - A hierarchical model could predict new, unobserved data for an “average” person, omitting the group-specific effects entirely - this is common in many packages as the default, such as in <code>lme4</code> in R. - A hierarchical model could predict on new, unobserved data for a known group-specific (or random effect) value. An example would be using the model to predict new scores on an unobserved quantity for an individual <em>already in the dataset</em>. - A hierarchical model might predict unobserved data for an <em>unknown</em> group-specific effect. An example of this would be predicting scores for unseen, new groups.</p>
 <p>Doing this in PyMC is possible, but not immediately obvious. Here, I’ll try some examples of out of sample predictions using PyMC. Much of this was inspired by the excellent webinar on out of sample predictions by Ricardo Vieira and Alex Andorra, on the <em>Learning Bayesian Statistics</em> podcast. Its also worth noting that the excellent <code>bambi</code> package abstracts much of this away and makes prediction very easy, but there are still many occasions when I need to write a model myself that <code>bambi</code> doesn’t yet support or I need more specific control and detail.</p>
 <p>Let’s go!</p>
-<div id="413b865f" class="cell" data-execution_count="1">
+<div id="8792ac0f" class="cell" data-execution_count="1">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Imports</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> bambi <span class="im">as</span> bmb</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pymc <span class="im">as</span> pm</span>
@@ -248,7 +248,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>plt.style.use(<span class="st">'bmh'</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>As a working example, I’ll use the <code>sleepstudy</code> dataset that comes with <code>bambi</code>. This simple dataset is hiearchical in nature, showing reaction times on a task for people who had participated in a sleep deprivation study. Participants are measured over several days, providing reaction times once a day. Thus, the reaction times are nested within the participants, making for an ideal case of hiearchical modelling.</p>
-<div id="9d4934a3" class="cell" data-execution_count="2">
+<div id="337e8c74" class="cell" data-execution_count="2">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load sleep</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>sleep <span class="op">=</span> bmb.load_data(dataset<span class="op">=</span><span class="st">'sleepstudy'</span>)</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>display(sleep.head())</span>
@@ -354,7 +354,7 @@ Subject
 <h3 class="anchored" data-anchor-id="out-of-sample-predictions-approach-one---pm.mutabledata">Out of sample predictions, approach one - <code>pm.MutableData</code></h3>
 <p>In situations outside of the hierarchical model, PyMC has a data container class that allows for simple switching out of predictor and observed datasets inside a model. The model is first estimated to get the posterior, and then the data is swapped out for new observations, and a posterior-predictive sample can be drawn.</p>
 <p>Below, a non-hiearchical (or ‘no pooling’) model is fitted to the data. This obviously ignores the nesting withing participants, so is done only to illustrate how easy <code>pm.MutableData</code> makes swapping out predictions. First, let us build a simple linear regression, predicitng reaction time from the observed number of days, and setting the <code>Days</code> variable as a mutable object, as well as setting the dependent variable <code>Reaction</code> as one, too. The priors will be roughly informative given the scale of the data we see in the above plot.</p>
-<div id="82fc819a" class="cell" data-execution_count="3">
+<div id="44515bc7" class="cell" data-execution_count="3">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Build the model</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="cf">with</span> pm.Model() <span class="im">as</span> no_pool:</span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>    </span>
@@ -432,7 +432,7 @@ NUTS: [β0, β1, σ]</code></pre>
 <p><img src="output_8_3.png" class="img-fluid"></p>
 <p>This looks reasonable, but the predictions could be better, but we will move on!</p>
 <p>Now lets imagine a scenario where some unpleasant experimenter wants to know what happens if we were to deprive people of sleep for 15 days - what would the reaction time look like for that? We can simply add in a new datapoint (remember our model is entirely blind to different participants) using <code>pm.set_data</code>, for our <code>X</code> mutable data, and resample the posterior predictive distribution. We will also need to add a “placeholder” value for <code>y</code>. In many cases you may <em>genuine</em> observations for Y that you are predicting, but we don’t here, so we simply add a new variable as a stopgap.</p>
-<div id="4248e789" class="cell" data-execution_count="4">
+<div id="b2b6731a" class="cell" data-execution_count="4">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Generate a prediction for reaction time for 20 days of deprivation</span></span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="cf">with</span> no_pool:</span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>    </span>
@@ -464,7 +464,7 @@ NUTS: [β0, β1, σ]</code></pre>
 <p><progress value="4000" class="" max="4000" style="width:300px; height:20px; vertical-align: middle;"></progress> 100.00% [4000/4000 00:00&lt;00:00]</p>
 </div>
 <p>Lets see what happens by extracting the data point, and comparing it to the observed data</p>
-<div id="31956da5" class="cell" data-execution_count="5">
+<div id="7d106b69" class="cell" data-execution_count="5">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot the data</span></span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="cf">with</span> sns.plotting_context(<span class="st">'poster'</span>):</span>
 <span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>    </span>
@@ -497,7 +497,7 @@ NUTS: [β0, β1, σ]</code></pre>
 <section id="fitting-the-hierarchical-model" class="level1">
 <h1>Fitting the hierarchical model</h1>
 <p>We can now turn to predictions with a hierarchical model. For the purposes of the <code>sleepstudy</code> data, this involves a group-specific effect for each participant who provides multiple ratings. This is achievable by taking advantages of the labelled coordinates PyMC accepts, and indexing the prior for each participant using fancy-indexing like any normal NumPy array. First we build the model, using the <code>.factorize()</code> method of a <code>pd.Series</code> object to obtain the indexes and labels for each participant.</p>
-<div id="f4366e06" class="cell" data-execution_count="6">
+<div id="1633d0c7" class="cell" data-execution_count="6">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Get index locations and labels</span></span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>subj_ind, subj_label <span class="op">=</span> sleep[<span class="st">'Subject'</span>].factorize()</span>
 <span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -516,7 +516,7 @@ Index([308, 309, 310, 330, 331, 332, 333, 334, 335, 337, 349, 350, 351, 352,
        369, 370, 371, 372],
       dtype='int64')</code></pre>
 <p>The first variable keeps track of where responses belong to which group (i.e., participant), and the second is the label. We use the first to index the prior in the model, and the second to give the prior instantiation the number of individual priors, as PyMC supports multidimensional priors:</p>
-<div id="213eab69" class="cell" data-execution_count="7">
+<div id="16a48942" class="cell" data-execution_count="7">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># First set up the coords, passed as a dictionary</span></span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>c <span class="op">=</span> {<span class="st">'subject'</span>: subj_label} <span class="co"># PyMC infers number of labels</span></span>
 <span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -569,7 +569,7 @@ NUTS: [subj_σ, subj_offset, β0, β1, σ]</code></pre>
 <p><progress value="8000" class="" max="8000" style="width:300px; height:20px; vertical-align: middle;"></progress> 100.00% [8000/8000 00:18&lt;00:00 Sampling 4 chains, 0 divergences]</p>
 </div>
 <pre><code>Sampling 4 chains for 1_000 tune and 1_000 draw iterations (4_000 + 4_000 draws total) took 35 seconds.</code></pre>
-<div id="db16b7f5" class="cell" data-execution_count="8">
+<div id="1e02740d" class="cell" data-execution_count="8">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Examine the trace, as we'll be using this model a lot</span></span>
 <span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>az.plot_trace(idata, figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">15</span>))<span class="op">;</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
@@ -581,7 +581,7 @@ NUTS: [subj_σ, subj_offset, β0, β1, σ]</code></pre>
 <p>With a fitted hierarchical model, we can start trying to make predictions. The first kind of prediction we’ll examine is the most common - predicting with only the common, or “fixed” effects. In the case of this model, that would be relying on the intercept and slope terms (β0 and β1 respectively) to take in a new predictor value and output a prediction, with no reference to the group specific effects.</p>
 <p>If we try the method above - setting new data for X and y - we will immediately encounter an error. The model will take in the new data and try to pass it through the linear predictor formula, which includes the group-specific indexing of <code>subj_offset</code>, and it won’t work.</p>
 <p>The solution, which is not immediately obvious, is to build another model with an identical structure, add in a new variable we would like to sample, and have the model sample the posterior predictive distribution of it. Lets say we want to predict, for the average person, the effects of 10, 11, and 12 days of taking part in the study, but we want to omit the group specific effect entirely. There will likely be little difference in this toy example out of sample predictions in this fashion and the no-pooled model, but more complex hieararchical models would definitely show a different pattern.</p>
-<div id="9f21d8d0" class="cell" data-execution_count="9">
+<div id="ab2a93f0" class="cell" data-execution_count="9">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co"># First, set the new data we want to predict</span></span>
 <span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>newX <span class="op">=</span> np.array([<span class="dv">10</span>, <span class="dv">11</span>, <span class="dv">12</span>])</span>
 <span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -601,7 +601,7 @@ NUTS: [subj_σ, subj_offset, β0, β1, σ]</code></pre>
 <span id="cb17-17"><a href="#cb17-17" aria-hidden="true" tabindex="-1"></a>    μ <span class="op">=</span> β<span class="dv">0</span> <span class="op">+</span> newX<span class="op">*</span>β<span class="dv">1</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>So far, the model is a repeat of the initial model, even including group specific effects that aren’t used. We now add in a new term and sample the posterior predictive distribution of it, <em>by passing the InferenceData of the initial model</em>. Surprisingly - and this is the non-obvious part - the new model will use the posterior contained in the inference data for all the values in the model, aside from the new one which will be sampled. The group specific effects could be deleted from the code if we wanted to; they will be ignored.</p>
-<div id="cec31f2d" class="cell" data-execution_count="10">
+<div id="2d571f8d" class="cell" data-execution_count="10">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="cf">with</span> no_group_specific:</span>
 <span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>    </span>
 <span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>    <span class="co"># This is the new variable we want to sample</span></span>
@@ -630,7 +630,7 @@ NUTS: [subj_σ, subj_offset, β0, β1, σ]</code></pre>
 <p><progress value="4000" class="" max="4000" style="width:300px; height:20px; vertical-align: middle;"></progress> 100.00% [4000/4000 00:00&lt;00:00]</p>
 </div>
 <p>Lets take a look at these predictions, generated without any recourse to individual groups:</p>
-<div id="f40c824f" class="cell" data-execution_count="11">
+<div id="5e20e357" class="cell" data-execution_count="11">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot the data</span></span>
 <span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a><span class="cf">with</span> sns.plotting_context(<span class="st">'poster'</span>):</span>
 <span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>    </span>
@@ -660,7 +660,7 @@ NUTS: [subj_σ, subj_offset, β0, β1, σ]</code></pre>
 <section id="type-2---predicting-new-scores-for-specific-observed-groups" class="level3">
 <h3 class="anchored" data-anchor-id="type-2---predicting-new-scores-for-specific-observed-groups">Type 2 - predicting new scores for specific, observed groups</h3>
 <p>One benefit of hierarchical models is that they capture differences in specific groups; in social science or psychology research, this is typically leveraged to study individual differences. Here, we could use the model to predict scores for days 10, 11, and 12, for all individuals, accounting for their variability in baseline reaction times. This can be achieved with a creation of a new dataframe that ties the new values to be predicted to the existing group labels, and using the <code>.factorize()</code> approach to reindex the priors. Let’s now predict for days 10, 11, and 12, but this time including <em>all</em> group specific effects.</p>
-<div id="d112c70b" class="cell" data-execution_count="12">
+<div id="fca7f689" class="cell" data-execution_count="12">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Build a new DataFrame, tying the days to predict to each unique subject ID</span></span>
 <span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a><span class="co"># use of product to cleanly create the long-format dataframe</span></span>
 <span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>newDF <span class="op">=</span> pd.DataFrame([(subject, day) <span class="cf">for</span> subject, day <span class="kw">in</span> product(sleep[<span class="st">'Subject'</span>].unique(), newX)], </span>
@@ -710,7 +710,7 @@ NUTS: [subj_σ, subj_offset, β0, β1, σ]</code></pre>
 <p><progress value="4000" class="" max="4000" style="width:300px; height:20px; vertical-align: middle;"></progress> 100.00% [4000/4000 00:00&lt;00:00]</p>
 </div>
 <p>Let’s examine how the predictions work across each participant. First we will precompute the mean and HDI of each prediction:</p>
-<div id="c57fe9d3" class="cell" data-execution_count="13">
+<div id="95c059ad" class="cell" data-execution_count="13">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Add these back to the original dataframe</span></span>
 <span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>mu <span class="op">=</span> predictions2[<span class="st">'predictions'</span>][<span class="st">'group_predictions'</span>].mean((<span class="st">'chain'</span>, <span class="st">'draw'</span>))</span>
 <span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>hd <span class="op">=</span> az.hdi(predictions2, hdi_prob<span class="op">=</span><span class="fl">.95</span>, group<span class="op">=</span><span class="st">'predictions'</span>, var_names<span class="op">=</span><span class="st">'group_predictions'</span>).to_dataframe().unstack(<span class="st">'hdi'</span>).droplevel(<span class="dv">0</span>, axis<span class="op">=</span><span class="st">'columns'</span>)</span>
@@ -755,7 +755,7 @@ NUTS: [subj_σ, subj_offset, β0, β1, σ]</code></pre>
 <p>Finally, one useful property of hierarchical Bayesian models is that they can comfortably generate predictions for unseen group-level data. Once we learn the variability of the group-level effects, then new groups can be thought of as draws from this population, fed to the model, and predictions made accordingly. This sort of prediction isn’t widely seen in psychology (whereas Type 1 is), but really highlights the kind of uncertainty we’d expect to see in new data, accounting for individual variability. We can do this in PyMC below, following a similar approach as above. We can instantiate a new prior for the offsets, sample from it, and pass it to the model.</p>
 <p>However, its generally a good idea to inject some prior knowledge into the unseen data. Given the model set up, drawing new groups will tend to collapse to zero (reducing the model to a noisier version of the no-group-specific effect prediction). Instead, if we pass some expected group-specific values, we can recover some predictions. An example here would be knowing a-priori that one of two new participants tend to have quite fast reaction times (a negative offset - faster than the average) and the other quite slow (a positive offset). This is easy to model in PyMC, and follows the standard approach of adding in new variables to sample.</p>
 <p>First, lets make a new DataFrame containing the variables to predict - we’ll ask for each of the “Days” to be predicting for imaginary new participants, and then pass it onto the model.</p>
-<div id="db159f30" class="cell" data-execution_count="14">
+<div id="d714558e" class="cell" data-execution_count="14">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb24"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="co"># New content</span></span>
 <span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>days <span class="op">=</span> np.arange(<span class="dv">10</span>)</span>
 <span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>ids <span class="op">=</span> [<span class="st">'new1'</span>, <span class="st">'new2'</span>]</span>
@@ -814,7 +814,7 @@ NUTS: [subj_σ, subj_offset, β0, β1, σ]</code></pre>
 <p><progress value="4000" class="" max="4000" style="width:300px; height:20px; vertical-align: middle;"></progress> 100.00% [4000/4000 00:00&lt;00:00]</p>
 </div>
 <p>From this model, we can examine the variability of the offsets themselves, as well as the predictions. Lets first examine the offsets, which show that they centre roughly around the means we specified with corresponding high variability (there is no real data to update them, after all):</p>
-<div id="220a1c9b" class="cell" data-execution_count="15">
+<div id="d8ac94a6" class="cell" data-execution_count="15">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb26"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Comparison of original model and new draws</span></span>
 <span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>az.plot_forest([predictions3[<span class="st">'predictions'</span>], hierarchical_idata],</span>
 <span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a>               combined<span class="op">=</span><span class="va">True</span>, hdi_prob<span class="op">=</span><span class="fl">.95</span>,</span>
@@ -823,7 +823,7 @@ NUTS: [subj_σ, subj_offset, β0, β1, σ]</code></pre>
 </div>
 <p><img src="output_34_0.png" class="img-fluid"></p>
 <p>Finally, we can examine the predictions for the unseen participants. Lets recover their predictions from the posterior and plot them as above.</p>
-<div id="c6849544" class="cell" data-execution_count="16">
+<div id="afbe2724" class="cell" data-execution_count="16">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb27"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Estimate mean and HDI</span></span>
 <span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>unseen_mu <span class="op">=</span> predictions3[<span class="st">'predictions'</span>][<span class="st">'unseen_group_prediction'</span>].mean((<span class="st">'chain'</span>, <span class="st">'draw'</span>)).values</span>
 <span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a>unseen_hd <span class="op">=</span> az.hdi(predictions3, var_names<span class="op">=</span><span class="st">'unseen_group_prediction'</span>, group<span class="op">=</span><span class="st">'predictions'</span>, hdi_prob<span class="op">=</span><span class="fl">.95</span>).to_dataframe().unstack(<span class="st">'hdi'</span>).droplevel(<span class="dv">0</span>, axis<span class="op">=</span><span class="st">'columns'</span>)</span>
@@ -843,7 +843,7 @@ NUTS: [subj_σ, subj_offset, β0, β1, σ]</code></pre>
 </div>
 <p><img src="output_36_0.png" class="img-fluid"></p>
 <p>There is a huge range of different plausible datasets generated by the model, implying the steady increase (slowing) in reaction time estimated from the original data. The summary is shown here, but equally a few draws from the posterior could have been shown here for the two new participants:</p>
-<div id="00707f18" class="cell" data-execution_count="17">
+<div id="2c3d544d" class="cell" data-execution_count="17">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb28"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Shift the posterior into a dataframe and tack on the unseen data</span></span>
 <span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>psd <span class="op">=</span> (predictions3[<span class="st">'predictions'</span>][<span class="st">'unseen_group_prediction'</span>]</span>
 <span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a>       .to_dataframe()</span>
@@ -866,7 +866,7 @@ NUTS: [subj_σ, subj_offset, β0, β1, σ]</code></pre>
 </div>
 <p><img src="output_38_0.png" class="img-fluid"></p>
 <p>Finally, its worth reiterating the huge flexibility of PyMC. Using the “re-model” approach to generating predictions, other assumptions can be played with depending on the situation - for example, its possible to swap out the <code>pm.Normal</code> assumption for the observed values, and insert a Student’s T distribution. Or we could perhaps fix the variance of some of the distributions if we want to restrict our assumptions about future data more tightly. The flexibility in analysis is one of the truly great things about Bayesian inference and PyMC!</p>
-<div id="e12b3686" class="cell" data-execution_count="18">
+<div id="7f72d787" class="cell" data-execution_count="18">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb29"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="op">%</span>load_ext watermark</span>
 <span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a><span class="op">%</span>watermark <span class="op">--</span>iversions</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>

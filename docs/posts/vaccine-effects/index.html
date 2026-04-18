@@ -9,7 +9,7 @@
 <meta name="dcterms.date" content="2022-07-07">
 <meta name="description" content="Extracting heart-rate data from a smartwatch after a vaccine-induced bad night, and plotting it in xkcd style.">
 
-<title>COVID-19 Vaccine Side Effects — a rough night, in data – Alex Jones</title>
+<title>COVID-19 Vaccine Side Effects — a rough night, in data – Alex Jones Ph.D</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -120,7 +120,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
     <a class="navbar-brand" href="../../index.html">
-    <span class="navbar-title">Alex Jones</span>
+    <span class="navbar-title">Alex Jones Ph.D</span>
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
@@ -230,13 +230,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>In April 2021 I got my first COVID-19 vaccination. The side effects were pretty hard going — for about 24 hours I was laid out, and woke up in the middle of the night to my smart watch giving me an “extreme heart rate warning”, which is just the kind of thing you want to see after getting injected with a vaccine for a virus sweeping the globe.</p>
 <p>Once I felt more alive, I had the idea of extracting the heart rate data from my watch. As it turns out, there is an excellent Python package, <a href="https://pypi.org/project/fitparse/"><code>fitparse</code></a>, that allows the parsing of the <code>.FIT</code> files from Fitbit watches. I won’t post the raw data here and the associated code, but it was pretty simple to get a few days’ worth of data from the watch and plot it. Easy to see how bad things were — which made me extremely grateful for getting vaccinated and <em>not</em> the real thing.</p>
 <p>I’m posting this because the plot took a little while to do, and has some functions I don’t use often and am always looking up. The trickiest part was adding annotations to the x-axis — because it’s a datetime object, positions need to be expressed as datetimes too. This took some creativity to make a readable attempt: while <code>annotate</code> gives flexibility in how you specify the text locations, raw data coordinates are the easiest approach, and the raw string representation of dates messes up the temporal ordering of the plot.</p>
-<div id="8187db46" class="cell" data-execution_count="1">
+<div id="79271243" class="cell" data-execution_count="1">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Imports</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<div id="92a9e28c" class="cell" data-execution_count="2">
+<div id="e94c99d7" class="cell" data-execution_count="2">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Data preprocessing</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>hr <span class="op">=</span> (pd.read_csv(<span class="st">'https://raw.githubusercontent.com/alexjonesphd/alexjonesphd.github.io/master/assets/covid/vaccination_experience.csv'</span>)</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>      .assign(date<span class="op">=</span><span class="kw">lambda</span> x: pd.to_datetime(x[<span class="st">'timestamp'</span>], <span class="bu">format</span><span class="op">=</span><span class="st">'%Y-%m-</span><span class="sc">%d</span><span class="st">'</span>))</span>
@@ -377,7 +377,7 @@ NaN
 </table>
 </div>
 <p>There were also a bunch of things that happened I want to annotate on the plot, so first I’ll make a dictionary containing them along with their associated time points and my heart rate at the time (I worked backwards from the plot to figure these out, but it makes the code tidier to include here). These will be used as coordinates for the <code>annotate</code> method of an axis object.</p>
-<div id="94d6aeee" class="cell" data-execution_count="3">
+<div id="a8270ad3" class="cell" data-execution_count="3">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Event log dictionary, using datetime spec for X locations - the strings will need parsing into datetimes</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Format follows XX, YY...</span></span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>events <span class="op">=</span> {<span class="st">'Morning dog walk'</span>: [(<span class="st">'2021-04-23 10:45'</span>, <span class="dv">105</span>), (<span class="st">'2021-04-23 10:45'</span>, <span class="dv">109</span>)],</span>
@@ -392,7 +392,7 @@ NaN
 </div>
 <p>Plot and annotate some of the events of the 24 hours and what I was doing, and do it in <strong>xkcd</strong> style.</p>
 <p>Vaccines are great, and having a heart rate over 150bpm just walking down the stairs is worth it.</p>
-<div id="dca633bf" class="cell" data-execution_count="4">
+<div id="b99b85e4" class="cell" data-execution_count="4">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Set up plotting context, style, and fig/ax</span></span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>sns.set_context(<span class="st">'poster'</span>, font_scale<span class="op">=</span><span class="dv">2</span>)</span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="cf">with</span> plt.xkcd(scale<span class="op">=</span><span class="fl">0.9</span>, length<span class="op">=</span><span class="dv">100</span>, randomness<span class="op">=</span><span class="dv">200</span>):</span>

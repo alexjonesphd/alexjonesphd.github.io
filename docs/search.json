@@ -4,7 +4,7 @@
     "href": "blog.html",
     "title": "Blog",
     "section": "",
-    "text": "Bayesian Ordinal Regression in PyMC\n\n\n\nBayesian\n\nPyMC\n\nordinal\n\n\n\nUnravelling the mysteries of ordinal models\n\n\n\n\n\nJul 11, 2023\n\n\n\n\n\n\n\n\n\n\n\n\nOut-of-sample predictions with PyMC: A hieararchical linear model case study\n\n\n\nBayesian\n\nPyMC\n\npredictions\n\n\n\nHow out of sample predictions work with PyMC\n\n\n\n\n\nJun 30, 2023\n\n\n\n\n\n\n\n\n\n\n\n\nCustomer segmentation with Bayes, Spectral Embedding, and a second-place win\n\n\n\nBayesian\n\ncompetition\n\ndimension reduction\n\n\n\n\n\n\n\n\n\nAug 24, 2022\n\n\n\n\n\n\n\n\n\n\n\n\nMulti100 Collaboration Project: Is Eco-Friendly Unmanly?\n\n\n\nBayesian\n\nPyMC\n\nbambi\n\nreanalysis\n\n\n\nA Bayesian hierarchical re-analysis of Brough et al. (2016) for the Centre for Open Science’s Multi100 project, including a Savage-Dickey Bayes Factor.\n\n\n\n\n\nJul 8, 2022\n\n\n\n\n\n\n\n\n\n\n\n\nPredicting Concrete Strength - and winning competitions with Bayes\n\n\n\nBayesian\n\nPyMC\n\nbambi\n\ncompetition\n\n\n\n\n\n\n\n\n\nJul 8, 2022\n\n\n\n\n\n\n\n\n\n\n\n\nCOVID-19 Vaccine Side Effects — a rough night, in data\n\n\n\nPython\n\ndata viz\n\nmatplotlib\n\n\n\nExtracting heart-rate data from a smartwatch after a vaccine-induced bad night, and plotting it in xkcd style.\n\n\n\n\n\nJul 7, 2022\n\n\n\n\n\n\n\n\n\n\n\n\nBayesian Bookshelf\n\n\n\nBayesian\n\nbooks\n\nlearning\n\n\n\nTen books (plus a few) that helped me learn Bayesian inference from scratch, coming from a frequentist background.\n\n\n\n\n\nJul 6, 2022\n\n\n\n\n\nNo matching items"
+    "text": "Bayesian Ordinal Regression in PyMC\n\n\n\nBayesian\n\nPyMC\n\nordinal\n\n\n\nUnravelling the mysteries of ordinal models\n\n\n\n\n\nJul 11, 2023\n\n\n\n\n\n\n\n\n\n\n\n\nOut-of-sample predictions with PyMC: A hieararchical linear model case study\n\n\n\nBayesian\n\nPyMC\n\npredictions\n\n\n\nHow out of sample predictions work with PyMC\n\n\n\n\n\nJun 30, 2023\n\n\n\n\n\n\n\n\n\n\n\n\nCustomer segmentation with Bayes, Spectral Embedding, and a second-place win\n\n\n\nBayesian\n\ncompetition\n\ndimension reduction\n\n\n\nApplied data science challenges!\n\n\n\n\n\nAug 24, 2022\n\n\n\n\n\n\n\n\n\n\n\n\nMulti100 Collaboration Project: Is Eco-Friendly Unmanly?\n\n\n\nBayesian\n\nPyMC\n\nbambi\n\nreanalysis\n\n\n\nA Bayesian hierarchical re-analysis of Brough et al. (2016) for the Centre for Open Science’s Multi100 project, including a Savage-Dickey Bayes Factor.\n\n\n\n\n\nJul 8, 2022\n\n\n\n\n\n\n\n\n\n\n\n\nPredicting Concrete Strength - and winning competitions with Bayes\n\n\n\nBayesian\n\nPyMC\n\nbambi\n\ncompetition\n\n\n\n\n\n\n\n\n\nJul 8, 2022\n\n\n\n\n\n\n\n\n\n\n\n\nCOVID-19 Vaccine Side Effects — a rough night, in data\n\n\n\nPython\n\ndata viz\n\nmatplotlib\n\n\n\nExtracting heart-rate data from a smartwatch after a vaccine-induced bad night, and plotting it in xkcd style.\n\n\n\n\n\nJul 7, 2022\n\n\n\n\n\n\n\n\n\n\n\n\nBayesian Bookshelf\n\n\n\nBayesian\n\nbooks\n\nlearning\n\n\n\nTen books (plus a few) that helped me learn Bayesian inference from scratch, coming from a frequentist background.\n\n\n\n\n\nJul 6, 2022\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "publications.html",
@@ -422,16 +422,16 @@
   {
     "objectID": "index.html",
     "href": "index.html",
-    "title": "Alex Jones",
+    "title": "Alex Jones Ph.D",
     "section": "",
-    "text": "Associate Professor of Psychological Data Science · Swansea University\n\nI work on face perception, facial morphometrics, and the statistical methods used to study them — with a particular love for Bayesian inference. I teach Python for data analysis and statistical modelling, and have a long history of consulting with industry partners on behavioural data problems.\nAbout   Publications   Blog\n\n\n\n\n\n\n\n\n\nUnravelling the mysteries of ordinal models\n\n\n\n\n\nJul 11, 2023\n\n\n\n\n\n\n\n\nHow out of sample predictions work with PyMC\n\n\n\n\n\nJun 30, 2023\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nAug 24, 2022\n\n\n\n\n\nNo matching items"
+    "text": "Associate Professor of Psychological Data Science · Swansea University\n\nI work on face perception, facial morphometrics, and the statistical methods used to study them — with a particular love for Bayesian inference. I teach Python for data analysis and statistical modelling, and have a long history of consulting with industry partners on behavioural data problems."
   },
   {
-    "objectID": "index.html#recent-writing",
-    "href": "index.html#recent-writing",
-    "title": "Alex Jones",
-    "section": "",
-    "text": "Unravelling the mysteries of ordinal models\n\n\n\n\n\nJul 11, 2023\n\n\n\n\n\n\n\n\nHow out of sample predictions work with PyMC\n\n\n\n\n\nJun 30, 2023\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nAug 24, 2022\n\n\n\n\n\nNo matching items"
+    "objectID": "index.html#recent-papers",
+    "href": "index.html#recent-papers",
+    "title": "Alex Jones Ph.D",
+    "section": "Recent papers",
+    "text": "Recent papers\n\nJaeger, B., Jones, A. L., Satchell, L., Schild, C., & van Leeuwen, F. (2026). Who likes extraverts? Testing the interplay between perceiver needs and target appearance in impression formation. International Review of Social Psychology, 39(1): 2, 1–13. doi:10.5334/irsp.996 [📄]\nSatchell, L. P., Hall, J., & Jones, A. L. (2025). Do we look at a threatening person’s face? The relationship between perception and observation of walking strangers. Quarterly Journal of Experimental Psychology. doi:10.1177/17470218251406631 [📄]\nKramer, R. S. S., Jones, A. L., Fitousi, D., & Tree, J. J. (2025). AI-generated images of familiar faces are indistinguishable from real photographs. Cognitive Research: Principles and Implications, 10(70). doi:10.1186/s41235-025-00683-w [📄]\n\nSee my full list of publications."
   },
   {
     "objectID": "about.html",

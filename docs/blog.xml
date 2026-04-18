@@ -29,7 +29,7 @@
 <h3 class="anchored" data-anchor-id="simulating-ordinal-data-with-pymc-from-scratch">Simulating ordinal data with PyMC from scratch</h3>
 <p>First, lets import some packages, and then make some assumptions about what we want to see. Imagine we are trying to simulate a dataset where 1000 participants indicate their response to the question “I like chocolate”. We will imagine there is a latent normal distribution that governs this response, and it has a mean of zero, and a standard deviation of 1 (i.e., the standard normal). People are however forced to respond to this statement on a 1-5 scale, indicating their agreement (1 = strong dislike, 5 = strong like).</p>
 <p>What might a distribution of ordinal responses to this question look like? For me, I’d imagine a lot of people might respond with a four or five - i.e., a four and five have a high probability of occuring. A smaller minority might select three, and not a lot of people might select one, two, or three. Lets see if we can have the normal distribution help us realise that, using SciPy.</p>
-<div id="dec5dee2" class="cell" data-execution_count="1">
+<div id="8489eb8c" class="cell" data-execution_count="1">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># Imports</span></span>
@@ -169,7 +169,7 @@ font-style: inherit;">;</span></span></code></pre></div></div>
 <p><img src="https://alexjonesphd.github.io/posts/ordinal-regression/output_5_0.png" class="img-fluid"></p>
 <p>The standard normal has most of its probability mass around zero, and less in the tails. How might we carve it up so that responses of 1 and 2 are less frequent, 3 is a bit more common, and 4 and 5 are most popular? We had to add add the thresholds in a sensible position to chop the distribution up.</p>
 <p>In ordinal regression, there are <em>always K-1</em> cutpoints. If we want 5 responses, we must place 4 thresholds. But where do they go? How would they translate to probabilities of responses? Well, we can use the <em>cumulative density function</em> of the standard normal to figure things out. Lets see what we mean by this. Imagine we place a cutpoint at -2, and a cutpoint at -1, which would correspond to the responses of 1 and 2 (strong dislike to dislike of chocolate) respectively. That would look like this:</p>
-<div id="c7f4f37d" class="cell" data-execution_count="2">
+<div id="47ac72ee" class="cell" data-execution_count="2">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># Add two cutpoints</span></span>
@@ -207,7 +207,7 @@ font-style: inherit;"># -1</span></span>
 </div>
 <p><img src="https://alexjonesphd.github.io/posts/ordinal-regression/output_7_0.png" class="img-fluid"></p>
 <p>Looking at these cutpoints, we can get a sense that for the area up to the first one, there’s not much probability. Between the first and second one there’s quite a bit of a bigger amount, too. But precisely <em>how much</em> probability is there? Remember, this probability is going to exactly correspond to the probability of seeing a 1 and a 2 in our chocolate data. We can work out this using the cumulative density function (CDF) of the normal distribution. This tells us the probability of all the possible responses up to and including the threshold, and essentially is calculating the area under the curve. For cutpoint 1 (-2), the cdf can be obtained easily:</p>
-<div id="fcb34f2b" class="cell" data-execution_count="3">
+<div id="93f12a48" class="cell" data-execution_count="3">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># Standard normal knows the answer</span></span>
@@ -224,7 +224,7 @@ font-style: inherit;">print</span>(cut1_cdf)</span></code></pre></div></div>
 </div>
 <pre><code>0.022750131948179195</code></pre>
 <p>We are essentially computing the area in the shaded region below:</p>
-<div id="ca691f07" class="cell" data-execution_count="4">
+<div id="5deeb7ba" class="cell" data-execution_count="4">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># Fill in the area</span></span>
@@ -245,7 +245,7 @@ font-style: inherit;">'blue'</span>)</span>
 </div>
 <p><img src="https://alexjonesphd.github.io/posts/ordinal-regression/output_11_0.png" class="img-fluid"></p>
 <p>There we have it - that’s the probability of seeing a 1 in our data, if we keep the threshold there. If we repeat the same thing for second threshold, we probability of all the possible responses up to and including the second threshold, we have this:</p>
-<div id="26c92211" class="cell" data-execution_count="5">
+<div id="3e67001b" class="cell" data-execution_count="5">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># Standard normal still knows the answer</span></span>
@@ -281,7 +281,7 @@ font-style: inherit;">'red'</span>)</span>
 <pre><code>0.15865525393145707</code></pre>
 <p><img src="https://alexjonesphd.github.io/posts/ordinal-regression/output_13_1.png" class="img-fluid"></p>
 <p>So the probability of a 2 in our data is going to be about 16%, right? Not so fast. Looking at the shaded region its clear that this is actually overshadowing the first area. What we need is the area <em>between -2 and -1</em>, between the first and second cutpoints! How do we find this? Easily enough - just subtract the cdf up to -2 from the cdf up to -1!</p>
-<div id="95b4dcd2" class="cell" data-execution_count="6">
+<div id="3bf3858e" class="cell" data-execution_count="6">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># Probability of a 2</span></span>
@@ -322,7 +322,7 @@ font-style: inherit;">'blue'</span>)</span>
 <p><img src="https://alexjonesphd.github.io/posts/ordinal-regression/output_15_1.png" class="img-fluid"></p>
 <p>So the probability of a 2 is actually about 14%, and we’ve now correctly identified the area we want. This point highlights a key aspect of ordinal models. They carve up a latent distribution, and probabilities of a given response (e.g., 1, 2) are generated by subtracting the cdf of cutpoint <em>c-1</em> from cutpoint <em>c</em>.</p>
 <p>Lets now throw in the rest of the thresholds.</p>
-<div id="44556a1c" class="cell" data-execution_count="7">
+<div id="88be8bda" class="cell" data-execution_count="7">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># Define thresholds as a list</span></span>
@@ -411,7 +411,7 @@ font-style: inherit;">=</span>alpha)</span></code></pre></div></div>
 </div>
 <p><img src="https://alexjonesphd.github.io/posts/ordinal-regression/output_17_0.png" class="img-fluid"></p>
 <p>What are the corresponding probabilities here? Visually, its clear that the fourth shaded area (response 4’s portion of the probability pie) and the unshaded area (response 5) have larger areas. We can compute them by subtracting each category from its previous one, which is easy using NumPy slicing.</p>
-<div id="71163fb7" class="cell" data-execution_count="8">
+<div id="bd85c03b" class="cell" data-execution_count="8">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># get the cdf of each threshold</span></span>
@@ -434,7 +434,7 @@ font-style: inherit;">1</span>]</span></code></pre></div></div>
 </div>
 <pre><code>array([0.13590512, 0.14988228, 0.29016879])</code></pre>
 <p>Not enough probabilities here. We need 5, not three! We can solve this issue with a moment’s reflection. The probability of the <em>very first category</em> <strong>is equal</strong> to its cumulative density function. So we dont need to subtract a thing from that. The final probability - of response 5 in our case - should be the remaining probability <em>left over</em> after the rest of the probabilities have been computed. After all, these values will all sum to one, since we are dividing all of the probability of responses among the available responses. A simple computational trick we can use here is to book-end the <code>cat_probs</code> variable with a zero (left) and a one (right). That way, the slice operation will allow all the probabilities to be computed easily. In fact, this trick is used in PyMC to calculate the probabilites in a proper model, so its worth stating here. Here we go:</p>
-<div id="8febc70b" class="cell" data-execution_count="9">
+<div id="58ae4ef1" class="cell" data-execution_count="9">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># Bookend</span></span>
@@ -468,7 +468,7 @@ font-style: inherit;">1</span>]</span>
 </div>
 <pre><code>array([0.02275013, 0.13590512, 0.14988228, 0.29016879, 0.40129367])</code></pre>
 <p>And, <em>finally</em>, we can now get what we turned up for. A set of ordinal responses for our imaginary participants on how much they like chocolate. How to get this? Well, we can use a <em>categorical</em> distribution. This is the simplest kind of distribution. We simply provide a set of probabilities, the number of which indicate how likely each option is. PyMC has a nice Categorical distribution that we will now sample from, and compare the counts of the data to the response probabilities generated above.</p>
-<div id="6a9f5f3b" class="cell" data-execution_count="10">
+<div id="5ca9d9de" class="cell" data-execution_count="10">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># Actually get the responses, convert to Series</span></span>
@@ -527,7 +527,7 @@ Name: proportion, dtype: float64</code></pre>
 <p>When we are working with ordinal models, we have several parameters we may want to estimate: - The K-1 thresholds. With responses that can run from zero to K (e.g.&nbsp;0, 1, 2, 3, 4, K being 5), we can estimate K-1 <em>ordered</em> thresholds. - The location or mean of the underlying latent distribution. - The scale or standard deviation of the underlying distribution.</p>
 <p>This was hard for me to get my head around, but if you think about it for a while, you realise that you <em>cannot estimate all of these at once</em>. The model will be undetermined if you try to estimate all of these parameters. Without fixing down any two of these parameters, the model can’t be estimated, because each parameter set is estimated relative to another. For example, when we set the mean and standard deviation to zero and one above, we could place the thresholds wherever we liked to get the right probabilities <em>within the bounds set by the distribution</em>. As we’ll see later, we can also fix the first and last threshold to a constant value too, and then the distribution and remaining parameters will shift around those constraints to accommodate the probabilities.</p>
 <p>In many examples of ordinal models, a standard normal cumulative density function is used, which implicity sets the mean and standard deviation to zero. Thats OK sometimes, but not always an assumption you’d want to make. Below, we write a very explicit PyMC model that will try to recover the thresholds we set above on the chocolate dataset. We’ll rely on the <code>dims</code> and <code>coords</code> arguments to make thing easy to manage. Note that this model will look very complex, because its explicitly layout out all the probability calculations, distributions to use, and so on. This will be simplifed later but this version could be adapted for complex problems - e.g., assuming the latent distribution is a <em>t</em>-distribution or similar.</p>
-<div id="97505941" class="cell" data-execution_count="11">
+<div id="2e5e31f6" class="cell" data-execution_count="11">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># Figure out K</span></span>
@@ -763,7 +763,7 @@ Sampling: [y]</code></pre>
 <p><progress value="4000" class="" max="4000" style="width:300px; height:20px; vertical-align: middle;"></progress> 100.00% [4000/4000 00:17&lt;00:00]</p>
 </div>
 <p>That’s a lot to take in, but the model has sampled with a few warnings. Lets examine both the posterior of the cutpoints, as well as the posterior predictive distribution.</p>
-<div id="a774d22c" class="cell" data-execution_count="12">
+<div id="8f8dd0a5" class="cell" data-execution_count="12">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb22" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># Get distribution of cutpoints</span></span>
@@ -790,7 +790,7 @@ background-color: null;
 font-style: inherit;">;</span></span></code></pre></div></div>
 </div>
 <p><img src="https://alexjonesphd.github.io/posts/ordinal-regression/output_28_0.png" class="img-fluid"></p>
-<div id="3270eaf6" class="cell" data-execution_count="13">
+<div id="f3d3e4b0" class="cell" data-execution_count="13">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb23" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1">az.plot_ppc(idata)<span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">;</span></span></code></pre></div></div>
@@ -801,7 +801,7 @@ font-style: inherit;">;</span></span></code></pre></div></div>
 <section id="recovering-parameters---the-easy-way" class="level3">
 <h3 class="anchored" data-anchor-id="recovering-parameters---the-easy-way">Recovering parameters - the <strong>easy way</strong></h3>
 <p>The above model is a lot to take in. While we will always specify priors over the cutpoints, specifying the distribution to use to calculate the cumulative density function as well as computing the category probabilities manually is a lot! Fortunately, PyMC has a convenience likelihood distribution that allows us to bypass a lot of the complexity of the above model in fewer lines of code. The above parameterisation is worth knowing though, as it allows us to expand our capabilities to more complex ordinal data. Before we leave behind the chocolate data, I’ll rewrite the model above to expand on the fantastic <code>pm.OrderedProbit</code> distribution which will encompass a lot of the code in the above model. Note that ‘probit’ simply refers to the use of a normal distribution to model ordinal data, as we’ve been doing.</p>
-<div id="5707331e" class="cell" data-execution_count="14">
+<div id="cdf69018" class="cell" data-execution_count="14">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb24" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># Rewrite to leverage orderedProbit</span></span>
@@ -942,7 +942,7 @@ Sampling: [y]</code></pre>
 <div>
 <p><progress value="4000" class="" max="4000" style="width:300px; height:20px; vertical-align: middle;"></progress> 100.00% [4000/4000 00:17&lt;00:00]</p>
 </div>
-<div id="9baaab5e" class="cell" data-execution_count="15">
+<div id="26993f50" class="cell" data-execution_count="15">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb27" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># Show results again</span></span>
@@ -1010,7 +1010,7 @@ font-style: inherit;">;</span></span></code></pre></div></div>
 <section id="a-flag-in-the-ground---fixing-cutpoints-to-estimate-the-location-and-scale" class="level2">
 <h2 class="anchored" data-anchor-id="a-flag-in-the-ground---fixing-cutpoints-to-estimate-the-location-and-scale">A flag in the ground - fixing cutpoints to estimate the location and scale</h2>
 <p>We’ll now examine a dataset in which the above approach - fixing mean and sigma to 0 and 1, respectively - simply doesn’t work, and highlight an approach to orindal modelling that I am most convinced by. The example data here is from the excellent book <em>Doing Bayesian Data Analysis 2nd Edition</em>, by John Kruschke. In the chapter on ordinal modelling, Kruschke provides a dataset (<code>OrdinalProbitData-1grp-1.csv</code>, get the book/data <a href="https://sites.google.com/site/doingbayesiandataanalysis/software-installation">here</a>) in which he takes the approach of fixing the top and bottom cutpoints of the model, and estimates the mean and sigma of the latent distribution (as well as the remaining thresholds). This is a particularly convincing approach, at least to me, because it allows for clever use cases such as comparing the latent means of two ordinal distributions (no more <em>t</em>-test style analyses), as well letting the mean be estimated by a linear combination of predictor variables with an error term, as in linear regression. First, lets read in Kruschke’s data, and see what our usual approach gets us, fixing the mean and sigma to zero and one.</p>
-<div id="480226da" class="cell" data-execution_count="16">
+<div id="5acb577f" class="cell" data-execution_count="16">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb28" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb28-1"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># Read in data, subtract one from the observed data</span></span>
@@ -1118,7 +1118,7 @@ y
 </div>
 <p><img src="https://alexjonesphd.github.io/posts/ordinal-regression/output_35_1.png" class="img-fluid"></p>
 <p>Lets try to model this using the approach we’ve seen so far. We’ll see if this generates the posterior-predictive fit we want.</p>
-<div id="43ea9dd2" class="cell" data-execution_count="17">
+<div id="565c81c8" class="cell" data-execution_count="17">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb29" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb29-1"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># Set number of values</span></span>
@@ -1273,7 +1273,7 @@ Sampling: [y]</code></pre>
 <div>
 <p><progress value="4000" class="" max="4000" style="width:300px; height:20px; vertical-align: middle;"></progress> 100.00% [4000/4000 00:03&lt;00:00]</p>
 </div>
-<div id="82bb51aa" class="cell" data-execution_count="18">
+<div id="e9d7fc00" class="cell" data-execution_count="18">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb32" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb32-1"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># Plot the PPC</span></span>
@@ -1283,7 +1283,7 @@ font-style: inherit;">;</span></span></code></pre></div></div>
 </div>
 <p><img src="https://alexjonesphd.github.io/posts/ordinal-regression/output_38_0.png" class="img-fluid"></p>
 <p>Overall, not too bad. The model captures pretty well the observed frequencies in the data. What about the cutpoints themselves?</p>
-<div id="07cfe05e" class="cell" data-execution_count="19">
+<div id="48dd2b7a" class="cell" data-execution_count="19">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb33" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb33-1"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># Get cutpoints</span></span>
@@ -1293,7 +1293,7 @@ font-style: inherit;">;</span></span></code></pre></div></div>
 </div>
 <p><img src="https://alexjonesphd.github.io/posts/ordinal-regression/output_40_0.png" class="img-fluid"></p>
 <p>The first cutpoint has an estimate of around 0, and they get progressively higher. How to make sense of this? Remember, we can interpret this on the latent normal distribution. Lets pull out the mean of each cutpoint, put them on a normal distribution, and compare it to the observed frequencies of the data:</p>
-<div id="619302bb" class="cell" data-execution_count="20">
+<div id="768e0516" class="cell" data-execution_count="20">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb34" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb34-1"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># Get cutpoint means</span></span>
@@ -1405,7 +1405,7 @@ font-style: inherit;">;</span></span></code></pre></div></div>
 <p><img src="https://alexjonesphd.github.io/posts/ordinal-regression/output_42_0.png" class="img-fluid"></p>
 <p>This is what we discussed earlier. If you pin down two parameters - here the mean and the sigma - the cutpoints have to shift around that distribution to find the accommodating regions. Clearly, a huge chunk of the distribution is needed to fit the large number of zero responses, while the tiny amount of response 6 is in the very far reaches of the right tail of the distribution, where almost no probability exists.</p>
 <p>For prediction purposes, there is nothing wrong with this parameterisation and distribution, as the predictive fit shows. But if we wanted to interpret the underlying latent normal more clearly, or indeed compare its mean to something else, we need to actually <em>estimate</em> that mean. Kruschke’s solution is elegant - pin down the first and last cutpoints on the scale of the data, by adding about 0.5 to the first observed response in the data, and subtracting 0.5 from the final response in the data. The way we can do this is by estimating the internal cutpoints, book-ending them with constants, and then placing priors on the mean and sigma values of the distribution. Lets see how this works in PyMC:</p>
-<div id="6caa1b12" class="cell" data-execution_count="21">
+<div id="57007e60" class="cell" data-execution_count="21">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb35" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb35-1"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># Recap - number of responses</span></span>
@@ -1636,7 +1636,7 @@ Sampling: [y]</code></pre>
 <div>
 <p><progress value="4000" class="" max="4000" style="width:300px; height:20px; vertical-align: middle;"></progress> 100.00% [4000/4000 00:02&lt;00:00]</p>
 </div>
-<div id="c93192a3" class="cell" data-execution_count="22">
+<div id="5d223173" class="cell" data-execution_count="22">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb38" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb38-1"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># Check the posterior predictive</span></span>
@@ -1646,7 +1646,7 @@ font-style: inherit;">;</span></span></code></pre></div></div>
 </div>
 <p><img src="https://alexjonesphd.github.io/posts/ordinal-regression/output_45_0.png" class="img-fluid"></p>
 <p>And take a look at the parameters, which closely match those of Kruschke’s reported data.</p>
-<div id="cf65bbf5" class="cell" data-execution_count="23">
+<div id="f93d5651" class="cell" data-execution_count="23">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb39" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb39-1">az.plot_posterior(idata2, var_names<span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">=</span>[<span class="st" style="color: #20794D;
@@ -1661,7 +1661,7 @@ font-style: inherit;">;</span></span></code></pre></div></div>
 </div>
 <p><img src="https://alexjonesphd.github.io/posts/ordinal-regression/output_47_0.png" class="img-fluid"></p>
 <p>The key insight here is that we have now estimated that the mean of the latent distribution is around 1, and the sigma is 2.1. Lets take a look at the means of the posterior and visualise <em>this</em> distribution we have estimated:</p>
-<div id="8ccdb677" class="cell" data-execution_count="24">
+<div id="cd5a62c4" class="cell" data-execution_count="24">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb40" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb40-1"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># Aggregate parameters</span></span>
@@ -1814,7 +1814,7 @@ font-style: inherit;">;</span></span></code></pre></div></div>
 <p>The authors asked the women how cold they felt, responding on a 1 (not at all cold) to a 6 (extremely cold) scale. They also measured the tendency for their participants to <em>self-objectify</em>, i.e., show more concern about how they look, rather than how they feel. From the photographs, the researchers also quantified the amount of skin the women showed. Using standard linear regression, the authors reported a statistically significant interaction between the level of self-objectification and skin exposure (after adjusting for the actual temperature), such that only women low in self-objectification with high levels of skin exposure reported feeling colder - those with high levels of self-objectification did not “feel the cold”.</p>
 <p>Its worth a read. Its an interesting paper and the authors did a good job testing their theory in an creative way. When the paper came out, the authors sadly received huge backlash because of the marginally significant <em>p</em>-value of the interaction, and lots of people jumped in to re-analyse their data with more covariates, simulations, and more, desperately trying to show the effect was not significant. In my view, all of these criticisms missed the point, which was that the data was probably better suited to being modelled by an ordinal outcome. As an aside, this is the issue with frequentist null-hypothesis significance testing approaches - focusing on that arbitrary threshold of “existence” is silly, and people can be <em>really</em> motivated to knock something to either side of it. With the Bayesian approach, we can incorporate some skepticism into the model as well as modelling it appropriately and see what we find.</p>
 <p>I’ve got the data from the <a href="https://osf.io/download/w92my">Open Science Framework</a>, and am reading it in here. Huge thanks to the authors for sharing their data.</p>
-<div id="d0c45ac6" class="cell" data-execution_count="25">
+<div id="bfcee53f" class="cell" data-execution_count="25">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb41" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb41-1"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># Read in data and subset out the columns and rows we need</span></span>
@@ -2051,7 +2051,7 @@ Clothes_RF_Z
 </table>
 </div>
 <p>Lets first recreate their analyses using good ol’ NHST and OLS, which is the prediction of Cold by the interaction of self objectification and skin exposure, adjusting for actual temperature.</p>
-<div id="5beb7652" class="cell" data-execution_count="26">
+<div id="8acbdab9" class="cell" data-execution_count="26">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb42" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb42-1"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># Fit an OLS model</span></span>
@@ -2187,7 +2187,7 @@ Self_Obj_Z:Clothes_RF_Z
 </tbody></table>
 <p><br><br>Notes:<br>[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.</p>
 <p>This highlights the contentious interaction that attracted so much social media ire. Lets have this linear model make a prediction to understand the interaction a bit more, which we will also end up doing with a PyMC model. We’ll estimate the feeling of cold for hypothetical individuals with ±1 SD on the clothes variable, and ±1 SD on the self objectivation variable.</p>
-<div id="96c18151" class="cell" data-execution_count="27">
+<div id="ae9fb23b" class="cell" data-execution_count="27">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb49" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb49-1"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># Prediction dataset</span></span>
@@ -2329,7 +2329,7 @@ font-style: inherit;">'bmh'</span>])</span>
 <p><img src="https://alexjonesphd.github.io/posts/ordinal-regression/output_56_0.png" class="img-fluid"></p>
 <p>This recreates the overall finding, such that low self-objectifiers feel colder with more skin exposure, high self objectifiers show no evidence for a change. Let’s now build an ordinal regression in PyMC to refit the data with a) a proper ordered likelihood, and b) a bit of regularisation on the priors to limit noisy inference. I only use a basic type of regularisation in the below example, but there are more elaborate ways of doing this.</p>
 <p>The key thing to remember here is, when using a normal latent variable, is that the coefficients represent changes in the underlying latent distribution - i.e., if the coefficient were 1, it would indicate a 1-unit increase in the predictor leads to a 1 unit change in the underlying latent distribution.</p>
-<div id="7412b87e" class="cell" data-execution_count="28">
+<div id="f80ede1f" class="cell" data-execution_count="28">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb50" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb50-1"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># Use formulae to build the design matrix</span></span>
@@ -2622,7 +2622,7 @@ font-style: inherit;">=</span>ydata)    </span></code></pre></div></div>
 </div>
 <pre><code>Automatically removing 1/187 rows from the dataset.</code></pre>
 <p>Before we sample this, lets take a look at the model structure. We’re using an ordinal likelihood but the same model structure as the standard OLS used by the authors, but we are adding some regularisation to the parameters to constrain the coefficients some.</p>
-<div id="70e09787" class="cell" data-execution_count="29">
+<div id="ddc3a86b" class="cell" data-execution_count="29">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb52" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb52-1"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># View the model</span></span>
@@ -2630,7 +2630,7 @@ font-style: inherit;"># View the model</span></span>
 </div>
 <p><img src="https://alexjonesphd.github.io/posts/ordinal-regression/output_60_0.svg" class="img-fluid"></p>
 <p>This further highlights that ordinal regression is really a categorical prediction problem. Lets now obtain the posterior and predictive distribution of the model.</p>
-<div id="97376549" class="cell" data-execution_count="30">
+<div id="a41c3ac9" class="cell" data-execution_count="30">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb53" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb53-1"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># Obtain posterior</span></span>
@@ -2697,7 +2697,7 @@ Sampling: [y]</code></pre>
 </div>
 <pre><code>Sampling: [cut_raw, y, β, β0, λ, σ]</code></pre>
 <p>Let’s take a look at the posterior distribution of the interaction, the effect of interest in the paper, as well as the posterior predictive check. We will also submit the interaction coefficient to a Bayes Factor hypothesis test.</p>
-<div id="16484766" class="cell" data-execution_count="31">
+<div id="b628626a" class="cell" data-execution_count="31">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb57" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb57-1"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># Visualise</span></span>
@@ -2835,7 +2835,7 @@ font-style: inherit;">;</span></span></code></pre></div></div>
 <p><img src="https://alexjonesphd.github.io/posts/ordinal-regression/output_64_1.png" class="img-fluid"></p>
 <p>According to the posterior distribution of the coefficient, there is an almost 97% probability of the coefficient being less than zero - it doesn’t quite exclude that magical parameter, but based on the model and the data, we’d deem a negative relationship is likely. The predictive check looks good, mirroring the data. The Bayes Factor plot suggests that the value of zero is similarly likely under both the posterior and prior distribution of the coefficient, which most Bayes Factor proponents would deem an inconclusive finding.</p>
 <p>Let’s move beyond these hypothesis tests and see if we can use the model to really dig into the predictions. As our model is Bayesian, the predictions it makes for a datapoint will be a distribution over the possible scale response options. What we’ll now do is ask the model to predict the hypothetical individuals the standard linear model predicted, and thus we can see the likely response profile of feeling cold a hypothetical individual might make. First, let’s make the model return the predictions on new data.</p>
-<div id="5c1606fb" class="cell" data-execution_count="32">
+<div id="6ccec484" class="cell" data-execution_count="32">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb59" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb59-1"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># Have formulae create our design matrix</span></span>
@@ -2908,7 +2908,7 @@ font-style: inherit;">True</span>)</span></code></pre></div></div>
 <p><progress value="4000" class="" max="4000" style="width:300px; height:20px; vertical-align: middle;"></progress> 100.00% [4000/4000 00:01&lt;00:00]</p>
 </div>
 <p>Now we have the predictions - which are draws from the posterior predictive distribution, conditional on the hypothetical model inputs - we can get a sense of how the pattern of responses changes at these different levels of skin exposure and self objectification. These predictions are a bit unwieldy at the moment, so it makes sense to aggregate them a bit. For each of the four predicted observations, we can take the frequency of each of the responses in the posterior:</p>
-<div id="66e3ec90" class="cell" data-execution_count="33">
+<div id="e85612ec" class="cell" data-execution_count="33">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb61" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb61-1"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># Get frequencies and add in prediction data, and reshape</span></span>
@@ -3125,7 +3125,7 @@ Low Skin Exposure
 </table>
 </div>
 <p>And lets see if we can plot these implied predictions across the categories.</p>
-<div id="d9de04da" class="cell" data-execution_count="34">
+<div id="32cafeb2" class="cell" data-execution_count="34">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb62" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb62-1">(</span>
 <span id="cb62-2">    so.Plot(data<span class="op" style="color: #5E5E5E;
 background-color: null;
@@ -3182,7 +3182,7 @@ font-style: inherit;">5</span>))</span>
 <p><img src="https://alexjonesphd.github.io/posts/ordinal-regression/output_70_0.png" class="img-fluid"></p>
 <p>Here we can see the implied probabilites of a response across the conditions the model predicted. For high skin exposure, high self objectifiers are more likely to respond a 1, its about equal for 2, more likely to respond a 3, and beyond that, there is higher probability of a low self objectifier using the higher categories. For low skin exposure, its almost the opposite pattern - high self objectifiers seem to have a higher probability of responding to being colder than low self objectifiers. The highest likelihood is with the responses 3/4 in both cases.</p>
 <p>Its possible to simplify (complicate?) this a bit further, by taking the odds ratio of a condition against the other. For example, we can take the odds of a “1” response for a low self objectifying individual under the low skin exposure condition, divide it by the odds of a “1” response for a high self objectifying individual, under the same condition. Lets see what that looks like:</p>
-<div id="88fbc21d" class="cell" data-execution_count="35">
+<div id="267671e1" class="cell" data-execution_count="35">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb63" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb63-1"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># Compute odds ratios</span></span>
@@ -3282,7 +3282,7 @@ font-style: inherit;">selecting response'</span>)</span>
 <p>Throughout the examples used above, I’ve been placing normally distributed priors on each of the cutpoints. This has been mostly fine, though the standard deviation of those normal distributions has sometimes been quite small to make the distribution about each cutpoint narrow. Some may object to this, and indeed, in some of the examples above, reduction of the prior width was required to get the model to estimate.</p>
 <p>The Bayesian modelling community have been advocating the use of a Dirichlet prior over the cutpoints (see <a href="https://github.com/pymc-devs/pymc/discussions/5066">here</a>). The Dirichlet is a multivariate generalisation of the Beta distribution, generating a set of probabilities that all sum to one. With some tricks and transforms, its possible to use the Dirichlet to set strictly ordered cutpoints.</p>
 <p>The trick is to take the cumulative sum across the draws from a Dirichlet, and add and multiply values to it to expand its range (which is naturally always between 0-1). We’ll revisit the data from Kruschke a final time to put Dirichlet priors on the cutpoints. First, lets see a draw from a Dirichlet.</p>
-<div id="ed0ce5b8" class="cell" data-execution_count="36">
+<div id="bb357c33" class="cell" data-execution_count="36">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb64" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb64-1"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># Get a draw for 5 cutpoints from the Dirichlet</span></span>
@@ -3346,7 +3346,7 @@ array([2.67595003, 3.24229597, 3.71680105, 5.44940491, 5.5       ])</code></pre>
 <p>The final step above uses a mathematical sleight-of-hand to expand the range. We can expand 0-1 numbers in the range of [a, b] by the simple formula of a + x * (b - a).</p>
 <p>More confusion awaits however. As a result of the cumulative sum, the final cutpoint will always be a constant. Before transforming, it will be fixed at 1, so will always take on the value <em>b</em> after transforming. If we want to do the Kruschke-style top and bottom pinned cutpoints, we can actually <strong>omit</strong> the top cutpoint, as it will fall out of the cumulative-sum Dirichlet, and simply pin the bottom.</p>
 <p>Let’s see how to implement this in PyMC using the <code>one_group</code> data.</p>
-<div id="cbe4983b" class="cell" data-execution_count="37">
+<div id="49e115aa" class="cell" data-execution_count="37">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb66" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb66-1"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># Reminder of one-group</span></span>
@@ -3540,7 +3540,7 @@ NUTS: [cut_raw, μ, σ]</code></pre>
 </div>
 <pre><code>Sampling 4 chains for 1_000 tune and 1_000 draw iterations (4_000 + 4_000 draws total) took 35 seconds.</code></pre>
 <p>You definitely get a speedup in sampling! Let’s examine the estimates of the cutpoints:</p>
-<div id="aa73ee9f" class="cell" data-execution_count="38">
+<div id="ad1dd397" class="cell" data-execution_count="38">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb69" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb69-1"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># Check the output between both models</span></span>
@@ -3932,7 +3932,7 @@ Normal Prior
 </table>
 </div>
 <p>The results look broadly similar here, which is reassuring. <strong>But</strong>, the parameters of the Dirichlet prior model are <em>closer to those reported in the text</em>. While an ordered transform of the normal distribution certainly works, in cases where we know the generating parameters, a model formulation that brings us closer to that is probably to be preferred, so its really vital to understand this formulation, even if at first it is tricky to comprehend.</p>
-<div id="b17862c8" class="cell" data-execution_count="39">
+<div id="47f20d0f" class="cell" data-execution_count="39">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb70" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb70-1"><span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">%</span>load_ext watermark</span>
@@ -3975,7 +3975,7 @@ seaborn    : 0.12.2</code></pre>
 <p>This problem is especially compounded with hierarchial models, because they several kinds of choices when doing out-of-sample predictions! For example: - A hierarchical model could predict new, unobserved data for an “average” person, omitting the group-specific effects entirely - this is common in many packages as the default, such as in <code>lme4</code> in R. - A hierarchical model could predict on new, unobserved data for a known group-specific (or random effect) value. An example would be using the model to predict new scores on an unobserved quantity for an individual <em>already in the dataset</em>. - A hierarchical model might predict unobserved data for an <em>unknown</em> group-specific effect. An example of this would be predicting scores for unseen, new groups.</p>
 <p>Doing this in PyMC is possible, but not immediately obvious. Here, I’ll try some examples of out of sample predictions using PyMC. Much of this was inspired by the excellent webinar on out of sample predictions by Ricardo Vieira and Alex Andorra, on the <em>Learning Bayesian Statistics</em> podcast. Its also worth noting that the excellent <code>bambi</code> package abstracts much of this away and makes prediction very easy, but there are still many occasions when I need to write a model myself that <code>bambi</code> doesn’t yet support or I need more specific control and detail.</p>
 <p>Let’s go!</p>
-<div id="8792ac0f" class="cell" data-execution_count="1">
+<div id="c503516a" class="cell" data-execution_count="1">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># Imports</span></span>
@@ -4036,7 +4036,7 @@ background-color: null;
 font-style: inherit;">'bmh'</span>)</span></code></pre></div></div>
 </div>
 <p>As a working example, I’ll use the <code>sleepstudy</code> dataset that comes with <code>bambi</code>. This simple dataset is hiearchical in nature, showing reaction times on a task for people who had participated in a sleep deprivation study. Participants are measured over several days, providing reaction times once a day. Thus, the reaction times are nested within the participants, making for an ideal case of hiearchical modelling.</p>
-<div id="337e8c74" class="cell" data-execution_count="2">
+<div id="9ba8e291" class="cell" data-execution_count="2">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># Load sleep</span></span>
@@ -4164,7 +4164,7 @@ Subject
 <h3 class="anchored" data-anchor-id="out-of-sample-predictions-approach-one---pm.mutabledata">Out of sample predictions, approach one - <code>pm.MutableData</code></h3>
 <p>In situations outside of the hierarchical model, PyMC has a data container class that allows for simple switching out of predictor and observed datasets inside a model. The model is first estimated to get the posterior, and then the data is swapped out for new observations, and a posterior-predictive sample can be drawn.</p>
 <p>Below, a non-hiearchical (or ‘no pooling’) model is fitted to the data. This obviously ignores the nesting withing participants, so is done only to illustrate how easy <code>pm.MutableData</code> makes swapping out predictions. First, let us build a simple linear regression, predicitng reaction time from the observed number of days, and setting the <code>Days</code> variable as a mutable object, as well as setting the dependent variable <code>Reaction</code> as one, too. The priors will be roughly informative given the scale of the data we see in the above plot.</p>
-<div id="44515bc7" class="cell" data-execution_count="3">
+<div id="5a37adaa" class="cell" data-execution_count="3">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># Build the model</span></span>
@@ -4344,7 +4344,7 @@ font-style: inherit;">;</span></span></code></pre></div></div>
 <p><img src="https://alexjonesphd.github.io/posts/out-of-sample/output_8_3.png" class="img-fluid"></p>
 <p>This looks reasonable, but the predictions could be better, but we will move on!</p>
 <p>Now lets imagine a scenario where some unpleasant experimenter wants to know what happens if we were to deprive people of sleep for 15 days - what would the reaction time look like for that? We can simply add in a new datapoint (remember our model is entirely blind to different participants) using <code>pm.set_data</code>, for our <code>X</code> mutable data, and resample the posterior predictive distribution. We will also need to add a “placeholder” value for <code>y</code>. In many cases you may <em>genuine</em> observations for Y that you are predicting, but we don’t here, so we simply add a new variable as a stopgap.</p>
-<div id="b2b6731a" class="cell" data-execution_count="4">
+<div id="74f4543d" class="cell" data-execution_count="4">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># Generate a prediction for reaction time for 20 days of deprivation</span></span>
@@ -4399,7 +4399,7 @@ font-style: inherit;">True</span>))</span></code></pre></div></div>
 <p><progress value="4000" class="" max="4000" style="width:300px; height:20px; vertical-align: middle;"></progress> 100.00% [4000/4000 00:00&lt;00:00]</p>
 </div>
 <p>Lets see what happens by extracting the data point, and comparing it to the observed data</p>
-<div id="7d106b69" class="cell" data-execution_count="5">
+<div id="5cb8fe3c" class="cell" data-execution_count="5">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># Plot the data</span></span>
@@ -4547,7 +4547,7 @@ font-style: inherit;">False</span>)</span></code></pre></div></div>
 <section id="fitting-the-hierarchical-model" class="level1">
 <h1>Fitting the hierarchical model</h1>
 <p>We can now turn to predictions with a hierarchical model. For the purposes of the <code>sleepstudy</code> data, this involves a group-specific effect for each participant who provides multiple ratings. This is achievable by taking advantages of the labelled coordinates PyMC accepts, and indexing the prior for each participant using fancy-indexing like any normal NumPy array. First we build the model, using the <code>.factorize()</code> method of a <code>pd.Series</code> object to obtain the indexes and labels for each participant.</p>
-<div id="1633d0c7" class="cell" data-execution_count="6">
+<div id="171d584a" class="cell" data-execution_count="6">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># Get index locations and labels</span></span>
@@ -4576,7 +4576,7 @@ Index([308, 309, 310, 330, 331, 332, 333, 334, 335, 337, 349, 350, 351, 352,
        369, 370, 371, 372],
       dtype='int64')</code></pre>
 <p>The first variable keeps track of where responses belong to which group (i.e., participant), and the second is the label. We use the first to index the prior in the model, and the second to give the prior instantiation the number of individual priors, as PyMC supports multidimensional priors:</p>
-<div id="16a48942" class="cell" data-execution_count="7">
+<div id="22e119ad" class="cell" data-execution_count="7">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># First set up the coords, passed as a dictionary</span></span>
@@ -4748,7 +4748,7 @@ NUTS: [subj_σ, subj_offset, β0, β1, σ]</code></pre>
 <p><progress value="8000" class="" max="8000" style="width:300px; height:20px; vertical-align: middle;"></progress> 100.00% [8000/8000 00:18&lt;00:00 Sampling 4 chains, 0 divergences]</p>
 </div>
 <pre><code>Sampling 4 chains for 1_000 tune and 1_000 draw iterations (4_000 + 4_000 draws total) took 35 seconds.</code></pre>
-<div id="1e02740d" class="cell" data-execution_count="8">
+<div id="53879b7c" class="cell" data-execution_count="8">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># Examine the trace, as we'll be using this model a lot</span></span>
@@ -4770,7 +4770,7 @@ font-style: inherit;">;</span></span></code></pre></div></div>
 <p>With a fitted hierarchical model, we can start trying to make predictions. The first kind of prediction we’ll examine is the most common - predicting with only the common, or “fixed” effects. In the case of this model, that would be relying on the intercept and slope terms (β0 and β1 respectively) to take in a new predictor value and output a prediction, with no reference to the group specific effects.</p>
 <p>If we try the method above - setting new data for X and y - we will immediately encounter an error. The model will take in the new data and try to pass it through the linear predictor formula, which includes the group-specific indexing of <code>subj_offset</code>, and it won’t work.</p>
 <p>The solution, which is not immediately obvious, is to build another model with an identical structure, add in a new variable we would like to sample, and have the model sample the posterior predictive distribution of it. Lets say we want to predict, for the average person, the effects of 10, 11, and 12 days of taking part in the study, but we want to omit the group specific effect entirely. There will likely be little difference in this toy example out of sample predictions in this fashion and the no-pooled model, but more complex hieararchical models would definitely show a different pattern.</p>
-<div id="ab2a93f0" class="cell" data-execution_count="9">
+<div id="b34aa541" class="cell" data-execution_count="9">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># First, set the new data we want to predict</span></span>
@@ -4879,7 +4879,7 @@ background-color: null;
 font-style: inherit;">1</span></span></code></pre></div></div>
 </div>
 <p>So far, the model is a repeat of the initial model, even including group specific effects that aren’t used. We now add in a new term and sample the posterior predictive distribution of it, <em>by passing the InferenceData of the initial model</em>. Surprisingly - and this is the non-obvious part - the new model will use the posterior contained in the inference data for all the values in the model, aside from the new one which will be sampled. The group specific effects could be deleted from the code if we wanted to; they will be ignored.</p>
-<div id="2d571f8d" class="cell" data-execution_count="10">
+<div id="67ed238c" class="cell" data-execution_count="10">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><span class="cf" style="color: #003B4F;
 background-color: null;
 font-weight: bold;
@@ -4933,7 +4933,7 @@ font-style: inherit;">True</span>)</span></code></pre></div></div>
 <p><progress value="4000" class="" max="4000" style="width:300px; height:20px; vertical-align: middle;"></progress> 100.00% [4000/4000 00:00&lt;00:00]</p>
 </div>
 <p>Lets take a look at these predictions, generated without any recourse to individual groups:</p>
-<div id="5e20e357" class="cell" data-execution_count="11">
+<div id="8c046d00" class="cell" data-execution_count="11">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb20" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># Plot the data</span></span>
@@ -5070,7 +5070,7 @@ font-style: inherit;">False</span>)</span></code></pre></div></div>
 <section id="type-2---predicting-new-scores-for-specific-observed-groups" class="level3">
 <h3 class="anchored" data-anchor-id="type-2---predicting-new-scores-for-specific-observed-groups">Type 2 - predicting new scores for specific, observed groups</h3>
 <p>One benefit of hierarchical models is that they capture differences in specific groups; in social science or psychology research, this is typically leveraged to study individual differences. Here, we could use the model to predict scores for days 10, 11, and 12, for all individuals, accounting for their variability in baseline reaction times. This can be achieved with a creation of a new dataframe that ties the new values to be predicted to the existing group labels, and using the <code>.factorize()</code> approach to reindex the priors. Let’s now predict for days 10, 11, and 12, but this time including <em>all</em> group specific effects.</p>
-<div id="fca7f689" class="cell" data-execution_count="12">
+<div id="41da2f7d" class="cell" data-execution_count="12">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb21" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># Build a new DataFrame, tying the days to predict to each unique subject ID</span></span>
@@ -5251,7 +5251,7 @@ font-style: inherit;">True</span>)</span></code></pre></div></div>
 <p><progress value="4000" class="" max="4000" style="width:300px; height:20px; vertical-align: middle;"></progress> 100.00% [4000/4000 00:00&lt;00:00]</p>
 </div>
 <p>Let’s examine how the predictions work across each participant. First we will precompute the mean and HDI of each prediction:</p>
-<div id="95c059ad" class="cell" data-execution_count="13">
+<div id="0371b1ae" class="cell" data-execution_count="13">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb23" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># Add these back to the original dataframe</span></span>
@@ -5476,7 +5476,7 @@ font-style: inherit;">1.3</span>)</span>
 <p>Finally, one useful property of hierarchical Bayesian models is that they can comfortably generate predictions for unseen group-level data. Once we learn the variability of the group-level effects, then new groups can be thought of as draws from this population, fed to the model, and predictions made accordingly. This sort of prediction isn’t widely seen in psychology (whereas Type 1 is), but really highlights the kind of uncertainty we’d expect to see in new data, accounting for individual variability. We can do this in PyMC below, following a similar approach as above. We can instantiate a new prior for the offsets, sample from it, and pass it to the model.</p>
 <p>However, its generally a good idea to inject some prior knowledge into the unseen data. Given the model set up, drawing new groups will tend to collapse to zero (reducing the model to a noisier version of the no-group-specific effect prediction). Instead, if we pass some expected group-specific values, we can recover some predictions. An example here would be knowing a-priori that one of two new participants tend to have quite fast reaction times (a negative offset - faster than the average) and the other quite slow (a positive offset). This is easy to model in PyMC, and follows the standard approach of adding in new variables to sample.</p>
 <p>First, lets make a new DataFrame containing the variables to predict - we’ll ask for each of the “Days” to be predicting for imaginary new participants, and then pass it onto the model.</p>
-<div id="d714558e" class="cell" data-execution_count="14">
+<div id="489d6060" class="cell" data-execution_count="14">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb24" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># New content</span></span>
@@ -5692,7 +5692,7 @@ font-style: inherit;">True</span>)</span></code></pre></div></div>
 <p><progress value="4000" class="" max="4000" style="width:300px; height:20px; vertical-align: middle;"></progress> 100.00% [4000/4000 00:00&lt;00:00]</p>
 </div>
 <p>From this model, we can examine the variability of the offsets themselves, as well as the predictions. Lets first examine the offsets, which show that they centre roughly around the means we specified with corresponding high variability (there is no real data to update them, after all):</p>
-<div id="d8ac94a6" class="cell" data-execution_count="15">
+<div id="47e93aa2" class="cell" data-execution_count="15">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb26" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb26-1"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># Comparison of original model and new draws</span></span>
@@ -5727,7 +5727,7 @@ font-style: inherit;">;</span></span></code></pre></div></div>
 </div>
 <p><img src="https://alexjonesphd.github.io/posts/out-of-sample/output_34_0.png" class="img-fluid"></p>
 <p>Finally, we can examine the predictions for the unseen participants. Lets recover their predictions from the posterior and plot them as above.</p>
-<div id="afbe2724" class="cell" data-execution_count="16">
+<div id="6963ccef" class="cell" data-execution_count="16">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb27" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># Estimate mean and HDI</span></span>
@@ -5858,7 +5858,7 @@ font-style: inherit;">True</span>)</span>
 </div>
 <p><img src="https://alexjonesphd.github.io/posts/out-of-sample/output_36_0.png" class="img-fluid"></p>
 <p>There is a huge range of different plausible datasets generated by the model, implying the steady increase (slowing) in reaction time estimated from the original data. The summary is shown here, but equally a few draws from the posterior could have been shown here for the two new participants:</p>
-<div id="2c3d544d" class="cell" data-execution_count="17">
+<div id="bbb258e1" class="cell" data-execution_count="17">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb28" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb28-1"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># Shift the posterior into a dataframe and tack on the unseen data</span></span>
@@ -5999,7 +5999,7 @@ font-style: inherit;">'</span>)</span>
 </div>
 <p><img src="https://alexjonesphd.github.io/posts/out-of-sample/output_38_0.png" class="img-fluid"></p>
 <p>Finally, its worth reiterating the huge flexibility of PyMC. Using the “re-model” approach to generating predictions, other assumptions can be played with depending on the situation - for example, its possible to swap out the <code>pm.Normal</code> assumption for the observed values, and insert a Student’s T distribution. Or we could perhaps fix the variance of some of the distributions if we want to restrict our assumptions about future data more tightly. The flexibility in analysis is one of the truly great things about Bayesian inference and PyMC!</p>
-<div id="7f72d787" class="cell" data-execution_count="18">
+<div id="df6215ea" class="cell" data-execution_count="18">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb29" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb29-1"><span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">%</span>load_ext watermark</span>
@@ -6039,7 +6039,7 @@ numpy     : 1.24.2</code></pre>
 
 
 <p>To get a break from academic work over the summer, I took part in another data science competition. This one was difficult, involving finding clusters of different customers in a multi-table database, and invovled some tricky feature engineering and data imputation. It also struck me how effective the general approach of dimension-reduction and clustering is; I’ve used it in some papers but the logic here was the same. One thing I picked up here was the utility of non-linear dimension reduction approaches like spectral embedding, which work by maintaing distances between points as the the higher dimensions are projected onto manifolds. I also had some great <strong>Altair</strong> plots in this, but on submission they all got stripped. So I had to remake some static plots last minute. The final version is <a href="https://app.datacamp.com/workspace/w/2ffb65a9-356b-45f7-941d-2e01dd8c1f87">here</a>, but I much preferred this one. Anyway, second place isn’t so bad for a stab at a very applied problem.</p>
-<div id="c55bd787" class="cell" data-execution_count="1">
+<div id="d1806a2f" class="cell" data-execution_count="1">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># Imports</span></span>
@@ -6150,7 +6150,7 @@ font-style: inherit;">import</span> ECDF</span></code></pre></div></div>
 <h1>Doctor-by-region analysis; interactively</h1>
 <p>The main data sources here are split across four tables, which briefly comprise the following information: - <code>doctors</code> includes information on doctor category, rank, experience with the company, satisfaction, purchases, and incidence/rework rates. - <code>orders</code> illustrates the number of orders an individual doctor has placed. - <code>complaints</code> considers doctors and the number of complaints and complaint types they make. - <code>instructions</code> highlights whether a doctor has leaves specific instructions on the order.</p>
 <p>There is missing data in the <code>doctors</code> dataset about satisfaction, which will be imputed after highlighting the doctor-by-region analysis.</p>
-<div id="20554f2a" class="cell" data-execution_count="2">
+<div id="b329ad14" class="cell" data-execution_count="2">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># Read in data files</span></span>
@@ -6407,7 +6407,7 @@ font-style: inherit;"># Render</span></span>
 <section id="assessing-the-purchase-complaint-association-probabilistically" class="level1">
 <h1>Assessing the purchase ~ complaint association probabilistically</h1>
 <p>While there may be a simple association between purchases and complaints, the relationship may be driven by other variables (e.g.&nbsp;satisfaction). Using a combination of careful feature engineering and a Bayesian linear model, the influence of other variables in the dataset (see <strong>Technical Annexe</strong> for details) can be controlled, and the relationship between complaint number as a predictor of purchase number examined. Before modelling, 55 missing datapoints in the <code>satisfaction</code> variable were imputed, and a final sample of 74 doctors were analysed.</p>
-<div id="faba60d1" class="cell" data-execution_count="3">
+<div id="12d3a426" class="cell" data-execution_count="3">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">## Feature engineering</span></span>
@@ -6605,7 +6605,7 @@ background-color: null;
 font-weight: bold;
 font-style: inherit;">else</span> z)</span></code></pre></div></div>
 </div>
-<div id="48ee8d63" class="cell" data-execution_count="4">
+<div id="40a41994" class="cell" data-execution_count="4">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># Test association using a PyMC negative binomial model</span></span>
@@ -6750,7 +6750,7 @@ NUTS: [β0, β, nb]</code></pre>
 <p><progress value="16000" class="" max="16000" style="width:300px; height:20px; vertical-align: middle;"></progress> 100.00% [16000/16000 00:19&lt;00:00 Sampling 4 chains, 0 divergences]</p>
 </div>
 <pre><code>Sampling 4 chains for 2_000 tune and 2_000 draw iterations (8_000 + 8_000 draws total) took 43 seconds.</code></pre>
-<div id="2dfa0f27" class="cell" data-execution_count="5">
+<div id="022abdab" class="cell" data-execution_count="5">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># Extract the posterior distribution of the "complaints" predictor</span></span>
@@ -7069,7 +7069,7 @@ font-style: inherit;">16</span>)</span></code></pre></div></div>
 <section id="customer-segmentation---revealing-three-profiles" class="level1">
 <h1>Customer segmentation - revealing three profiles</h1>
 <p>With the same dataset used above, machine learning techniques (see <strong>Technical Annexe</strong> for details) can uncover the latent structure in the data that can then be grouped together, revealing an optimal grouping of doctors. The below chart, also interactive, allows for the exploration of each segment and their distinct customer profile. Doctors were segmented using a two-feature representation of a wider feature space, specifically: - Number of complaints - Incidence and R rates - Satisfaction with company - Experience with company - Category; Specialist or GP - Rank; from Silver through to Titanium Plus - Unique Condition Index; a count, per doctor, of the number of unique conditions they treat.</p>
-<div id="dfc881cb" class="cell" data-execution_count="6">
+<div id="8c3d0a3c" class="cell" data-execution_count="6">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># First scale the Qty measure</span></span>
@@ -7472,7 +7472,7 @@ font-style: inherit;">16</span>)   </span></code></pre></div></div>
     }
   })({"config": {"view": {"continuousWidth": 400, "continuousHeight": 300}, "axis": {"labelFontSize": 16, "titleFontSize": 16}, "legend": {"labelFontSize": 16, "titleFontSize": 16}}, "hconcat": [{"data": {"name": "data-0a0110818e4e6bcc5385c71f2615c81c"}, "mark": "bar", "encoding": {"color": {"field": "Segment", "type": "nominal"}, "x": {"field": "Aggregate", "type": "quantitative"}, "y": {"field": "Attribute", "title": "Metric variable", "type": "nominal"}}, "height": 400, "selection": {"selector002": {"type": "single", "fields": ["Segment"], "bind": {"input": "select", "options": [1.0, 2.0, 3.0], "name": "SELECT SEGMENT:   "}}}, "transform": [{"filter": {"selection": "selector002"}}], "width": 450}, {"data": {"name": "data-8f207efeffc36f58e3d6b274be5f9b06"}, "mark": "bar", "encoding": {"color": {"field": "Segment", "type": "nominal"}, "x": {"field": "Aggregate", "title": "Number of doctors", "type": "quantitative"}, "y": {"field": "Attribute", "title": "Rank and Category", "type": "nominal"}}, "height": 400, "selection": {"selector002": {"type": "single", "fields": ["Segment"], "bind": {"input": "select", "options": [1.0, 2.0, 3.0], "name": "SELECT SEGMENT:   "}}}, "transform": [{"filter": {"selection": "selector002"}}], "width": 450}], "$schema": "https://vega.github.io/schema/vega-lite/v4.17.0.json", "datasets": {"data-0a0110818e4e6bcc5385c71f2615c81c": [{"Segment": 1, "Attribute": "Complaints", "Aggregate": -0.37456265993237786, "prep": "con"}, {"Segment": 2, "Attribute": "Complaints", "Aggregate": 0.3017124188781476, "prep": "con"}, {"Segment": 3, "Attribute": "Complaints", "Aggregate": -0.3074172218631047, "prep": "con"}, {"Segment": 1, "Attribute": "Incidence rate", "Aggregate": -0.478918256015566, "prep": "con"}, {"Segment": 2, "Attribute": "Incidence rate", "Aggregate": -0.1148648742152156, "prep": "con"}, {"Segment": 3, "Attribute": "Incidence rate", "Aggregate": 0.5831751967313447, "prep": "con"}, {"Segment": 1, "Attribute": "R rate", "Aggregate": -0.6580654786158658, "prep": "con"}, {"Segment": 2, "Attribute": "R rate", "Aggregate": 0.44075213672279545, "prep": "con"}, {"Segment": 3, "Attribute": "R rate", "Aggregate": -0.3659175576475527, "prep": "con"}, {"Segment": 1, "Attribute": "Satisfaction", "Aggregate": 0.02567754608193937, "prep": "con"}, {"Segment": 2, "Attribute": "Satisfaction", "Aggregate": -0.08113019798530584, "prep": "con"}, {"Segment": 3, "Attribute": "Satisfaction", "Aggregate": 0.13894572650989173, "prep": "con"}, {"Segment": 1, "Attribute": "Experience", "Aggregate": -0.9124430705561599, "prep": "con"}, {"Segment": 2, "Attribute": "Experience", "Aggregate": 0.5309394565712193, "prep": "con"}, {"Segment": 3, "Attribute": "Experience", "Aggregate": -0.3509996373967579, "prep": "con"}, {"Segment": 1, "Attribute": "Purchases", "Aggregate": -0.2117736859384277, "prep": "con"}, {"Segment": 2, "Attribute": "Purchases", "Aggregate": -0.23869840489708813, "prep": "con"}, {"Segment": 3, "Attribute": "Purchases", "Aggregate": 0.6242921540031425, "prep": "con"}, {"Segment": 1, "Attribute": "Unique Condition Index", "Aggregate": -0.8039400604635546, "prep": "con"}, {"Segment": 2, "Attribute": "Unique Condition Index", "Aggregate": -0.17555614179123782, "prep": "con"}, {"Segment": 3, "Attribute": "Unique Condition Index", "Aggregate": 0.9452895218405792, "prep": "con"}], "data-8f207efeffc36f58e3d6b274be5f9b06": [{"Segment": 1, "Attribute": "General Practitioner", "Aggregate": 3.0, "prep": "cat"}, {"Segment": 2, "Attribute": "General Practitioner", "Aggregate": 4.0, "prep": "cat"}, {"Segment": 3, "Attribute": "General Practitioner", "Aggregate": 0.0, "prep": "cat"}, {"Segment": 1, "Attribute": "Specialist", "Aggregate": 12.0, "prep": "cat"}, {"Segment": 2, "Attribute": "Specialist", "Aggregate": 35.0, "prep": "cat"}, {"Segment": 3, "Attribute": "Specialist", "Aggregate": 20.0, "prep": "cat"}, {"Segment": 1, "Attribute": "Ambassador", "Aggregate": 4.0, "prep": "cat"}, {"Segment": 2, "Attribute": "Ambassador", "Aggregate": 10.0, "prep": "cat"}, {"Segment": 3, "Attribute": "Ambassador", "Aggregate": 13.0, "prep": "cat"}, {"Segment": 1, "Attribute": "Gold", "Aggregate": 2.0, "prep": "cat"}, {"Segment": 2, "Attribute": "Gold", "Aggregate": 1.0, "prep": "cat"}, {"Segment": 3, "Attribute": "Gold", "Aggregate": 0.0, "prep": "cat"}, {"Segment": 1, "Attribute": "Gold Plus", "Aggregate": 0.0, "prep": "cat"}, {"Segment": 2, "Attribute": "Gold Plus", "Aggregate": 3.0, "prep": "cat"}, {"Segment": 3, "Attribute": "Gold Plus", "Aggregate": 0.0, "prep": "cat"}, {"Segment": 1, "Attribute": "Platinum", "Aggregate": 1.0, "prep": "cat"}, {"Segment": 2, "Attribute": "Platinum", "Aggregate": 8.0, "prep": "cat"}, {"Segment": 3, "Attribute": "Platinum", "Aggregate": 1.0, "prep": "cat"}, {"Segment": 1, "Attribute": "Platinum Plus", "Aggregate": 1.0, "prep": "cat"}, {"Segment": 2, "Attribute": "Platinum Plus", "Aggregate": 9.0, "prep": "cat"}, {"Segment": 3, "Attribute": "Platinum Plus", "Aggregate": 0.0, "prep": "cat"}, {"Segment": 1, "Attribute": "Silver Plus", "Aggregate": 2.0, "prep": "cat"}, {"Segment": 2, "Attribute": "Silver Plus", "Aggregate": 0.0, "prep": "cat"}, {"Segment": 3, "Attribute": "Silver Plus", "Aggregate": 3.0, "prep": "cat"}, {"Segment": 1, "Attribute": "Titanium", "Aggregate": 5.0, "prep": "cat"}, {"Segment": 2, "Attribute": "Titanium", "Aggregate": 8.0, "prep": "cat"}, {"Segment": 3, "Attribute": "Titanium", "Aggregate": 3.0, "prep": "cat"}]}}, {"mode": "vega-lite"});
 </script>
-<div id="f4a0e440" class="cell" data-execution_count="7">
+<div id="f1fd6471" class="cell" data-execution_count="7">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># Segment profile</span></span>
@@ -7566,7 +7566,7 @@ Segment Number
 <h2 class="anchored" data-anchor-id="assessing-purchase-complaint-association-probabilistically">Assessing purchase ~ complaint association probabilistically</h2>
 <p>To assess the relationship between complaints and purchases, PyMC was used to fit a Bayesian negative-binomial regression, complaints alongside the 14 other features described above (purchases being the target variable). Negative-binomial regressions allow for the prediction of count data precisely, especially in situations where the variance of the count data is greater than the mean (here, the average purchase count is 10, while the variance is 130). Priors were set to be restrictive to help with the small dataset, avoiding overfitting, following a <img src="https://latex.codecogs.com/png.latex?%5Cmathcal%7BN%7D(0,%201)"> distribution.</p>
 <p>The central feature is of course the <code>complaint</code> predictor, but the full model summary is printed below, highlighting those predictors which have a high (or indeed low) probability of being associated with increasing purchases, which may be valuable information. For example, the unique condition index is much more likely to have a negative association with purhcases; doctors who treat more conditions make fewer purchases. Those with higher incidence rates make more purchases. There is uncertainty in many of these estimates but they are provided for further insight.</p>
-<div id="284865af" class="cell" data-execution_count="8">
+<div id="0c6c0523" class="cell" data-execution_count="8">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># Tabulate results</span></span>
@@ -8042,7 +8042,7 @@ Unique Condition Index
 <h2 class="anchored" data-anchor-id="customer-segmentation---revealing-three-profiles-1">Customer segmentation - revealing three profiles</h2>
 <p>The full 16-feature dataset was reduced to two dimensions using <strong>spectral embedding</strong>. This was chosen as, unlike other feature reduction methods, it focuses on maintaining local distances between observations in the reduced space. Following the embedding, <strong>K-Means</strong> was used to determine clusters. <em>K</em> was chosen by iterating over candidate cluster numbers and assessing the <em>silhouette coefficient</em>, which assesses the average distance between a point and its within-cluster neighbours compared to its between-cluster neighbours. Three clusters emerged as having the highest coefficient, 0.47.</p>
 <p>An interactive scatter plot of the resulting two-dimensional embedding and clusters is shown below, highlighting how the embedding retained distances that K-Means identified easily. <strong>Hover over each datapoint to visualise its underying full-dimensional data</strong>.</p>
-<div id="9277bbc5" class="cell" data-execution_count="9">
+<div id="1656e897" class="cell" data-execution_count="9">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># Show scatter plot</span></span>
@@ -8212,7 +8212,7 @@ font-style: inherit;"># Render</span></span>
     }
   })({"config": {"view": {"continuousWidth": 400, "continuousHeight": 300}, "axis": {"labelFontSize": 16, "titleFontSize": 16}, "legend": {"labelFontSize": 16, "titleFontSize": 16}}, "data": {"name": "data-5ab6020b45684d734896e257d2c30021"}, "mark": {"type": "point", "filled": true, "opacity": 0.5, "size": 200}, "encoding": {"color": {"field": "Segment", "type": "nominal"}, "tooltip": [{"field": "DoctorID", "type": "nominal"}, {"field": "Purchases", "type": "quantitative"}, {"field": "Complaints", "title": "Complaint Count", "type": "quantitative"}, {"field": "Category", "type": "nominal"}, {"field": "Rank", "type": "nominal"}, {"field": "Region", "type": "nominal"}, {"field": "Incidence rate", "type": "quantitative"}, {"field": "R rate", "type": "quantitative"}, {"field": "Satisfaction", "type": "quantitative"}, {"field": "Experience", "type": "quantitative"}], "x": {"field": "spec_1", "title": "Embedding 1", "type": "quantitative"}, "y": {"field": "spec_2", "title": "Embedding 2", "type": "quantitative"}}, "height": 400, "width": 600, "$schema": "https://vega.github.io/schema/vega-lite/v4.17.0.json", "datasets": {"data-5ab6020b45684d734896e257d2c30021": [{"DoctorID": "AAAEAH", "spec_1": 0.05316769601460756, "spec_2": 0.03196668319218551, "Segment": 2, "Category": "Specialist", "Rank": "Ambassador", "Region": "1 19", "Complaints": -0.6968607626648889, "Incidence rate": 0.3522798434026479, "R rate": 0.31714223865897606, "Satisfaction": 1.6165893314336126, "Experience": 1.7234553117979359, "Purchases": 0.23181772343989768, "Category_Specialist": 1.0, "Rank_Gold": 0.0, "Rank_Gold Plus": 0.0, "Rank_Platinum": 0.0, "Rank_Platinum Plus": 0.0, "Rank_Silver": 0.0, "Rank_Silver Plus": 0.0, "Rank_Titanium": 0.0, "Rank_Titanium Plus": 0.0, "Unique Condition Index": 1.5046878146586526}, {"DoctorID": "AABDHC", "spec_1": -0.04269926417096378, "spec_2": 0.06092230276594164, "Segment": 2, "Category": "Specialist", "Rank": "Titanium", "Region": "1 13", "Complaints": -0.6968607626648889, "Incidence rate": -0.9088656678285003, "R rate": 1.5603248810773298, "Satisfaction": 0.19205748867323694, "Experience": 0.18925725111511948, "Purchases": -0.2880159594253274, "Category_Specialist": 1.0, "Rank_Gold": 0.0, "Rank_Gold Plus": 0.0, "Rank_Platinum": 0.0, "Rank_Platinum Plus": 0.0, "Rank_Silver": 0.0, "Rank_Silver Plus": 0.0, "Rank_Titanium": 1.0, "Rank_Titanium Plus": 0.0, "Unique Condition Index": -0.6263533008387694}, {"DoctorID": "AABGAB", "spec_1": -0.034826891128929734, "spec_2": 0.05982593044788326, "Segment": 2, "Category": "Specialist", "Rank": "Platinum Plus", "Region": "1 8 T3", "Complaints": 0.10888449416638886, "Incidence rate": -0.2782929122129262, "R rate": 1.1459306669378788, "Satisfaction": -0.29779509351387085, "Experience": 0.5180139784042944, "Purchases": -0.5999161691444624, "Category_Specialist": 1.0, "Rank_Gold": 0.0, "Rank_Gold Plus": 0.0, "Rank_Platinum": 0.0, "Rank_Platinum Plus": 1.0, "Rank_Silver": 0.0, "Rank_Silver Plus": 0.0, "Rank_Titanium": 0.0, "Rank_Titanium Plus": 0.0, "Unique Condition Index": 0.4391672569099416}, {"DoctorID": "AADDIG", "spec_1": -0.08094718433050058, "spec_2": -0.07108382463400048, "Segment": 1, "Category": "Specialist", "Rank": "Titanium", "Region": "1 9 T3", "Complaints": -0.6968607626648889, "Incidence rate": -0.2782929122129262, "R rate": -0.7879089990462272, "Satisfaction": 0.35837126791014795, "Experience": -1.1257696580415801, "Purchases": -0.5479328008579399, "Category_Specialist": 1.0, "Rank_Gold": 0.0, "Rank_Gold Plus": 0.0, "Rank_Platinum": 0.0, "Rank_Platinum Plus": 0.0, "Rank_Silver": 0.0, "Rank_Silver Plus": 0.0, "Rank_Titanium": 1.0, "Rank_Titanium Plus": 0.0, "Unique Condition Index": -1.159113579713125}, {"DoctorID": "AAEIEG", "spec_1": 0.02041301131616589, "spec_2": 0.04119902156906321, "Segment": 2, "Category": "Specialist", "Rank": "Titanium", "Region": "1 8 T3", "Complaints": 4.40619253059987, "Incidence rate": -0.08949867400467047, "R rate": 0.648657609970537, "Satisfaction": -1.5174642974026495, "Experience": -0.7312615852945702, "Purchases": -0.2360325911388049, "Category_Specialist": 1.0, "Rank_Gold": 0.0, "Rank_Gold Plus": 0.0, "Rank_Platinum": 0.0, "Rank_Platinum Plus": 0.0, "Rank_Silver": 0.0, "Rank_Silver Plus": 0.0, "Rank_Titanium": 1.0, "Rank_Titanium Plus": 0.0, "Unique Condition Index": 0.971927535784297}, {"DoctorID": "AAGHII", "spec_1": -0.005127821719574038, "spec_2": 0.03270092717230771, "Segment": 2, "Category": "General Practitioner", "Rank": "Titanium", "Region": "1 9", "Complaints": -0.6968607626648889, "Incidence rate": 0.09929556420358526, "R rate": -1.3818740393127742, "Satisfaction": -0.7339508901935841, "Experience": 4.353509130111335, "Purchases": -0.49594943257141744, "Category_Specialist": 0.0, "Rank_Gold": 0.0, "Rank_Gold Plus": 0.0, "Rank_Platinum": 0.0, "Rank_Platinum Plus": 0.0, "Rank_Silver": 0.0, "Rank_Silver Plus": 0.0, "Rank_Titanium": 1.0, "Rank_Titanium Plus": 0.0, "Unique Condition Index": -0.6263533008387694}, {"DoctorID": "ABAIEG", "spec_1": -0.01857482957888012, "spec_2": 0.09341097759488595, "Segment": 2, "Category": "General Practitioner", "Rank": "Gold", "Region": "1 11", "Complaints": -0.6968607626648889, "Incidence rate": 0.09929556420358526, "R rate": 1.9747190952167815, "Satisfaction": 1.0942470599609022, "Experience": 0.6275995541673528, "Purchases": -0.5479328008579399, "Category_Specialist": 0.0, "Rank_Gold": 1.0, "Rank_Gold Plus": 0.0, "Rank_Platinum": 0.0, "Rank_Platinum Plus": 0.0, "Rank_Silver": 0.0, "Rank_Silver Plus": 0.0, "Rank_Titanium": 0.0, "Rank_Titanium Plus": 0.0, "Unique Condition Index": -0.6263533008387694}, {"DoctorID": "ABEAFF", "spec_1": 0.06720232618214429, "spec_2": -0.06132696626764969, "Segment": 3, "Category": "Specialist", "Rank": "Ambassador", "Region": "1 8 T4", "Complaints": -0.6968607626648889, "Incidence rate": -0.6558813886294377, "R rate": -0.746469577632282, "Satisfaction": 0.009446630566377356, "Experience": -1.1257696580415801, "Purchases": -0.39198269599837243, "Category_Specialist": 1.0, "Rank_Gold": 0.0, "Rank_Gold Plus": 0.0, "Rank_Platinum": 0.0, "Rank_Platinum Plus": 0.0, "Rank_Silver": 0.0, "Rank_Silver Plus": 0.0, "Rank_Titanium": 0.0, "Rank_Titanium Plus": 0.0, "Unique Condition Index": 0.971927535784297}, {"DoctorID": "ABHGCJ", "spec_1": -0.08611172352263859, "spec_2": -0.0662684627987875, "Segment": 1, "Category": "Specialist", "Rank": "Gold", "Region": "2 7 8", "Complaints": 0.6460479987205741, "Incidence rate": -0.6558813886294377, "R rate": -0.23538338019362554, "Satisfaction": 1.6165893314336126, "Experience": -1.1257696580415801, "Purchases": -0.6518995374309849, "Category_Specialist": 1.0, "Rank_Gold": 1.0, "Rank_Gold Plus": 0.0, "Rank_Platinum": 0.0, "Rank_Platinum Plus": 0.0, "Rank_Silver": 0.0, "Rank_Silver Plus": 0.0, "Rank_Titanium": 0.0, "Rank_Titanium Plus": 0.0, "Unique Condition Index": -1.159113579713125}, {"DoctorID": "ABJEAI", "spec_1": 0.00013332518990409102, "spec_2": 0.013042448345014312, "Segment": 2, "Category": "Specialist", "Rank": "Ambassador", "Region": "1 19", "Complaints": 0.6460479987205741, "Incidence rate": 1.609649469869631, "R rate": -0.3735147849067759, "Satisfaction": -2.5621488403480703, "Experience": 0.40842840264123603, "Purchases": -0.2880159594253274, "Category_Specialist": 1.0, "Rank_Gold": 0.0, "Rank_Gold Plus": 0.0, "Rank_Platinum": 0.0, "Rank_Platinum Plus": 0.0, "Rank_Silver": 0.0, "Rank_Silver Plus": 0.0, "Rank_Titanium": 0.0, "Rank_Titanium Plus": 0.0, "Unique Condition Index": -0.09359302196441391}, {"DoctorID": "ACBBCA", "spec_1": 0.07953238645200114, "spec_2": -0.02731785817365322, "Segment": 3, "Category": "Specialist", "Rank": "Ambassador", "Region": "1 9", "Complaints": -0.6968607626648889, "Incidence rate": 0.09929556420358526, "R rate": -0.6221513133904467, "Satisfaction": 1.4818250253936534, "Experience": -0.5120904337684535, "Purchases": 0.12785098686685267, "Category_Specialist": 1.0, "Rank_Gold": 0.0, "Rank_Gold Plus": 0.0, "Rank_Platinum": 0.0, "Rank_Platinum Plus": 0.0, "Rank_Silver": 0.0, "Rank_Silver Plus": 0.0, "Rank_Titanium": 0.0, "Rank_Titanium Plus": 0.0, "Unique Condition Index": 0.971927535784297}, {"DoctorID": "ACBGIB", "spec_1": -0.04417270746298537, "spec_2": -0.04967276836443794, "Segment": 1, "Category": "Specialist", "Rank": "Titanium", "Region": "1 13 T3", "Complaints": -0.6968607626648889, "Incidence rate": 0.6656782788283525, "R rate": -1.1056112298864733, "Satisfaction": -0.5547352568512971, "Experience": -0.7531787004471817, "Purchases": 0.7516514063051227, "Category_Specialist": 1.0, "Rank_Gold": 0.0, "Rank_Gold Plus": 0.0, "Rank_Platinum": 0.0, "Rank_Platinum Plus": 0.0, "Rank_Silver": 0.0, "Rank_Silver Plus": 0.0, "Rank_Titanium": 1.0, "Rank_Titanium Plus": 0.0, "Unique Condition Index": -1.159113579713125}, {"DoctorID": "ACDBJE", "spec_1": 0.09606565552648264, "spec_2": -0.06360911905168361, "Segment": 3, "Category": "Specialist", "Rank": "Ambassador", "Region": "1 8 T4", "Complaints": -0.6968607626648889, "Incidence rate": -0.6558813886294377, "R rate": -0.49783304914861126, "Satisfaction": 1.1987155142554444, "Experience": -1.1257696580415801, "Purchases": 0.023884250293807648, "Category_Specialist": 1.0, "Rank_Gold": 0.0, "Rank_Gold Plus": 0.0, "Rank_Platinum": 0.0, "Rank_Platinum Plus": 0.0, "Rank_Silver": 0.0, "Rank_Silver Plus": 0.0, "Rank_Titanium": 0.0, "Rank_Titanium Plus": 0.0, "Unique Condition Index": 1.5046878146586526}, {"DoctorID": "ADFECC", "spec_1": 0.006063562475604057, "spec_2": 0.09776246460334098, "Segment": 2, "Category": "Specialist", "Rank": "Gold Plus", "Region": "2 7 9", "Complaints": -0.42827901038779637, "Incidence rate": -0.6558813886294377, "R rate": 0.22045025535977097, "Satisfaction": 1.4076524228445286, "Experience": 1.065941857219586, "Purchases": -0.6518995374309849, "Category_Specialist": 1.0, "Rank_Gold": 0.0, "Rank_Gold Plus": 1.0, "Rank_Platinum": 0.0, "Rank_Platinum Plus": 0.0, "Rank_Silver": 0.0, "Rank_Silver Plus": 0.0, "Rank_Titanium": 0.0, "Rank_Titanium Plus": 0.0, "Unique Condition Index": -1.159113579713125}, {"DoctorID": "ADGAIC", "spec_1": -0.08162597268956266, "spec_2": -0.06276454959773972, "Segment": 1, "Category": "Specialist", "Rank": "Titanium", "Region": "1 13 T3", "Complaints": -0.6968607626648889, "Incidence rate": -0.2782929122129262, "R rate": -0.23538338019362554, "Satisfaction": 0.35837126791014795, "Experience": -1.1257696580415801, "Purchases": -0.5999161691444624, "Category_Specialist": 1.0, "Rank_Gold": 0.0, "Rank_Gold Plus": 0.0, "Rank_Platinum": 0.0, "Rank_Platinum Plus": 0.0, "Rank_Silver": 0.0, "Rank_Silver Plus": 0.0, "Rank_Titanium": 1.0, "Rank_Titanium Plus": 0.0, "Unique Condition Index": -1.159113579713125}, {"DoctorID": "ADJHAB", "spec_1": -0.06487175980614536, "spec_2": -0.05954478638078859, "Segment": 1, "Category": "Specialist", "Rank": "Titanium", "Region": "1 12 T3", "Complaints": -0.42827901038779637, "Incidence rate": -0.8446756268376934, "R rate": -0.8293484204601724, "Satisfaction": -0.8990632822061079, "Experience": -1.1257696580415801, "Purchases": -0.44396606428489493, "Category_Specialist": 1.0, "Rank_Gold": 0.0, "Rank_Gold Plus": 0.0, "Rank_Platinum": 0.0, "Rank_Platinum Plus": 0.0, "Rank_Silver": 0.0, "Rank_Silver Plus": 0.0, "Rank_Titanium": 1.0, "Rank_Titanium Plus": 0.0, "Unique Condition Index": -0.6263533008387694}, {"DoctorID": "AEFEAG", "spec_1": 0.030165226668317207, "spec_2": 0.02572905438448483, "Segment": 2, "Category": "Specialist", "Rank": "Platinum Plus", "Region": "1 19 T3", "Complaints": 1.7203750078289444, "Incidence rate": 1.9872379462861427, "R rate": -0.09725197548047498, "Satisfaction": -0.28123684350818595, "Experience": -1.1257696580415801, "Purchases": -0.2880159594253274, "Category_Specialist": 1.0, "Rank_Gold": 0.0, "Rank_Gold Plus": 0.0, "Rank_Platinum": 0.0, "Rank_Platinum Plus": 1.0, "Rank_Silver": 0.0, "Rank_Silver Plus": 0.0, "Rank_Titanium": 0.0, "Rank_Titanium Plus": 0.0, "Unique Condition Index": -1.159113579713125}, {"DoctorID": "AEGFAA", "spec_1": -0.01276359280164176, "spec_2": 0.02246609362115638, "Segment": 2, "Category": "General Practitioner", "Rank": "Platinum", "Region": "1 12", "Complaints": -0.6968607626648889, "Incidence rate": 0.09929556420358526, "R rate": -1.1608637917717333, "Satisfaction": -0.612140672486148, "Experience": 1.065941857219586, "Purchases": -0.49594943257141744, "Category_Specialist": 0.0, "Rank_Gold": 0.0, "Rank_Gold Plus": 0.0, "Rank_Platinum": 1.0, "Rank_Platinum Plus": 0.0, "Rank_Silver": 0.0, "Rank_Silver Plus": 0.0, "Rank_Titanium": 0.0, "Rank_Titanium Plus": 0.0, "Unique Condition Index": -0.09359302196441391}, {"DoctorID": "AFCADC", "spec_1": 0.09299988121456905, "spec_2": -0.06205782442064167, "Segment": 3, "Category": "Specialist", "Rank": "Platinum", "Region": "1 10", "Complaints": -0.42827901038779637, "Incidence rate": 0.09929556420358526, "R rate": -0.23538338019362554, "Satisfaction": -0.3308071250709462, "Experience": -1.1257696580415801, "Purchases": -0.5479328008579399, "Category_Specialist": 1.0, "Rank_Gold": 0.0, "Rank_Gold Plus": 0.0, "Rank_Platinum": 1.0, "Rank_Platinum Plus": 0.0, "Rank_Silver": 0.0, "Rank_Silver Plus": 0.0, "Rank_Titanium": 0.0, "Rank_Titanium Plus": 0.0, "Unique Condition Index": 2.037448093533008}, {"DoctorID": "AFCGAH", "spec_1": 0.0028971818422348747, "spec_2": -0.034981713443859995, "Segment": 3, "Category": "Specialist", "Rank": "Ambassador", "Region": "1 14", "Complaints": -0.6968607626648889, "Incidence rate": 0.09929556420358526, "R rate": -1.064171808472528, "Satisfaction": -1.034558867426129, "Experience": -0.2490850519371136, "Purchases": -0.5479328008579399, "Category_Specialist": 1.0, "Rank_Gold": 0.0, "Rank_Gold Plus": 0.0, "Rank_Platinum": 0.0, "Rank_Platinum Plus": 0.0, "Rank_Silver": 0.0, "Rank_Silver Plus": 0.0, "Rank_Titanium": 0.0, "Rank_Titanium Plus": 0.0, "Unique Condition Index": 0.4391672569099416}, {"DoctorID": "AHAHIB", "spec_1": 0.015411000554641065, "spec_2": 0.08388698066973282, "Segment": 2, "Category": "Specialist", "Rank": "Platinum Plus", "Region": "1 14 T3", "Complaints": -0.6968607626648889, "Incidence rate": 0.8544725170366082, "R rate": 0.10994513158925052, "Satisfaction": 1.6165893314336126, "Experience": 0.8029364753882461, "Purchases": -0.39198269599837243, "Category_Specialist": 1.0, "Rank_Gold": 0.0, "Rank_Gold Plus": 0.0, "Rank_Platinum": 0.0, "Rank_Platinum Plus": 1.0, "Rank_Silver": 0.0, "Rank_Silver Plus": 0.0, "Rank_Titanium": 0.0, "Rank_Titanium Plus": 0.0, "Unique Condition Index": -0.6263533008387694}, {"DoctorID": "AHDDAI", "spec_1": 0.041128786763631554, "spec_2": 0.007272494527105448, "Segment": 3, "Category": "Specialist", "Rank": "Titanium", "Region": "1 10", "Complaints": -0.6968607626648889, "Incidence rate": 1.9872379462861427, "R rate": 0.38620794101555134, "Satisfaction": 0.502328797928027, "Experience": -0.7312615852945702, "Purchases": -0.2360325911388049, "Category_Specialist": 1.0, "Rank_Gold": 0.0, "Rank_Gold Plus": 0.0, "Rank_Platinum": 0.0, "Rank_Platinum Plus": 0.0, "Rank_Silver": 0.0, "Rank_Silver Plus": 0.0, "Rank_Titanium": 1.0, "Rank_Titanium Plus": 0.0, "Unique Condition Index": -0.09359302196441391}, {"DoctorID": "AHIEIG", "spec_1": 0.02981530578591658, "spec_2": 0.0018364359958828339, "Segment": 3, "Category": "Specialist", "Rank": "Ambassador", "Region": "1 12", "Complaints": -0.6968607626648889, "Incidence rate": 2.489430619920103, "R rate": -0.23538338019362554, "Satisfaction": -0.5547352568512971, "Experience": -0.46825620346323027, "Purchases": 1.1155349843107802, "Category_Specialist": 1.0, "Rank_Gold": 0.0, "Rank_Gold Plus": 0.0, "Rank_Platinum": 0.0, "Rank_Platinum Plus": 0.0, "Rank_Silver": 0.0, "Rank_Silver Plus": 0.0, "Rank_Titanium": 0.0, "Rank_Titanium Plus": 0.0, "Unique Condition Index": -0.6263533008387694}, {"DoctorID": "AIABDJ", "spec_1": -0.009729867553619506, "spec_2": -0.010983438791184552, "Segment": 2, "Category": "Specialist", "Rank": "Ambassador", "Region": "1 10", "Complaints": -0.42827901038779637, "Incidence rate": -0.965503939290977, "R rate": -0.5116461896199264, "Satisfaction": -0.22706994995646587, "Experience": 0.5618482087095178, "Purchases": 1.0115682477377352, "Category_Specialist": 1.0, "Rank_Gold": 0.0, "Rank_Gold Plus": 0.0, "Rank_Platinum": 0.0, "Rank_Platinum Plus": 0.0, "Rank_Silver": 0.0, "Rank_Silver Plus": 0.0, "Rank_Titanium": 0.0, "Rank_Titanium Plus": 0.0, "Unique Condition Index": -1.159113579713125}, {"DoctorID": "AIEBFD", "spec_1": 0.015151978588361294, "spec_2": 0.03314762655124685, "Segment": 2, "Category": "Specialist", "Rank": "Titanium", "Region": "1 8 T3", "Complaints": 2.2575385123831295, "Incidence rate": -0.6558813886294377, "R rate": 0.10994513158925052, "Satisfaction": 0.30326415826977693, "Experience": -0.029913900410997056, "Purchases": -0.39198269599837243, "Category_Specialist": 1.0, "Rank_Gold": 0.0, "Rank_Gold Plus": 0.0, "Rank_Platinum": 0.0, "Rank_Platinum Plus": 0.0, "Rank_Silver": 0.0, "Rank_Silver Plus": 0.0, "Rank_Titanium": 1.0, "Rank_Titanium Plus": 0.0, "Unique Condition Index": 0.971927535784297}, {"DoctorID": "AJGICE", "spec_1": 0.004715990684359449, "spec_2": 0.035970290021857955, "Segment": 2, "Category": "Specialist", "Rank": "Ambassador", "Region": "1 19", "Complaints": 1.4517932555518518, "Incidence rate": -0.2782929122129262, "R rate": -0.5807118919765016, "Satisfaction": 0.1241529933817846, "Experience": 1.065941857219586, "Purchases": -0.5999161691444624, "Category_Specialist": 1.0, "Rank_Gold": 0.0, "Rank_Gold Plus": 0.0, "Rank_Platinum": 0.0, "Rank_Platinum Plus": 0.0, "Rank_Silver": 0.0, "Rank_Silver Plus": 0.0, "Rank_Titanium": 0.0, "Rank_Titanium Plus": 0.0, "Unique Condition Index": -0.6263533008387694}, {"DoctorID": "BABEFH", "spec_1": 0.02611771677703123, "spec_2": 0.03846716539137451, "Segment": 2, "Category": "Specialist", "Rank": "Platinum", "Region": "1 13", "Complaints": 2.7947020169373147, "Incidence rate": 0.47688404062009676, "R rate": 0.16519769347451074, "Satisfaction": 0.30326415826977693, "Experience": 0.12350590565728446, "Purchases": -0.44396606428489493, "Category_Specialist": 1.0, "Rank_Gold": 0.0, "Rank_Gold Plus": 0.0, "Rank_Platinum": 1.0, "Rank_Platinum Plus": 0.0, "Rank_Silver": 0.0, "Rank_Silver Plus": 0.0, "Rank_Titanium": 0.0, "Rank_Titanium Plus": 0.0, "Unique Condition Index": 0.4391672569099416}, {"DoctorID": "BABGJG", "spec_1": 0.04078810553456801, "spec_2": -0.016908420389356447, "Segment": 3, "Category": "Specialist", "Rank": "Ambassador", "Region": "1 8", "Complaints": 1.7203750078289444, "Incidence rate": 0.6845577026491779, "R rate": -0.16631767783705026, "Satisfaction": 1.6165893314336126, "Experience": 0.6933508996251876, "Purchases": 3.5067699254908153, "Category_Specialist": 1.0, "Rank_Gold": 0.0, "Rank_Gold Plus": 0.0, "Rank_Platinum": 0.0, "Rank_Platinum Plus": 0.0, "Rank_Silver": 0.0, "Rank_Silver Plus": 0.0, "Rank_Titanium": 0.0, "Rank_Titanium Plus": 0.0, "Unique Condition Index": 0.971927535784297}, {"DoctorID": "BBAJCF", "spec_1": -0.0585472350680036, "spec_2": -0.002008678136788912, "Segment": 1, "Category": "Specialist", "Rank": "Ambassador", "Region": "1 9 T4", "Complaints": -0.6968607626648889, "Incidence rate": -0.9692798240551422, "R rate": 0.7039101718557973, "Satisfaction": 0.7146086970545363, "Experience": -0.8846813913628518, "Purchases": 0.17983435515337517, "Category_Specialist": 1.0, "Rank_Gold": 0.0, "Rank_Gold Plus": 0.0, "Rank_Platinum": 0.0, "Rank_Platinum Plus": 0.0, "Rank_Silver": 0.0, "Rank_Silver Plus": 0.0, "Rank_Titanium": 0.0, "Rank_Titanium Plus": 0.0, "Unique Condition Index": -0.6263533008387694}, {"DoctorID": "BBCHEH", "spec_1": -0.03857961911043258, "spec_2": 0.02371827471785605, "Segment": 2, "Category": "General Practitioner", "Rank": "Platinum Plus", "Region": "1 9", "Complaints": -0.15969725811070376, "Incidence rate": 0.09929556420358526, "R rate": 1.42219347636418, "Satisfaction": -2.03980656887536, "Experience": -0.2490850519371136, "Purchases": -0.5479328008579399, "Category_Specialist": 0.0, "Rank_Gold": 0.0, "Rank_Gold Plus": 0.0, "Rank_Platinum": 0.0, "Rank_Platinum Plus": 1.0, "Rank_Silver": 0.0, "Rank_Silver Plus": 0.0, "Rank_Titanium": 0.0, "Rank_Titanium Plus": 0.0, "Unique Condition Index": -0.09359302196441391}, {"DoctorID": "BCFJAB", "spec_1": -0.028688081018976627, "spec_2": 0.008407651545741378, "Segment": 2, "Category": "Specialist", "Rank": "Platinum", "Region": "1 13", "Complaints": -0.15969725811070376, "Incidence rate": -0.2782929122129262, "R rate": 0.31714223865897606, "Satisfaction": -0.8906535716353972, "Experience": -0.2490850519371136, "Purchases": -0.5479328008579399, "Category_Specialist": 1.0, "Rank_Gold": 0.0, "Rank_Gold Plus": 0.0, "Rank_Platinum": 1.0, "Rank_Platinum Plus": 0.0, "Rank_Silver": 0.0, "Rank_Silver Plus": 0.0, "Rank_Titanium": 0.0, "Rank_Titanium Plus": 0.0, "Unique Condition Index": -0.09359302196441391}, {"DoctorID": "BCGFDD", "spec_1": -0.02382272500939319, "spec_2": -0.04731756436044818, "Segment": 1, "Category": "Specialist", "Rank": "Platinum Plus", "Region": "1 8 T3", "Complaints": -0.6968607626648889, "Incidence rate": 0.09929556420358526, "R rate": -1.340434617898829, "Satisfaction": -1.034558867426129, "Experience": -0.6874273549893468, "Purchases": -0.5479328008579399, "Category_Specialist": 1.0, "Rank_Gold": 0.0, "Rank_Gold Plus": 0.0, "Rank_Platinum": 0.0, "Rank_Platinum Plus": 1.0, "Rank_Silver": 0.0, "Rank_Silver Plus": 0.0, "Rank_Titanium": 0.0, "Rank_Titanium Plus": 0.0, "Unique Condition Index": -0.09359302196441391}, {"DoctorID": "BDGHAH", "spec_1": -0.048732461279574556, "spec_2": -0.0806175512777686, "Segment": 1, "Category": "General Practitioner", "Rank": "Silver Plus", "Region": "2 6 12", "Complaints": -0.6968607626648889, "Incidence rate": -0.6558813886294377, "R rate": -1.6166974273251298, "Satisfaction": 0.35837126791014795, "Experience": -0.40250485800539526, "Purchases": -0.6518995374309849, "Category_Specialist": 0.0, "Rank_Gold": 0.0, "Rank_Gold Plus": 0.0, "Rank_Platinum": 0.0, "Rank_Platinum Plus": 0.0, "Rank_Silver": 0.0, "Rank_Silver Plus": 1.0, "Rank_Titanium": 0.0, "Rank_Titanium Plus": 0.0, "Unique Condition Index": -0.09359302196441391}, {"DoctorID": "BJBFJC", "spec_1": -0.006102177567346145, "spec_2": 0.07544059887038622, "Segment": 2, "Category": "Specialist", "Rank": "Platinum Plus", "Region": "1 9 T3", "Complaints": -0.6968607626648889, "Incidence rate": -0.8446756268376934, "R rate": -0.04199941359521507, "Satisfaction": 0.8792509810227346, "Experience": 0.4303455177938477, "Purchases": -0.44396606428489493, "Category_Specialist": 1.0, "Rank_Gold": 0.0, "Rank_Gold Plus": 0.0, "Rank_Platinum": 0.0, "Rank_Platinum Plus": 1.0, "Rank_Silver": 0.0, "Rank_Silver Plus": 0.0, "Rank_Titanium": 0.0, "Rank_Titanium Plus": 0.0, "Unique Condition Index": -0.6263533008387694}, {"DoctorID": "BJDEGI", "spec_1": -0.017427615239764674, "spec_2": 0.08439915209292342, "Segment": 2, "Category": "Specialist", "Rank": "Gold Plus", "Region": "2 7 19", "Complaints": 1.1832115032747592, "Incidence rate": -0.2782929122129262, "R rate": 2.527244714069383, "Satisfaction": 1.2316230773582253, "Experience": -0.2490850519371136, "Purchases": -0.5479328008579399, "Category_Specialist": 1.0, "Rank_Gold": 0.0, "Rank_Gold Plus": 1.0, "Rank_Platinum": 0.0, "Rank_Platinum Plus": 0.0, "Rank_Silver": 0.0, "Rank_Silver Plus": 0.0, "Rank_Titanium": 0.0, "Rank_Titanium Plus": 0.0, "Unique Condition Index": -1.159113579713125}, {"DoctorID": "BJDFFJ", "spec_1": -0.09117279004209321, "spec_2": -0.08812934615531984, "Segment": 1, "Category": "General Practitioner", "Rank": "Gold", "Region": "2 11", "Complaints": -0.6968607626648889, "Incidence rate": -0.6558813886294377, "R rate": -1.2713689155422536, "Satisfaction": 1.6165893314336126, "Experience": -1.1257696580415801, "Purchases": -0.5999161691444624, "Category_Specialist": 0.0, "Rank_Gold": 1.0, "Rank_Gold Plus": 0.0, "Rank_Platinum": 0.0, "Rank_Platinum Plus": 0.0, "Rank_Silver": 0.0, "Rank_Silver Plus": 0.0, "Rank_Titanium": 0.0, "Rank_Titanium Plus": 0.0, "Unique Condition Index": -1.159113579713125}, {"DoctorID": "BJEACG", "spec_1": -0.08863715677576205, "spec_2": -0.08139295744327346, "Segment": 1, "Category": "General Practitioner", "Rank": "Platinum", "Region": "1 11", "Complaints": -0.6968607626648889, "Incidence rate": -0.6558813886294377, "R rate": -0.5807118919765016, "Satisfaction": 0.35837126791014795, "Experience": -0.5778417792262885, "Purchases": -0.5999161691444624, "Category_Specialist": 0.0, "Rank_Gold": 0.0, "Rank_Gold Plus": 0.0, "Rank_Platinum": 1.0, "Rank_Platinum Plus": 0.0, "Rank_Silver": 0.0, "Rank_Silver Plus": 0.0, "Rank_Titanium": 0.0, "Rank_Titanium Plus": 0.0, "Unique Condition Index": -1.159113579713125}, {"DoctorID": "EHEGI", "spec_1": -0.02944586370193093, "spec_2": 0.003594865912925871, "Segment": 2, "Category": "Specialist", "Rank": "Platinum", "Region": "1 8", "Complaints": -0.42827901038779637, "Incidence rate": -0.6558813886294377, "R rate": 0.4552736433721266, "Satisfaction": -1.1371991237705164, "Experience": -0.5778417792262885, "Purchases": -0.5999161691444624, "Category_Specialist": 1.0, "Rank_Gold": 0.0, "Rank_Gold Plus": 0.0, "Rank_Platinum": 1.0, "Rank_Platinum Plus": 0.0, "Rank_Silver": 0.0, "Rank_Silver Plus": 0.0, "Rank_Titanium": 0.0, "Rank_Titanium Plus": 0.0, "Unique Condition Index": 0.4391672569099416}, {"DoctorID": "EHHGF", "spec_1": -0.04431024633582163, "spec_2": 0.01328544337092407, "Segment": 2, "Category": "Specialist", "Rank": "Titanium", "Region": "1 12 T3", "Complaints": -0.6968607626648889, "Incidence rate": -0.8446756268376934, "R rate": 0.9525467003394683, "Satisfaction": -2.5621488403480703, "Experience": 0.12350590565728446, "Purchases": -0.44396606428489493, "Category_Specialist": 1.0, "Rank_Gold": 0.0, "Rank_Gold Plus": 0.0, "Rank_Platinum": 0.0, "Rank_Platinum Plus": 0.0, "Rank_Silver": 0.0, "Rank_Silver Plus": 0.0, "Rank_Titanium": 1.0, "Rank_Titanium Plus": 0.0, "Unique Condition Index": 0.4391672569099416}, {"DoctorID": "EIFEJ", "spec_1": -0.06330334883388108, "spec_2": -0.051020822791712925, "Segment": 1, "Category": "Specialist", "Rank": "Ambassador", "Region": "1 9 T4", "Complaints": -0.15969725811070376, "Incidence rate": -0.7087437753277493, "R rate": -0.49783304914861126, "Satisfaction": -0.09977513839856637, "Experience": -1.1257696580415801, "Purchases": 0.5957013014455552, "Category_Specialist": 1.0, "Rank_Gold": 0.0, "Rank_Gold Plus": 0.0, "Rank_Platinum": 0.0, "Rank_Platinum Plus": 0.0, "Rank_Silver": 0.0, "Rank_Silver Plus": 0.0, "Rank_Titanium": 0.0, "Rank_Titanium Plus": 0.0, "Unique Condition Index": -1.159113579713125}, {"DoctorID": "EIFHE", "spec_1": 0.0075734661547436025, "spec_2": 0.05094056501763237, "Segment": 2, "Category": "Specialist", "Rank": "Ambassador", "Region": "1 21 T3", "Complaints": -0.42827901038779637, "Incidence rate": 0.8544725170366082, "R rate": 0.4552736433721266, "Satisfaction": 0.3411862071786957, "Experience": 0.25500859657295455, "Purchases": -0.39198269599837243, "Category_Specialist": 1.0, "Rank_Gold": 0.0, "Rank_Gold Plus": 0.0, "Rank_Platinum": 0.0, "Rank_Platinum Plus": 0.0, "Rank_Silver": 0.0, "Rank_Silver Plus": 0.0, "Rank_Titanium": 0.0, "Rank_Titanium Plus": 0.0, "Unique Condition Index": -0.6263533008387694}, {"DoctorID": "FAGBJ", "spec_1": -0.001590868371280542, "spec_2": 0.018455510300986938, "Segment": 2, "Category": "Specialist", "Rank": "Ambassador", "Region": "3 16", "Complaints": 0.6460479987205741, "Incidence rate": -0.40289710943037504, "R rate": -1.326621477427514, "Satisfaction": -0.18596161319156354, "Experience": 1.2193616632878677, "Purchases": -0.08008248627923736, "Category_Specialist": 1.0, "Rank_Gold": 0.0, "Rank_Gold Plus": 0.0, "Rank_Platinum": 0.0, "Rank_Platinum Plus": 0.0, "Rank_Silver": 0.0, "Rank_Silver Plus": 0.0, "Rank_Titanium": 0.0, "Rank_Titanium Plus": 0.0, "Unique Condition Index": -0.6263533008387694}, {"DoctorID": "FAGIE", "spec_1": 0.08697644128835895, "spec_2": -0.046364478473896985, "Segment": 3, "Category": "Specialist", "Rank": "Ambassador", "Region": "1 10", "Complaints": 0.10888449416638886, "Incidence rate": -0.2782929122129262, "R rate": -0.9260404037593777, "Satisfaction": 0.1701191132713831, "Experience": 0.5180139784042944, "Purchases": -0.5999161691444624, "Category_Specialist": 1.0, "Rank_Gold": 0.0, "Rank_Gold Plus": 0.0, "Rank_Platinum": 0.0, "Rank_Platinum Plus": 0.0, "Rank_Silver": 0.0, "Rank_Silver Plus": 0.0, "Rank_Titanium": 0.0, "Rank_Titanium Plus": 0.0, "Unique Condition Index": 2.037448093533008}, {"DoctorID": "FAHDI", "spec_1": 0.0629944242744802, "spec_2": -0.030615202139236634, "Segment": 3, "Category": "Specialist", "Rank": "Ambassador", "Region": "1 14", "Complaints": -0.42827901038779637, "Incidence rate": -0.825796203016868, "R rate": -0.4425804872633512, "Satisfaction": -0.47277975445722886, "Experience": 0.671433784472576, "Purchases": 1.2195017208838252, "Category_Specialist": 1.0, "Rank_Gold": 0.0, "Rank_Gold Plus": 0.0, "Rank_Platinum": 0.0, "Rank_Platinum Plus": 0.0, "Rank_Silver": 0.0, "Rank_Silver Plus": 0.0, "Rank_Titanium": 0.0, "Rank_Titanium Plus": 0.0, "Unique Condition Index": 1.5046878146586526}, {"DoctorID": "FAICB", "spec_1": 0.01780391791732044, "spec_2": 0.006084670383752339, "Segment": 2, "Category": "Specialist", "Rank": "Ambassador", "Region": "1 19", "Complaints": 0.6460479987205741, "Incidence rate": -0.08949867400467047, "R rate": -0.27682280160757067, "Satisfaction": -0.5547352568512971, "Experience": 0.5399310935569062, "Purchases": 0.9076015111646902, "Category_Specialist": 1.0, "Rank_Gold": 0.0, "Rank_Gold Plus": 0.0, "Rank_Platinum": 0.0, "Rank_Platinum Plus": 0.0, "Rank_Silver": 0.0, "Rank_Silver Plus": 0.0, "Rank_Titanium": 0.0, "Rank_Titanium Plus": 0.0, "Unique Condition Index": 0.4391672569099416}, {"DoctorID": "FBFHB", "spec_1": -0.03942241136520899, "spec_2": 0.06600513513880281, "Segment": 2, "Category": "Specialist", "Rank": "Gold Plus", "Region": "2 7 14", "Complaints": -0.42827901038779637, "Incidence rate": -0.6558813886294377, "R rate": 4.253887272983763, "Satisfaction": -0.9808620819187341, "Experience": 2.161797614850169, "Purchases": -0.5999161691444624, "Category_Specialist": 1.0, "Rank_Gold": 0.0, "Rank_Gold Plus": 1.0, "Rank_Platinum": 0.0, "Rank_Platinum Plus": 0.0, "Rank_Silver": 0.0, "Rank_Silver Plus": 0.0, "Rank_Titanium": 0.0, "Rank_Titanium Plus": 0.0, "Unique Condition Index": 0.971927535784297}, {"DoctorID": "FBHHI", "spec_1": 0.007933457770785192, "spec_2": 0.06615624598975386, "Segment": 2, "Category": "Specialist", "Rank": "Platinum", "Region": "1 10 T3", "Complaints": 2.2575385123831295, "Incidence rate": -0.7804855858468865, "R rate": 1.3945671954215497, "Satisfaction": 0.9897786056663602, "Experience": 0.27692571172556624, "Purchases": -0.2360325911388049, "Category_Specialist": 1.0, "Rank_Gold": 0.0, "Rank_Gold Plus": 0.0, "Rank_Platinum": 1.0, "Rank_Platinum Plus": 0.0, "Rank_Silver": 0.0, "Rank_Silver Plus": 0.0, "Rank_Titanium": 0.0, "Rank_Titanium Plus": 0.0, "Unique Condition Index": -1.159113579713125}, {"DoctorID": "FBIII", "spec_1": 0.10275941992233435, "spec_2": -0.05862647786047996, "Segment": 3, "Category": "Specialist", "Rank": "Ambassador", "Region": "1 8 T4", "Complaints": -0.42827901038779637, "Incidence rate": 0.6656782788283525, "R rate": -0.6083381729191317, "Satisfaction": 1.6165893314336126, "Experience": -1.1257696580415801, "Purchases": -0.028099117992714858, "Category_Specialist": 1.0, "Rank_Gold": 0.0, "Rank_Gold Plus": 0.0, "Rank_Platinum": 0.0, "Rank_Platinum Plus": 0.0, "Rank_Silver": 0.0, "Rank_Silver Plus": 0.0, "Rank_Titanium": 0.0, "Rank_Titanium Plus": 0.0, "Unique Condition Index": 1.5046878146586526}, {"DoctorID": "FBJIB", "spec_1": -0.0005717877223775426, "spec_2": 0.027415373967007165, "Segment": 2, "Category": "Specialist", "Rank": "Platinum Plus", "Region": "1 14", "Complaints": 0.6460479987205741, "Incidence rate": -0.40289710943037504, "R rate": -0.04199941359521507, "Satisfaction": -1.1691664707846463, "Experience": 0.9125220511513045, "Purchases": -0.08008248627923736, "Category_Specialist": 1.0, "Rank_Gold": 0.0, "Rank_Gold Plus": 0.0, "Rank_Platinum": 0.0, "Rank_Platinum Plus": 1.0, "Rank_Silver": 0.0, "Rank_Silver Plus": 0.0, "Rank_Titanium": 0.0, "Rank_Titanium Plus": 0.0, "Unique Condition Index": -1.159113579713125}, {"DoctorID": "FCBDC", "spec_1": 0.030351095072984315, "spec_2": -0.0008127010342047071, "Segment": 3, "Category": "Specialist", "Rank": "Silver Plus", "Region": "2 7 19", "Complaints": -0.6968607626648889, "Incidence rate": 3.4975918519521887, "R rate": -1.5200054440259243, "Satisfaction": -0.033124264558648496, "Experience": -0.9723498519732984, "Purchases": -0.08008248627923736, "Category_Specialist": 1.0, "Rank_Gold": 0.0, "Rank_Gold Plus": 0.0, "Rank_Platinum": 0.0, "Rank_Platinum Plus": 0.0, "Rank_Silver": 0.0, "Rank_Silver Plus": 1.0, "Rank_Titanium": 0.0, "Rank_Titanium Plus": 0.0, "Unique Condition Index": -1.159113579713125}, {"DoctorID": "FCDBG", "spec_1": 0.03120117328139225, "spec_2": 0.052998659682795574, "Segment": 2, "Category": "Specialist", "Rank": "Ambassador", "Region": "1 12", "Complaints": -0.6968607626648889, "Incidence rate": -0.9088656678285003, "R rate": -0.16631767783705026, "Satisfaction": 1.347060719353694, "Experience": 1.065941857219586, "Purchases": 0.23181772343989768, "Category_Specialist": 1.0, "Rank_Gold": 0.0, "Rank_Gold Plus": 0.0, "Rank_Platinum": 0.0, "Rank_Platinum Plus": 0.0, "Rank_Silver": 0.0, "Rank_Silver Plus": 0.0, "Rank_Titanium": 0.0, "Rank_Titanium Plus": 0.0, "Unique Condition Index": 0.4391672569099416}, {"DoctorID": "FCEDH", "spec_1": -0.0013191741979458266, "spec_2": 0.015155019033511423, "Segment": 2, "Category": "Specialist", "Rank": "Titanium", "Region": "1 13", "Complaints": 0.3774662464434815, "Incidence rate": -0.6558813886294377, "R rate": -0.6635907348043919, "Satisfaction": 0.2596485786018057, "Experience": 0.25500859657295455, "Purchases": 0.023884250293807648, "Category_Specialist": 1.0, "Rank_Gold": 0.0, "Rank_Gold Plus": 0.0, "Rank_Platinum": 0.0, "Rank_Platinum Plus": 0.0, "Rank_Silver": 0.0, "Rank_Silver Plus": 0.0, "Rank_Titanium": 1.0, "Rank_Titanium Plus": 0.0, "Unique Condition Index": -0.09359302196441391}, {"DoctorID": "FCIJH", "spec_1": 0.008163794174793914, "spec_2": 0.09181583193156811, "Segment": 2, "Category": "Specialist", "Rank": "Platinum", "Region": "1 14", "Complaints": 1.1832115032747592, "Incidence rate": 0.09929556420358526, "R rate": 0.5934050480852772, "Satisfaction": 1.6165893314336126, "Experience": 1.9426264633240522, "Purchases": -0.5479328008579399, "Category_Specialist": 1.0, "Rank_Gold": 0.0, "Rank_Gold Plus": 0.0, "Rank_Platinum": 1.0, "Rank_Platinum Plus": 0.0, "Rank_Silver": 0.0, "Rank_Silver Plus": 0.0, "Rank_Titanium": 0.0, "Rank_Titanium Plus": 0.0, "Unique Condition Index": -0.6263533008387694}, {"DoctorID": "FDDIH", "spec_1": 0.02870656551443832, "spec_2": 0.02007843555224197, "Segment": 2, "Category": "Specialist", "Rank": "Titanium", "Region": "1 14 T3", "Complaints": 1.1832115032747592, "Incidence rate": 1.2320609934531197, "R rate": -0.08343883500915993, "Satisfaction": 0.18704300286709888, "Experience": 0.34267705718340125, "Purchases": 0.12785098686685267, "Category_Specialist": 1.0, "Rank_Gold": 0.0, "Rank_Gold Plus": 0.0, "Rank_Platinum": 0.0, "Rank_Platinum Plus": 0.0, "Rank_Silver": 0.0, "Rank_Silver Plus": 0.0, "Rank_Titanium": 1.0, "Rank_Titanium Plus": 0.0, "Unique Condition Index": 0.4391672569099416}, {"DoctorID": "FDFAC", "spec_1": 0.00201312895726817, "spec_2": 0.016710960352172864, "Segment": 2, "Category": "Specialist", "Rank": "Ambassador", "Region": "1 13", "Complaints": -0.42827901038779637, "Incidence rate": 0.09929556420358526, "R rate": -0.5807118919765016, "Satisfaction": -0.47277975445722886, "Experience": 0.8906049359986927, "Purchases": -0.18404922285228237, "Category_Specialist": 1.0, "Rank_Gold": 0.0, "Rank_Gold Plus": 0.0, "Rank_Platinum": 0.0, "Rank_Platinum Plus": 0.0, "Rank_Silver": 0.0, "Rank_Silver Plus": 0.0, "Rank_Titanium": 0.0, "Rank_Titanium Plus": 0.0, "Unique Condition Index": -0.09359302196441391}, {"DoctorID": "FDHAJ", "spec_1": -0.03164743616559026, "spec_2": 0.030205374168571025, "Segment": 2, "Category": "Specialist", "Rank": "Platinum", "Region": "1 13", "Complaints": -0.15969725811070376, "Incidence rate": -0.46708715042118193, "R rate": 0.5381524862000169, "Satisfaction": -0.7184895589579917, "Experience": 0.34267705718340125, "Purchases": -0.33999932771184993, "Category_Specialist": 1.0, "Rank_Gold": 0.0, "Rank_Gold Plus": 0.0, "Rank_Platinum": 1.0, "Rank_Platinum Plus": 0.0, "Rank_Silver": 0.0, "Rank_Silver Plus": 0.0, "Rank_Titanium": 0.0, "Rank_Titanium Plus": 0.0, "Unique Condition Index": 0.4391672569099416}, {"DoctorID": "FDHDI", "spec_1": 0.08960564871657621, "spec_2": -0.05915597847546874, "Segment": 3, "Category": "Specialist", "Rank": "Ambassador", "Region": "1 12", "Complaints": -0.6968607626648889, "Incidence rate": -0.8220203182527027, "R rate": -0.6221513133904467, "Satisfaction": -0.3499248522068474, "Experience": -0.7750958155997935, "Purchases": 0.8556181428781677, "Category_Specialist": 1.0, "Rank_Gold": 0.0, "Rank_Gold Plus": 0.0, "Rank_Platinum": 0.0, "Rank_Platinum Plus": 0.0, "Rank_Silver": 0.0, "Rank_Silver Plus": 0.0, "Rank_Titanium": 0.0, "Rank_Titanium Plus": 0.0, "Unique Condition Index": 1.5046878146586526}, {"DoctorID": "FDHGC", "spec_1": 0.07050749557235224, "spec_2": -0.00981589069042328, "Segment": 3, "Category": "Specialist", "Rank": "Titanium", "Region": "1 14", "Complaints": 1.4517932555518518, "Incidence rate": 2.7424148991191655, "R rate": -0.4425804872633512, "Satisfaction": -0.11194571332388051, "Experience": 0.23309148142034286, "Purchases": -0.13206585456575987, "Category_Specialist": 1.0, "Rank_Gold": 0.0, "Rank_Gold Plus": 0.0, "Rank_Platinum": 0.0, "Rank_Platinum Plus": 0.0, "Rank_Silver": 0.0, "Rank_Silver Plus": 0.0, "Rank_Titanium": 1.0, "Rank_Titanium Plus": 0.0, "Unique Condition Index": 2.5702083724073637}, {"DoctorID": "FJAJH", "spec_1": 0.07288710422452893, "spec_2": -0.04391494139836411, "Segment": 3, "Category": "Specialist", "Rank": "Ambassador", "Region": "1 14", "Complaints": -0.42827901038779637, "Incidence rate": -0.5312771914119888, "R rate": 0.4552736433721266, "Satisfaction": -0.24900832535831968, "Experience": 0.25500859657295455, "Purchases": 1.895285508608618, "Category_Specialist": 1.0, "Rank_Gold": 0.0, "Rank_Gold Plus": 0.0, "Rank_Platinum": 0.0, "Rank_Platinum Plus": 0.0, "Rank_Silver": 0.0, "Rank_Silver Plus": 0.0, "Rank_Titanium": 0.0, "Rank_Titanium Plus": 0.0, "Unique Condition Index": 2.037448093533008}, {"DoctorID": "FJBGJ", "spec_1": -0.017031153626139897, "spec_2": 0.0376520528527784, "Segment": 2, "Category": "Specialist", "Rank": "Platinum", "Region": "1 19", "Complaints": -0.6968607626648889, "Incidence rate": -0.2782929122129262, "R rate": 0.4552736433721266, "Satisfaction": -0.5956346567076103, "Experience": 1.6138697360348775, "Purchases": -0.5999161691444624, "Category_Specialist": 1.0, "Rank_Gold": 0.0, "Rank_Gold Plus": 0.0, "Rank_Platinum": 1.0, "Rank_Platinum Plus": 0.0, "Rank_Silver": 0.0, "Rank_Silver Plus": 0.0, "Rank_Titanium": 0.0, "Rank_Titanium Plus": 0.0, "Unique Condition Index": -0.6263533008387694}, {"DoctorID": "GDADF", "spec_1": -0.00893596538220242, "spec_2": -0.004679579199290893, "Segment": 2, "Category": "Specialist", "Rank": "Ambassador", "Region": "1 14", "Complaints": 0.6460479987205741, "Incidence rate": -0.7729338163185563, "R rate": 0.2480765363024011, "Satisfaction": 0.9202026151061953, "Experience": 0.6056824390147412, "Purchases": 1.687352035462528, "Category_Specialist": 1.0, "Rank_Gold": 0.0, "Rank_Gold Plus": 0.0, "Rank_Platinum": 0.0, "Rank_Platinum Plus": 0.0, "Rank_Silver": 0.0, "Rank_Silver Plus": 0.0, "Rank_Titanium": 0.0, "Rank_Titanium Plus": 0.0, "Unique Condition Index": -1.159113579713125}, {"DoctorID": "GDFHE", "spec_1": -0.03998084319238633, "spec_2": 0.011799473356583734, "Segment": 2, "Category": "Specialist", "Rank": "Platinum Plus", "Region": "1 12", "Complaints": -0.6968607626648889, "Incidence rate": -0.8446756268376934, "R rate": 0.551965626671332, "Satisfaction": -1.0227016978636982, "Experience": -0.49017331861584196, "Purchases": -0.44396606428489493, "Category_Specialist": 1.0, "Rank_Gold": 0.0, "Rank_Gold Plus": 0.0, "Rank_Platinum": 0.0, "Rank_Platinum Plus": 1.0, "Rank_Silver": 0.0, "Rank_Silver Plus": 0.0, "Rank_Titanium": 0.0, "Rank_Titanium Plus": 0.0, "Unique Condition Index": 0.4391672569099416}, {"DoctorID": "GDGHI", "spec_1": -0.027500217266884643, "spec_2": -0.011999836470661239, "Segment": 1, "Category": "Specialist", "Rank": "Ambassador", "Region": "1 12", "Complaints": 0.9146297509976666, "Incidence rate": -0.5312771914119888, "R rate": -1.0917980894151582, "Satisfaction": 0.0037530998073247953, "Experience": -0.7970129307524051, "Purchases": 0.5437179331590327, "Category_Specialist": 1.0, "Rank_Gold": 0.0, "Rank_Gold Plus": 0.0, "Rank_Platinum": 0.0, "Rank_Platinum Plus": 0.0, "Rank_Silver": 0.0, "Rank_Silver Plus": 0.0, "Rank_Titanium": 0.0, "Rank_Titanium Plus": 0.0, "Unique Condition Index": -0.6263533008387694}, {"DoctorID": "GGCCD", "spec_1": -0.06321528769241885, "spec_2": -0.07189936749168573, "Segment": 1, "Category": "Specialist", "Rank": "Silver Plus", "Region": "2 7 9", "Complaints": -0.6968607626648889, "Incidence rate": -0.6558813886294377, "R rate": -1.1608637917717333, "Satisfaction": -0.9951220259299393, "Experience": -1.1257696580415801, "Purchases": -0.6518995374309849, "Category_Specialist": 1.0, "Rank_Gold": 0.0, "Rank_Gold Plus": 0.0, "Rank_Platinum": 0.0, "Rank_Platinum Plus": 0.0, "Rank_Silver": 0.0, "Rank_Silver Plus": 1.0, "Rank_Titanium": 0.0, "Rank_Titanium Plus": 0.0, "Unique Condition Index": -1.159113579713125}, {"DoctorID": "GHDFB", "spec_1": 0.08104168430604738, "spec_2": -0.04314243038088419, "Segment": 3, "Category": "Specialist", "Rank": "Silver Plus", "Region": "1 13", "Complaints": -0.6968607626648889, "Incidence rate": 1.609649469869631, "R rate": -0.08343883500915993, "Satisfaction": -1.1326025117815566, "Experience": -0.8846813913628518, "Purchases": -0.33999932771184993, "Category_Specialist": 1.0, "Rank_Gold": 0.0, "Rank_Gold Plus": 0.0, "Rank_Platinum": 0.0, "Rank_Platinum Plus": 0.0, "Rank_Silver": 0.0, "Rank_Silver Plus": 1.0, "Rank_Titanium": 0.0, "Rank_Titanium Plus": 0.0, "Unique Condition Index": 2.037448093533008}, {"DoctorID": "GIHBE", "spec_1": -0.04917407662930055, "spec_2": 0.03825114211349117, "Segment": 2, "Category": "Specialist", "Rank": "Titanium", "Region": "1 8 T3", "Complaints": -0.6968607626648889, "Incidence rate": -0.7804855858468865, "R rate": 2.527244714069383, "Satisfaction": -0.24744129854390157, "Experience": -1.1257696580415801, "Purchases": -0.2360325911388049, "Category_Specialist": 1.0, "Rank_Gold": 0.0, "Rank_Gold Plus": 0.0, "Rank_Platinum": 0.0, "Rank_Platinum Plus": 0.0, "Rank_Silver": 0.0, "Rank_Silver Plus": 0.0, "Rank_Titanium": 1.0, "Rank_Titanium Plus": 0.0, "Unique Condition Index": 0.4391672569099416}, {"DoctorID": "HBAHA", "spec_1": -0.002141281705579052, "spec_2": 0.09537211529981822, "Segment": 2, "Category": "Specialist", "Rank": "Platinum Plus", "Region": "1 10 T3", "Complaints": 0.10888449416638886, "Incidence rate": 0.09929556420358526, "R rate": 1.42219347636418, "Satisfaction": 1.5691606531838906, "Experience": 0.6275995541673528, "Purchases": -0.5479328008579399, "Category_Specialist": 1.0, "Rank_Gold": 0.0, "Rank_Gold Plus": 0.0, "Rank_Platinum": 0.0, "Rank_Platinum Plus": 1.0, "Rank_Silver": 0.0, "Rank_Silver Plus": 0.0, "Rank_Titanium": 0.0, "Rank_Titanium Plus": 0.0, "Unique Condition Index": -0.09359302196441391}, {"DoctorID": "HBDID", "spec_1": -0.047413303063674556, "spec_2": -0.026236896775710842, "Segment": 1, "Category": "Specialist", "Rank": "Ambassador", "Region": "1 19 T4", "Complaints": -0.42827901038779637, "Incidence rate": -0.7804855858468865, "R rate": 0.13757141253188065, "Satisfaction": -1.1691664707846463, "Experience": -1.0161840822785217, "Purchases": 0.3357844600129427, "Category_Specialist": 1.0, "Rank_Gold": 0.0, "Rank_Gold Plus": 0.0, "Rank_Platinum": 0.0, "Rank_Platinum Plus": 0.0, "Rank_Silver": 0.0, "Rank_Silver Plus": 0.0, "Rank_Titanium": 0.0, "Rank_Titanium Plus": 0.0, "Unique Condition Index": -0.6263533008387694}, {"DoctorID": "HBIEA", "spec_1": 0.008177140867570477, "spec_2": -0.03639867922921936, "Segment": 3, "Category": "Specialist", "Rank": "Silver Plus", "Region": "2 7 19", "Complaints": -0.15969725811070376, "Incidence rate": -0.6558813886294377, "R rate": -0.23538338019362554, "Satisfaction": 0.022870826943226053, "Experience": -0.40250485800539526, "Purchases": -0.6518995374309849, "Category_Specialist": 1.0, "Rank_Gold": 0.0, "Rank_Gold Plus": 0.0, "Rank_Platinum": 0.0, "Rank_Platinum Plus": 0.0, "Rank_Silver": 0.0, "Rank_Silver Plus": 1.0, "Rank_Titanium": 0.0, "Rank_Titanium Plus": 0.0, "Unique Condition Index": 0.4391672569099416}, {"DoctorID": "HCBFF", "spec_1": 0.017093122450608424, "spec_2": 0.02433654014151466, "Segment": 2, "Category": "Specialist", "Rank": "Platinum Plus", "Region": "1 8", "Complaints": 0.9146297509976666, "Incidence rate": 1.2320609934531197, "R rate": 0.10994513158925052, "Satisfaction": -0.35405135615148176, "Experience": -0.5778417792262885, "Purchases": -0.39198269599837243, "Category_Specialist": 1.0, "Rank_Gold": 0.0, "Rank_Gold Plus": 0.0, "Rank_Platinum": 0.0, "Rank_Platinum Plus": 1.0, "Rank_Silver": 0.0, "Rank_Silver Plus": 0.0, "Rank_Titanium": 0.0, "Rank_Titanium Plus": 0.0, "Unique Condition Index": -0.6263533008387694}, {"DoctorID": "HCIGF", "spec_1": -0.03495249840973173, "spec_2": -0.013593548838556643, "Segment": 1, "Category": "Specialist", "Rank": "Titanium", "Region": "1 19 T3", "Complaints": 0.10888449416638886, "Incidence rate": -0.2782929122129262, "R rate": 0.040879429232675256, "Satisfaction": -0.24744129854390157, "Experience": -0.6874273549893468, "Purchases": -0.2880159594253274, "Category_Specialist": 1.0, "Rank_Gold": 0.0, "Rank_Gold Plus": 0.0, "Rank_Platinum": 0.0, "Rank_Platinum Plus": 0.0, "Rank_Silver": 0.0, "Rank_Silver Plus": 0.0, "Rank_Titanium": 1.0, "Rank_Titanium Plus": 0.0, "Unique Condition Index": -0.09359302196441391}, {"DoctorID": "HJDFA", "spec_1": 0.02049471910231558, "spec_2": -0.03346305022745913, "Segment": 3, "Category": "Specialist", "Rank": "Ambassador", "Region": "1 9", "Complaints": -0.6968607626648889, "Incidence rate": -0.08949867400467047, "R rate": -0.04199941359521507, "Satisfaction": -1.1691664707846463, "Experience": -0.3367535125475603, "Purchases": 1.4794185623164378, "Category_Specialist": 1.0, "Rank_Gold": 0.0, "Rank_Gold Plus": 0.0, "Rank_Platinum": 0.0, "Rank_Platinum Plus": 0.0, "Rank_Silver": 0.0, "Rank_Silver Plus": 0.0, "Rank_Titanium": 0.0, "Rank_Titanium Plus": 0.0, "Unique Condition Index": -0.09359302196441391}, {"DoctorID": "IAEBD", "spec_1": 0.030331055704098116, "spec_2": -0.02133478090256084, "Segment": 3, "Category": "Specialist", "Rank": "Ambassador", "Region": "1 19 20", "Complaints": 0.10888449416638886, "Incidence rate": -0.9164174373568306, "R rate": 0.16519769347451074, "Satisfaction": 1.2883494480401616, "Experience": 1.2631958935930911, "Purchases": 5.898004866670851, "Category_Specialist": 1.0, "Rank_Gold": 0.0, "Rank_Gold Plus": 0.0, "Rank_Platinum": 0.0, "Rank_Platinum Plus": 0.0, "Rank_Silver": 0.0, "Rank_Silver Plus": 0.0, "Rank_Titanium": 0.0, "Rank_Titanium Plus": 0.0, "Unique Condition Index": -1.159113579713125}, {"DoctorID": "IFDIB", "spec_1": 0.07036610262799181, "spec_2": -0.015938778397605522, "Segment": 3, "Category": "Specialist", "Rank": "Titanium", "Region": "1 19 T3", "Complaints": -0.6968607626648889, "Incidence rate": 3.120003375535677, "R rate": 0.16519769347451074, "Satisfaction": 0.31073365275183673, "Experience": -0.8189300459050168, "Purchases": -0.08008248627923736, "Category_Specialist": 1.0, "Rank_Gold": 0.0, "Rank_Gold Plus": 0.0, "Rank_Platinum": 0.0, "Rank_Platinum Plus": 0.0, "Rank_Silver": 0.0, "Rank_Silver Plus": 0.0, "Rank_Titanium": 1.0, "Rank_Titanium Plus": 0.0, "Unique Condition Index": 1.5046878146586526}]}}, {"mode": "vega-lite"});
 </script>
-<div id="76777696" class="cell" data-execution_count="10">
+<div id="ca4e3acc" class="cell" data-execution_count="10">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">%</span>load_ext watermark</span>
@@ -8241,6 +8241,7 @@ pandas    : 1.4.2</code></pre>
   <category>dimension reduction</category>
   <guid>https://alexjonesphd.github.io/posts/customer-segmentation/</guid>
   <pubDate>Tue, 23 Aug 2022 23:00:00 GMT</pubDate>
+  <media:content url="https://alexjonesphd.github.io/posts/customer-segmentation/dist.png" medium="image" type="image/png" height="139" width="144"/>
 </item>
 <item>
   <title>Multi100 Collaboration Project: Is Eco-Friendly Unmanly?</title>
@@ -8259,7 +8260,7 @@ pandas    : 1.4.2</code></pre>
 <h2 class="anchored" data-anchor-id="multi100-analysis-nf503">Multi100 Analysis — NF503</h2>
 <section id="is-eco-friendly-unmanly-the-green-feminine-stereotype-and-its-effect-on-sustainable-consumption" class="level3">
 <h3 class="anchored" data-anchor-id="is-eco-friendly-unmanly-the-green-feminine-stereotype-and-its-effect-on-sustainable-consumption">Is Eco-Friendly Unmanly? The Green-Feminine Stereotype and Its Effect on Sustainable Consumption</h3>
-<div id="37b7af1d" class="cell" data-execution_count="1">
+<div id="86a0f67d" class="cell" data-execution_count="1">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># Imports</span></span>
@@ -8741,7 +8742,7 @@ Perception of recycling.
 </p>
 </div>
 <p>There is no coding scheme evident for <code>Gender</code>, i.e.&nbsp;it is not clear whether 1 or 2 is female/male. The paper reports 45.9% were male, so we should be able to infer from that:</p>
-<div id="6a4e668d" class="cell" data-execution_count="2">
+<div id="28d4947a" class="cell" data-execution_count="2">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># What is what?</span></span>
@@ -8765,7 +8766,7 @@ Name: Gender, dtype: float64</code></pre>
 <section id="step-1" class="level3">
 <h3 class="anchored" data-anchor-id="step-1">Step 1</h3>
 <p>First we must tidy the data up into a long-form dataset, and clear up the variable names (e.g.&nbsp;<code>M_NG_19</code>) to get a clearer sense of conditions. We also use the variable coding for each perception from <code>Study 2 Survey September 2015.docx</code> to more clearly label the perceptual trait ratings the participants gave.</p>
-<div id="bdc7ea55" class="cell" data-execution_count="3">
+<div id="c2f6917a" class="cell" data-execution_count="3">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># Variable coding from 'Study 2 Survey September 2015.docx'</span></span>
@@ -9244,7 +9245,7 @@ green         94
 non-green    100
 Name: pid, dtype: int64</code></pre>
 <p>There is also missing data in the <code>genderiden_1</code> and <code>dating_</code> variables. These will be used as additional predictors, so these missing values will be dropped — i.e.&nbsp;a complete-case design will be used.</p>
-<div id="ada02816" class="cell" data-execution_count="4">
+<div id="4abb8917" class="cell" data-execution_count="4">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># Complete cases - drop all missing in the three named variables</span></span>
@@ -9276,7 +9277,7 @@ font-style: inherit;">True</span>)</span>
 <p>The model includes main effects of gender, gender identity, and male and female dating intention. The interaction between target sex (male or female) and green behaviour (green or non-green) is estimated for each of the 11 trait ratings the participant provided (i.e., a three way interaction). While it would be simple to examine a given coefficient that represents the differences between green-nongreen for the <code>feminine</code> perception, this becomes difficult with the inclusion of the <code>target_sex</code> variable, as this difference will be tied to <em>either</em> female or male targets given the nature of dummy coding. The clearest answer to the claim question is averaged over the <code>target_sex</code> variable — the claim makes no reference to target sex, but it is a core component of the design.</p>
 <p>As such, the solution is to fit the model and have it make marginal mean predictions, from which differences can be drawn from the posterior.</p>
 <p>As the inclusion of the interaction with perception increases the size of the predictor space, regularising priors are chosen to constrain estimates. Coefficient priors are set to a <img src="https://latex.codecogs.com/png.latex?%5Cmathcal%7BN%7D(0,%200.25)"> prior, representing a state of information that most effects will be no larger than half a rating-scale unit change.</p>
-<div id="3ad8e5f7" class="cell" data-execution_count="5">
+<div id="886b1be7" class="cell" data-execution_count="5">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># Set out a model formula and orders of levels for categoricals</span></span>
@@ -9404,7 +9405,7 @@ Sampling 4 chains for 1_000 tune and 3_000 draw iterations (4_000 + 12_000 draws
 <section id="step-3" class="level3">
 <h3 class="anchored" data-anchor-id="step-3">Step 3</h3>
 <p>Below we recover the estimated means from the model and aggregate them across the green/non-green for each perception, obtaining a posterior distribution for the estimated marginal means.</p>
-<div id="9c1f3cdd" class="cell" data-execution_count="6">
+<div id="198cb1d8" class="cell" data-execution_count="6">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># Extract aggregate marginal mean for the femininity/green-nongreen comparison</span></span>
@@ -9643,7 +9644,7 @@ font-style: inherit;">'θ Difference between conditions'</span>)</span></code></
 <li>The probability the effect is positive — that is, that higher levels of femininity are ascribed to those with green behaviour — is 99.9%.</li>
 </ul>
 <p>It is also possible to estimate a Bayes Factor to test the null hypothesis, using the Savage-Dickey density ratio method. The difference to test was observed from marginal means, but the prior distribution is the same as what is implied in the model for the coefficients, <img src="https://latex.codecogs.com/png.latex?%5Cmathcal%7BN%7D(0,%200.25)">.</p>
-<div id="4ed54250" class="cell" data-execution_count="7">
+<div id="b488f29f" class="cell" data-execution_count="7">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># Estimate a Bayes Factor and plot</span></span>
@@ -9822,7 +9823,7 @@ font-style: inherit;">'</span>)</span></code></pre></div></div>
 <h3 class="anchored" data-anchor-id="step-4">Step 4</h3>
 <p>Thus far, the conclusion is that there is a positive effect of green behaviour on perceptions of femininity in general — the probability that the ratings of femininity are higher for green behaviour is 99.9%, and the BF for the alternative is 48.87. While this indicates the presence of an effect, the overall effect is relatively small, with the upper bound being only around half a rating scale point. This may — or may not — be psychologically practical or relevant.</p>
 <p>It is also possible to examine the posterior predictive distribution of the data, which takes into account both the uncertainty in the sampling of participants, as well as the uncertainty in the parameters of the model. By generating the posterior predictive distribution, it will be possible to examine the differences between green/nongreen behaviour that could be expected in future, as opposed to a focus on the average effect. Examining this may give more insight into the expected size of the effect in actual data-point terms, as opposed to the mean. We conduct this analysis below, focused on the green/non-green difference for femininity ratings.</p>
-<div id="3fba7c77" class="cell" data-execution_count="8">
+<div id="2d7c2c9b" class="cell" data-execution_count="8">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># Take a posterior predictive distribution</span></span>
@@ -10128,7 +10129,7 @@ font-style: inherit;">'θ Difference between conditions'</span>)</span></code></
 </section>
 <section id="step-0---imports" class="level1">
 <h1>Step 0 - Imports</h1>
-<div id="5d5d983d" class="cell" data-execution_count="1">
+<div id="8d304e45" class="cell" data-execution_count="1">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><span class="im" style="color: #00769E;
 background-color: null;
 font-style: inherit;">import</span> re                       <span class="co" style="color: #5E5E5E;
@@ -10195,7 +10196,7 @@ font-style: inherit;">34</span>)</span></code></pre></div></div>
 <section id="step-1---exploratory-data-analysis" class="level1">
 <h1>Step 1 - Exploratory Data Analysis</h1>
 <p>First we check for missing values, examine the datatypes of the dataframe, and examine the distribution of the target variable - <code>strength</code>.</p>
-<div id="14eb3aad" class="cell" data-execution_count="2">
+<div id="b70c3b56" class="cell" data-execution_count="2">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># Read in the data</span></span>
@@ -10261,7 +10262,7 @@ dtype: object
 <p>The brief clearly lays out the foundations of a <em>linear model</em> for the relationship between <code>strength</code> and the other given variables. There are many approaches to linear models (and many other kinds of modelling strategies that could be used here), but the aim seems to be to estimate the β coefficients in the model and use those to predict the strengths of different ages of concrete.</p>
 <p>Bayesian inference is a natural method here because it allows us to estimate these coefficients with uncertainty, and best of all - we get uncertainty in our estimates for free, which would be absolutely vital in civil engineering (in fact check out episode number 59 of the <a href="https://www.learnbayesstats.com/">Learning Bayesian Statistics</a> podcast!)</p>
 <p>Bayesian inference does require a prior for each of the coefficients. There isn’t any clear indication of these effects in the brief, so we will use very wide, general priors. First though, let us set up the model using <code>bambi</code>.</p>
-<div id="3ab94254" class="cell" data-execution_count="3">
+<div id="13e37277" class="cell" data-execution_count="3">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># Models are built in bambi using a formula string, much like statsmodels or R</span></span>
@@ -10275,7 +10276,7 @@ background-color: null;
 font-style: inherit;">'strength ~ cement + slag + fly_ash + water + superplasticizer + coarse_aggregate + fine_aggregate + age'</span></span></code></pre></div></div>
 </div>
 <p><strong>However</strong>, unlike frequentist estimators, Bayesian inference is very picky about the <em>scale</em> of the data. The above model would cause the MCMC sampler to struggle given the hugely different scales of the variables. The solution is to <strong>scale</strong> the predictors. A z-score standardisation works particularly well here. In fact, <code>bambi</code> is clever enough to allow this in the model specification - we simply wrap each term in a <code>scale</code> function. We do this below, and build a model instance</p>
-<div id="f6023e6e" class="cell" data-execution_count="4">
+<div id="d658ce9d" class="cell" data-execution_count="4">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># Set a scaled model</span></span>
@@ -10314,7 +10315,7 @@ font-style: inherit;"># creates the model graph using theano</span></span></code
 <section id="step-3---examining-the-prior-beliefs" class="level1">
 <h1>Step 3 - Examining the prior beliefs</h1>
 <p>With the model built (but not yet fitted), it is time to check the priors. First, let us examine a plot of the prior distribution of each of the coefficients - a good way to think of this is what the model <em>thinks</em> the coefficients could be before it sees the data.</p>
-<div id="287f6b27" class="cell" data-execution_count="5">
+<div id="6fb7e587" class="cell" data-execution_count="5">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># Show the priors</span></span>
@@ -10341,7 +10342,7 @@ font-style: inherit;">;</span></span></code></pre></div></div>
 <p><img src="https://alexjonesphd.github.io/posts/bambi-competition/output_14_0.png" class="img-fluid"></p>
 <p>This is great. It shows us that the most likely effects for the main predictors are hovering around zero, but that the effect could be as big or small as about ±80 <code>strength</code> units. Sometimes people accuse priors of ‘influencing’ the data; but this is clearly not happening much here as those effects are very broad. Next, we check a ‘prior predictive’ distribution, which will give us an idea of what the model thinks the <code>strength</code> variable itself looks like, based on - The observed data for our predictors, and - Our prior distributions for the coefficients</p>
 <p>In simple terms - we can ask the model to make some predictions before its seen the data, just to get a sense of what it thinks.</p>
-<div id="e1530caa" class="cell" data-execution_count="6">
+<div id="0eaf052b" class="cell" data-execution_count="6">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># Build prior predictive</span></span>
@@ -10381,7 +10382,7 @@ font-style: inherit;">10</span>)})</span></code></pre></div></div>
 <section id="step-4---fitting-the-model" class="level1">
 <h1>Step 4 - Fitting the model</h1>
 <p>Inspired by <code>sklearn</code>, we can fit a Bayesian model in <code>bambi</code> using MCMC with the <code>.fit()</code> method. We do this below and sample from the posterior distribution (which we can then use to predict on new data).</p>
-<div id="15ce0222" class="cell" data-execution_count="7">
+<div id="15091dc7" class="cell" data-execution_count="7">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># Fit the model using the NUTS sampler in PyMC</span></span>
@@ -10455,7 +10456,7 @@ NUTS: [Intercept, scale(cement), scale(slag), scale(fly_ash), scale(water), scal
 <pre><code>Sampling 4 chains for 1_000 tune and 2_000 draw iterations (4_000 + 8_000 draws total) took 58 seconds.</code></pre>
 <p><img src="https://alexjonesphd.github.io/posts/bambi-competition/output_19_4.png" class="img-fluid"></p>
 <p>This contains all the information about the coefficients we may need, but we need to bear in mind scaling the predictor variables now means that - for exmaple - a 1 standard deviation increase in the <code>cement</code> variable is associated with a 13 point increase in <code>strength</code>; and we’re 95% certain the effect is between 11 and 14 units. This is an issue for age in particular as we need to predict specific ages, and now we have age on the scale of the standard deviation. First, let us examine the predictions of the model, and see if it maps closely to the data. We do that using a posterior predictive check:</p>
-<div id="bb44270b" class="cell" data-execution_count="8">
+<div id="4a63c195" class="cell" data-execution_count="8">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># Conduct a posterior predictive check</span></span>
@@ -10490,7 +10491,7 @@ font-style: inherit;">10</span>)})</span></code></pre></div></div>
 <h1>Step 5 - Delivering the answers</h1>
 <p>Now we turn to answering the question. The project leader wants: - The average strength of the concrete samples at 1, 7, 14, and 28 days of age. - The coefficients <img src="https://latex.codecogs.com/png.latex?%20%5Cbeta_%7B0%7D,%20%5Cbeta_%7B1%7D,%20%20...%20%20%5Cbeta_%7B8%7D%20"></p>
 <p>We almost have the second part, but the first part involves making some specific predictions - we want the model to tell us specifically what it thinks the <code>strength</code> value will be at 1, 7, 14, and 28 days. This will invovle building a new dataset for the model to predict on. What we then want is to send to the model a dataset with four new observations for age (set at the desired levels). For all other predictors, we will hold them constant at their mean levels. <code>bambi</code> will transform this data and give us our predictions!</p>
-<div id="d0077986" class="cell" data-execution_count="9">
+<div id="a0b2a8c7" class="cell" data-execution_count="9">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># First, compute the means of the other predictors (not age, or strength), and repeat them four times</span></span>
@@ -10695,7 +10696,7 @@ age
 </table>
 </div>
 <p>This can now be handed to the model.</p>
-<div id="a218fcd6" class="cell" data-execution_count="10">
+<div id="5a2179d0" class="cell" data-execution_count="10">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># Get predictions of the mean of those datapoints</span></span>
@@ -10895,7 +10896,7 @@ draw
 </table>
 </div>
 <p>Our posterior predictions for the mean concrete strength for different ages are in hand. Let us analyse and plot these: - Averages and highest density intervals - Density plots for visualisation purposes</p>
-<div id="d5571d63" class="cell" data-execution_count="11">
+<div id="52da3ba0" class="cell" data-execution_count="11">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># Create the summary per age</span></span>
@@ -11116,7 +11117,7 @@ font-style: inherit;">14</span>]).mean())</span></code></pre></div></div>
 <p>Back transformation is a little tricky but not impossible, following the formula:</p>
 <p><img src="https://latex.codecogs.com/png.latex?%20%5Chat%20%5Cbeta_0%20-%20%5Csum_%7Bj=1%7D%5Ek%20%5Chat%20%5Cbeta_j%20%5Cfrac%7B%5Cbar%20x_j%7D%7BS_j%7D%20"> for the intercept, and</p>
 <p><img src="https://latex.codecogs.com/png.latex?%20%5Cfrac%7B%5Chat%20%5Cbeta_j%7D%7BS_j%7D%20"> for the coefficients, where <img src="https://latex.codecogs.com/png.latex?%20%7BS_j%7D%20"> represents the standard deviation of the predictor.</p>
-<div id="1cd07ddd" class="cell" data-execution_count="12">
+<div id="4c708832" class="cell" data-execution_count="12">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb19" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># As it is simpler, let us convert the coefficients back first</span></span>
@@ -11517,7 +11518,7 @@ draw
 </table>
 </div>
 <p>With some <code>pandas</code> wrangling, we now have the posterior distributions on the original scale. This is one of the downsides of Bayesian modelling - sometimes you need the coefficients on the scale of the input variables, but MCMC sampling struggles with varying scales, so most estimation is done on a standardised scale. But we have it; and now we can give the <em>three</em> regression equations for the mean and upper/lower uncertainty:</p>
-<div id="22048c62" class="cell" data-execution_count="13">
+<div id="67df2f8e" class="cell" data-execution_count="13">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb20" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># State the regression equation for the project lead, as well as upper/lower credible bounds</span></span>
@@ -11682,7 +11683,7 @@ Upper Strength Credible Limit 95%
 <p>That is, our observed data is expected to be normally distributed with the mean parameter generated by the linear combination of predictors, and a standard deviation parameter.</p>
 <p>What is not obvious from looking at this formula is that it implies that there is a distribution per-observation governed by the model, and not a distribution around the <em>mean</em> parameter, which is what is focused on in the above analysis. In fact, using Bayesian estimation, it is possible to obtained a distribution of a given data point, known as the <strong>posterior predictive distribution</strong>, which is the distribution of future data points, given observed data points, integrating out the parameters in the model.</p>
 <p>While this sounds complex, in reality what it gives us is simple: a probability distribution for a single datapoint for what it may look like in future, after taking the model into account. This is really important for the application at hand, given that concrete strength is critical for a lot of work! Specifically we can look past the mean of the distributions - that is, what is the average concrete strength for a given 14 day old sample - but instead estimate likely values we may see in future. Let’s examine this below and see what the distributions look like for the different ages using an empirical cumulative distribution plot. As will be seen, density plots will be too messy here.</p>
-<div id="5705a36c" class="cell" data-execution_count="14">
+<div id="87340684" class="cell" data-execution_count="14">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb21" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># Sample the posterior predictive distribution</span></span>
@@ -11836,7 +11837,7 @@ font-style: inherit;">in</span> labs])</span></code></pre></div></div>
 <p>In April 2021 I got my first COVID-19 vaccination. The side effects were pretty hard going — for about 24 hours I was laid out, and woke up in the middle of the night to my smart watch giving me an “extreme heart rate warning”, which is just the kind of thing you want to see after getting injected with a vaccine for a virus sweeping the globe.</p>
 <p>Once I felt more alive, I had the idea of extracting the heart rate data from my watch. As it turns out, there is an excellent Python package, <a href="https://pypi.org/project/fitparse/"><code>fitparse</code></a>, that allows the parsing of the <code>.FIT</code> files from Fitbit watches. I won’t post the raw data here and the associated code, but it was pretty simple to get a few days’ worth of data from the watch and plot it. Easy to see how bad things were — which made me extremely grateful for getting vaccinated and <em>not</em> the real thing.</p>
 <p>I’m posting this because the plot took a little while to do, and has some functions I don’t use often and am always looking up. The trickiest part was adding annotations to the x-axis — because it’s a datetime object, positions need to be expressed as datetimes too. This took some creativity to make a readable attempt: while <code>annotate</code> gives flexibility in how you specify the text locations, raw data coordinates are the easiest approach, and the raw string representation of dates messes up the temporal ordering of the plot.</p>
-<div id="79271243" class="cell" data-execution_count="1">
+<div id="378a8562" class="cell" data-execution_count="1">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># Imports</span></span>
@@ -11856,7 +11857,7 @@ font-style: inherit;">import</span> matplotlib.pyplot <span class="im" style="co
 background-color: null;
 font-style: inherit;">as</span> plt</span></code></pre></div></div>
 </div>
-<div id="e94c99d7" class="cell" data-execution_count="2">
+<div id="36280fe6" class="cell" data-execution_count="2">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># Data preprocessing</span></span>
@@ -12047,7 +12048,7 @@ NaN
 </table>
 </div>
 <p>There were also a bunch of things that happened I want to annotate on the plot, so first I’ll make a dictionary containing them along with their associated time points and my heart rate at the time (I worked backwards from the plot to figure these out, but it makes the code tidier to include here). These will be used as coordinates for the <code>annotate</code> method of an axis object.</p>
-<div id="a8270ad3" class="cell" data-execution_count="3">
+<div id="05b6b8e2" class="cell" data-execution_count="3">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># Event log dictionary, using datetime spec for X locations - the strings will need parsing into datetimes</span></span>
@@ -12152,7 +12153,7 @@ font-style: inherit;">160</span>)]</span>
 </div>
 <p>Plot and annotate some of the events of the 24 hours and what I was doing, and do it in <strong>xkcd</strong> style.</p>
 <p>Vaccines are great, and having a heart rate over 150bpm just walking down the stairs is worth it.</p>
-<div id="b99b85e4" class="cell" data-execution_count="4">
+<div id="7a6c7aed" class="cell" data-execution_count="4">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># Set up plotting context, style, and fig/ax</span></span>

@@ -1,35 +1,31 @@
 ---
 title: ""
-pagetitle: "Alex Jones"
+pagetitle: "Alex Jones Ph.D"
 page-layout: full
 toc: false
-listing:
-  - id: recent-posts
-    contents: posts
-    type: default
-    max-items: 3
-    sort: "date desc"
-    fields: [date, title, description]
 ---
 
-::: {.hero}
+:::: {.hero}
 ![](images/profile.jpg){fig-alt="Photo of Alex Jones"}
 
-::: {}
-# Alex Jones
+::: {.hero-text}
+# Alex Jones Ph.D
 
 ::: {.tagline}
 Associate Professor of Psychological Data Science · Swansea University
 ::: 
 
 I work on face perception, facial morphometrics, and the statistical methods used to study them — with a particular love for Bayesian inference. I teach Python for data analysis and statistical modelling, and have a long history of consulting with industry partners on behavioural data problems.
-
-[About](about.qmd){.btn .btn-outline-secondary .btn-sm} &nbsp;
-[Publications](publications.qmd){.btn .btn-outline-secondary .btn-sm} &nbsp;
-[Blog](blog.qmd){.btn .btn-outline-secondary .btn-sm}
 :::
 
-## Recent writing
+::::
 
-::: {#recent-posts}
-:::
+## Recent papers
+
+- Jaeger, B., **Jones, A. L.**, Satchell, L., Schild, C., & van Leeuwen, F. (2026). Who likes extraverts? Testing the interplay between perceiver needs and target appearance in impression formation. *International Review of Social Psychology*, 39(1): 2, 1–13. [doi:10.5334/irsp.996](https://doi.org/10.5334/irsp.996) [[📄]](assets/papers/2026/jaegeretal2026.pdf)
+
+- Satchell, L. P., Hall, J., & **Jones, A. L.** (2025). Do we look at a threatening person's face? The relationship between perception and observation of walking strangers. *Quarterly Journal of Experimental Psychology*. [doi:10.1177/17470218251406631](https://doi.org/10.1177/17470218251406631) [[📄]](assets/papers/2025/satchell2025.pdf)
+
+- Kramer, R. S. S., **Jones, A. L.**, Fitousi, D., & Tree, J. J. (2025). AI-generated images of familiar faces are indistinguishable from real photographs. *Cognitive Research: Principles and Implications*, 10(70). [doi:10.1186/s41235-025-00683-w](https://doi.org/10.1186/s41235-025-00683-w) [[📄]](assets/papers/2025/kramerjonesfitousitree2025.pdf)
+
+See my [full list of publications](publications.qmd).

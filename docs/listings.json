@@ -10,17 +10,5 @@
       "/posts/vaccine-effects/index.html",
       "/posts/bayesian-bookshelf/index.html"
     ]
-  },
-  {
-    "listing": "/index.html",
-    "items": [
-      "/posts/ordinal-regression/index.html",
-      "/posts/out-of-sample/index.html",
-      "/posts/customer-segmentation/index.html",
-      "/posts/multi-100-analysis/index.html",
-      "/posts/bambi-competition/index.html",
-      "/posts/vaccine-effects/index.html",
-      "/posts/bayesian-bookshelf/index.html"
-    ]
   }
 ]

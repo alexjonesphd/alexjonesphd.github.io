@@ -1,0 +1,11 @@
+---
+title: "Cosmetics alter biologically-based factors of beauty: Evidence from facial contrast"
+authors: "Jones, A. L., Russell, R., & Ward, R."
+year: 2015
+date: 2015-01-01
+pub-journal: "Evolutionary Psychology"
+volume: "13(1)"
+doi: "10.1177/147470491501300113"
+pdf: "assets/papers/2015/jones_etal_2015.pdf"
+categories: [cosmetics, morphometrics]
+---

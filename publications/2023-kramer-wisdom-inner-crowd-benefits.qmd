@@ -1,0 +1,11 @@
+---
+title: "Wisdom of the inner crowd benefits both face and voice matching"
+authors: "Kramer, R. S. S., Flanagan, E., Jones, A. L., & Gous, G."
+year: 2023
+date: 2023-01-01
+pub-journal: "Applied Cognitive Psychology"
+volume: "1–9"
+doi: "10.1002/acp.4133"
+pdf: "assets/papers/2023/krameretal2023.pdf"
+categories: [face-perception]
+---

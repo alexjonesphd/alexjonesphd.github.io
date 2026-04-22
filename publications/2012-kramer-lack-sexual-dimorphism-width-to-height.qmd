@@ -1,0 +1,12 @@
+---
+title: "A lack of sexual dimorphism in width-to-height ratio in white european faces using 2D photographs, 3D scans, and anthropometry"
+authors: "Kramer, R., Jones, A. L., & Ward, R."
+year: 2012
+date: 2012-01-01
+pub-journal: "PLOS ONE"
+volume: "7(8)"
+pages: "e42705"
+doi: "10.1371/journal.pone.0042705"
+pdf: "assets/papers/2012/kramer_etal_2012.pdf"
+categories: [morphometrics]
+---

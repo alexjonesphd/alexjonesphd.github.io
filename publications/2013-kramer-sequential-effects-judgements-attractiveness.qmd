@@ -1,0 +1,12 @@
+---
+title: "Sequential effects in judgements of attractiveness: The influences of face race and sex"
+authors: "Kramer, R., Jones, A. L., & Sharma, D."
+year: 2013
+date: 2013-01-01
+pub-journal: "PLOS ONE"
+volume: "8(12)"
+pages: "e82226"
+doi: "10.1371/journal.pone.0082226"
+pdf: "assets/papers/2013/kramer_etal_2013.pdf"
+categories: [attractiveness, methodology]
+---

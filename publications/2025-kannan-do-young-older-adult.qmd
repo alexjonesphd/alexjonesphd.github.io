@@ -1,0 +1,12 @@
+---
+title: "Do young and older adult populations perform equivalently across different automatic face-trait judgements? Evidence for differential impacts of ageing"
+authors: "Kannan, C., Jones, A. L., Towler, J., & Tree, J. J."
+year: 2025
+date: 2025-01-01
+pub-journal: "PLOS ONE"
+volume: "20(5)"
+pages: "e0322165"
+doi: "10.1371/journal.pone.0322165"
+pdf: "assets/papers/2025/kannanetal2025.pdf"
+categories: [first-impressions]
+---

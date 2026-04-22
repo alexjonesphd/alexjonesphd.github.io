@@ -3,7 +3,7 @@ project:
   output-dir: docs
 
 website:
-  title: "Alex Jones Ph.D"
+  title: "Alex Jones"
   description: "Associate Professor of Psychological Data Science, Swansea University"
   site-url: "https://alexjonesphd.github.io"
   navbar:

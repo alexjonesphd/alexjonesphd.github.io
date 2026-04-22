@@ -1,0 +1,10 @@
+---
+title: "Do we look at a threatening person's face? The relationship between perception and observation of walking strangers"
+authors: "Satchell, L. P., Hall, J., & Jones, A. L."
+year: 2025
+date: 2025-01-01
+pub-journal: "Quarterly Journal of Experimental Psychology"
+doi: "10.1177/17470218251406631"
+pdf: "assets/papers/2025/satchell2025.pdf"
+categories: [first-impressions]
+---

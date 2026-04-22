@@ -1,0 +1,12 @@
+---
+title: "Patterns of recreational substance use, help seeking and harm reduction among UK music festival attendees"
+authors: "Rayner, C. L., Davies, J., Bradshaw, C. A., & Jones, A. L."
+year: 2025
+date: 2025-01-01
+pub-journal: "Drug Science, Policy and Law"
+volume: "11"
+pages: "1–12"
+doi: "10.1177/20503245251371721"
+pdf: "assets/papers/2025/rayner2025.pdf"
+categories: [other]
+---

@@ -1,0 +1,11 @@
+---
+title: "Predictors of pelvic acceleration during treadmill running across various stride frequency conditions"
+authors: "James, M. L., Stiles, V. H., von Lieres un Wilkau, H. C., Jones, A. L., Willy, R. W., Ashford, K. J., & Moore, I. S."
+year: 2025
+date: 2025-01-01
+pub-journal: "Sports Biomechanics"
+volume: "1–15"
+doi: "10.1080/14763141.2024.2446179"
+pdf: "assets/papers/2025/jamesetal2025.pdf"
+categories: [other]
+---

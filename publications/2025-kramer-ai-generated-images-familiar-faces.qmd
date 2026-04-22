@@ -1,0 +1,11 @@
+---
+title: "AI-generated images of familiar faces are indistinguishable from real photographs"
+authors: "Kramer, R. S. S., Jones, A. L., Fitousi, D., & Tree, J. J."
+year: 2025
+date: 2025-01-01
+pub-journal: "Cognitive Research: Principles and Implications"
+volume: "10(70)"
+doi: "10.1186/s41235-025-00683-w"
+pdf: "assets/papers/2025/kramerjonesfitousitree2025.pdf"
+categories: [face-perception]
+---

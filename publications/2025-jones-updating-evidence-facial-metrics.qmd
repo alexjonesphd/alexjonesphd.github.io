@@ -1,0 +1,12 @@
+---
+title: "Updating evidence on facial metrics: A Bayesian perspective on sexual dimorphism in facial width-to-height ratio and bizygomatic width"
+authors: "Jones, A. L., Kordsmeyer, T. L., Kramer, R. S. S., Stern, J., & Penke, L."
+year: 2025
+date: 2025-01-01
+pub-journal: "Evolution and Human Behavior"
+volume: "46"
+pages: "106781"
+doi: "10.1016/j.evolhumbehav.2025.106781"
+pdf: "assets/papers/2025/jonesetal2025.pdf"
+categories: [morphometrics, bayesian]
+---

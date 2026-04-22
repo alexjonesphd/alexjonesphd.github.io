@@ -1,0 +1,11 @@
+---
+title: "Testing perceivers' accuracy and accuracy awareness when forming personality impressions from faces"
+authors: "Jaeger, B., Sleegers, W. W. A., Stern, J., Penke, L., & Jones, A. L."
+year: 2024
+date: 2024-01-01
+pub-journal: "European Journal of Personality"
+volume: "1–21"
+doi: "10.1177/08902070231225728"
+pdf: "assets/papers/2024/jaegeretal2024.pdf"
+categories: [first-impressions]
+---

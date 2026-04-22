@@ -1,0 +1,10 @@
+---
+title: "Exploring insight into unfamiliar face recognition ability: The case from developmental prosopagnosia"
+authors: "Tree, J. J., & Jones, A. L."
+year: 2025
+date: 2025-01-01
+pub-journal: "Cortex"
+doi: "10.1016/j.cortex.2025.03.009"
+pdf: "assets/papers/2025/tree&jones2025b.pdf"
+categories: [face-perception]
+---

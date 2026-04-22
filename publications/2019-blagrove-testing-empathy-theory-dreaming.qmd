@@ -1,0 +1,12 @@
+---
+title: "Testing the empathy theory of dreaming: The relationships between dream sharing and trait and state empathy"
+authors: "Blagrove, M., Hale, S., Lockheart, J., Carr, M., Jones, A. L., & Valli, K."
+year: 2019
+date: 2019-01-01
+pub-journal: "Frontiers in Psychology"
+volume: "10"
+pages: "1351"
+doi: "10.3389/fpsyg.2019.01351"
+pdf: "assets/papers/2019/Blagrove_etal_2019.pdf"
+categories: [other]
+---

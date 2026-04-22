@@ -1,0 +1,12 @@
+---
+title: "Facial contrast is a cue for perceiving health from the face"
+authors: "Russell, R., Porcheron, A., Sweda, J., Jones, A. L., Mauger, E., & Morizot, F."
+year: 2016
+date: 2016-01-01
+pub-journal: "Journal of Experimental Psychology: Human Perception and Performance"
+volume: "42(9)"
+pages: "1354–1362"
+doi: "10.1037/xhp0000219"
+pdf: "assets/papers/2016/russell_etal_2016.pdf"
+categories: [first-impressions]
+---

@@ -1,0 +1,12 @@
+---
+title: "Action dual tasks reveal differential effects of visual imagery perspectives on motor performance"
+authors: "Callow, N., Edwards, M., Jones, A. L., Hardy, L., & Connell, S."
+year: 2019
+date: 2019-01-01
+pub-journal: "Quarterly Journal of Experimental Psychology"
+volume: "72(6)"
+pages: "1401–1411"
+doi: "10.1177/1747021818811464"
+pdf: "assets/papers/2019/Callow_etal_2019.pdf"
+categories: [other]
+---

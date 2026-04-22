@@ -1,0 +1,10 @@
+---
+title: "A micro-longitudinal study of naps, sleep disturbance, and headache severity in women with chronic migraine"
+authors: "Ong, J., Dawson, S., Taylor, H., Park, M., Burgess, H., Crawford, M., Rains, J., Smitherman, T., Espie, C., Jones, A. L., & Wyatt, J."
+year: 2022
+date: 2022-01-01
+pub-journal: "Behavioural Sleep Medicine"
+doi: "10.1080/15402002.2022.2050723"
+pdf: "assets/papers/2022/ongetal2022.pdf"
+categories: [other]
+---

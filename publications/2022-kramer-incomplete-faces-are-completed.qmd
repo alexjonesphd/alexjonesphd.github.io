@@ -1,0 +1,11 @@
+---
+title: "Incomplete faces are completed using a more average face"
+authors: "Kramer, R. S. S., & Jones, A. L."
+year: 2022
+date: 2022-01-01
+pub-journal: "Cognitive Research: Principles and Implications"
+volume: "7:708"
+doi: "10.1186/s41235-022-00429-y"
+pdf: "assets/papers/2022/kramer&jones2022.pdf"
+categories: [face-perception]
+---

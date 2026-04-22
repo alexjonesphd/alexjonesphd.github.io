@@ -1,0 +1,12 @@
+---
+title: "Facial cosmetics and attractiveness: Comparing the effect sizes of professionally-applied cosmetics and identity"
+authors: "Jones, A. L., & Kramer, R."
+year: 2016
+date: 2016-01-01
+pub-journal: "PLOS ONE"
+volume: "11(10)"
+pages: "e0164218"
+doi: "10.1371/journal.pone.0164218"
+pdf: "assets/papers/2016/jones_kramer_2016.pdf"
+categories: [cosmetics, attractiveness]
+---

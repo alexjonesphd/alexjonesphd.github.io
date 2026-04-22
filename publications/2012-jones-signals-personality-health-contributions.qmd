@@ -1,0 +1,12 @@
+---
+title: "Signals of personality and health: The contributions of facial shape, skin texture, and viewing angle"
+authors: "Jones, A. L., Kramer, R., & Ward, R."
+year: 2012
+date: 2012-01-01
+pub-journal: "Journal of Experimental Psychology: Human Perception and Performance"
+volume: "38(6)"
+pages: "1353–1361"
+doi: "10.1037/a0027078"
+pdf: "assets/papers/2012/Jones, Kramer, & Ward 2012.pdf"
+categories: [first-impressions, morphometrics]
+---

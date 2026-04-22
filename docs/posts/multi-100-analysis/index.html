@@ -9,7 +9,7 @@
 <meta name="dcterms.date" content="2022-07-08">
 <meta name="description" content="A Bayesian hierarchical re-analysis of Brough et al.&nbsp;(2016) for the Centre for Open Science’s Multi100 project, including a Savage-Dickey Bayes Factor.">
 
-<title>Multi100 Collaboration Project: Is Eco-Friendly Unmanly? – Alex Jones Ph.D</title>
+<title>Multi100 Collaboration Project: Is Eco-Friendly Unmanly? – Alex Jones</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -79,7 +79,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../../site_libs/quarto-html/quarto-syntax-highlighting-5ea3527156cf6f0e8b0efe0fc3010f44.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-435112d80ea27404934cf1261d637753.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-c87e74dbbe8360d6fa22bef1db7e1e21.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script src="../../site_libs/quarto-contrib/iconify-3.0.0/iconify-icon.min.js"></script>
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
@@ -149,7 +149,7 @@ window.Quarto = {
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
     <a class="navbar-brand" href="../../index.html">
-    <span class="navbar-title">Alex Jones Ph.D</span>
+    <span class="navbar-title">Alex Jones</span>
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
@@ -266,7 +266,7 @@ window.Quarto = {
 <h2 class="anchored" data-anchor-id="multi100-analysis-nf503">Multi100 Analysis — NF503</h2>
 <section id="is-eco-friendly-unmanly-the-green-feminine-stereotype-and-its-effect-on-sustainable-consumption" class="level3">
 <h3 class="anchored" data-anchor-id="is-eco-friendly-unmanly-the-green-feminine-stereotype-and-its-effect-on-sustainable-consumption">Is Eco-Friendly Unmanly? The Green-Feminine Stereotype and Its Effect on Sustainable Consumption</h3>
-<div id="86a0f67d" class="cell" data-execution_count="1">
+<div id="26d674bc" class="cell" data-execution_count="1">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Imports</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> arviz <span class="im">as</span> az</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> bambi <span class="im">as</span> bmb</span>
@@ -704,7 +704,7 @@ Perception of recycling.
 </p>
 </div>
 <p>There is no coding scheme evident for <code>Gender</code>, i.e.&nbsp;it is not clear whether 1 or 2 is female/male. The paper reports 45.9% were male, so we should be able to infer from that:</p>
-<div id="28d4947a" class="cell" data-execution_count="2">
+<div id="5f1a0ac1" class="cell" data-execution_count="2">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># What is what?</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>data[<span class="st">'Gender'</span>].value_counts(normalize<span class="op">=</span><span class="va">True</span>).<span class="bu">round</span>(<span class="dv">2</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
@@ -716,7 +716,7 @@ Name: Gender, dtype: float64</code></pre>
 <section id="step-1" class="level3">
 <h3 class="anchored" data-anchor-id="step-1">Step 1</h3>
 <p>First we must tidy the data up into a long-form dataset, and clear up the variable names (e.g.&nbsp;<code>M_NG_19</code>) to get a clearer sense of conditions. We also use the variable coding for each perception from <code>Study 2 Survey September 2015.docx</code> to more clearly label the perceptual trait ratings the participants gave.</p>
-<div id="c2f6917a" class="cell" data-execution_count="3">
+<div id="6c088df4" class="cell" data-execution_count="3">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Variable coding from 'Study 2 Survey September 2015.docx'</span></span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>recoding <span class="op">=</span> {<span class="dv">34</span>: <span class="st">'wasteful'</span>, <span class="dv">32</span>: <span class="st">'masculine'</span>,</span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>            <span class="dv">27</span>: <span class="st">'macho'</span>, <span class="dv">28</span>: <span class="st">'aggressive'</span>,</span>
@@ -1009,7 +1009,7 @@ green         94
 non-green    100
 Name: pid, dtype: int64</code></pre>
 <p>There is also missing data in the <code>genderiden_1</code> and <code>dating_</code> variables. These will be used as additional predictors, so these missing values will be dropped — i.e.&nbsp;a complete-case design will be used.</p>
-<div id="4abb8917" class="cell" data-execution_count="4">
+<div id="3b6d1c47" class="cell" data-execution_count="4">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Complete cases - drop all missing in the three named variables</span></span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>data_l <span class="op">=</span> data_l.dropna(subset<span class="op">=</span>[<span class="st">'genderiden_1'</span>, <span class="st">'dating_1'</span>, <span class="st">'dating_2'</span>]).reset_index(drop<span class="op">=</span><span class="va">True</span>)</span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>data_l.pid.nunique()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
@@ -1025,7 +1025,7 @@ Name: pid, dtype: int64</code></pre>
 <p>The model includes main effects of gender, gender identity, and male and female dating intention. The interaction between target sex (male or female) and green behaviour (green or non-green) is estimated for each of the 11 trait ratings the participant provided (i.e., a three way interaction). While it would be simple to examine a given coefficient that represents the differences between green-nongreen for the <code>feminine</code> perception, this becomes difficult with the inclusion of the <code>target_sex</code> variable, as this difference will be tied to <em>either</em> female or male targets given the nature of dummy coding. The clearest answer to the claim question is averaged over the <code>target_sex</code> variable — the claim makes no reference to target sex, but it is a core component of the design.</p>
 <p>As such, the solution is to fit the model and have it make marginal mean predictions, from which differences can be drawn from the posterior.</p>
 <p>As the inclusion of the interaction with perception increases the size of the predictor space, regularising priors are chosen to constrain estimates. Coefficient priors are set to a <span class="math inline">\(\mathcal{N}(0, 0.25)\)</span> prior, representing a state of information that most effects will be no larger than half a rating-scale unit change.</p>
-<div id="886b1be7" class="cell" data-execution_count="5">
+<div id="0cdd2749" class="cell" data-execution_count="5">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Set out a model formula and orders of levels for categoricals</span></span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>attr_levels <span class="op">=</span> (y <span class="op">:=</span> <span class="bu">list</span>(data_l[<span class="st">'perception'</span>].unique()))[<span class="dv">1</span>::<span class="op">-</span><span class="dv">1</span>] <span class="op">+</span> y[<span class="dv">2</span>:]</span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>green_levels <span class="op">=</span> [<span class="st">'non-green'</span>, <span class="st">'green'</span>]</span>
@@ -1061,7 +1061,7 @@ Sampling 4 chains for 1_000 tune and 3_000 draw iterations (4_000 + 12_000 draws
 <section id="step-3" class="level3">
 <h3 class="anchored" data-anchor-id="step-3">Step 3</h3>
 <p>Below we recover the estimated means from the model and aggregate them across the green/non-green for each perception, obtaining a posterior distribution for the estimated marginal means.</p>
-<div id="198cb1d8" class="cell" data-execution_count="6">
+<div id="a8ea050e" class="cell" data-execution_count="6">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Extract aggregate marginal mean for the femininity/green-nongreen comparison</span></span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>feminine_emm <span class="op">=</span> (posterior_idata[<span class="st">'posterior'</span>]</span>
 <span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>                [<span class="st">'rating_mean'</span>]</span>
@@ -1102,7 +1102,7 @@ Sampling 4 chains for 1_000 tune and 3_000 draw iterations (4_000 + 12_000 draws
 <li>The probability the effect is positive — that is, that higher levels of femininity are ascribed to those with green behaviour — is 99.9%.</li>
 </ul>
 <p>It is also possible to estimate a Bayes Factor to test the null hypothesis, using the Savage-Dickey density ratio method. The difference to test was observed from marginal means, but the prior distribution is the same as what is implied in the model for the coefficients, <span class="math inline">\(\mathcal{N}(0, 0.25)\)</span>.</p>
-<div id="b488f29f" class="cell" data-execution_count="7">
+<div id="f13ccd6c" class="cell" data-execution_count="7">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Estimate a Bayes Factor and plot</span></span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>prior <span class="op">=</span> st.norm(<span class="dv">0</span>, <span class="fl">0.25</span>)</span>
 <span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>post <span class="op">=</span> st.gaussian_kde(feminine_emm[<span class="st">'difference'</span>].values)</span>
@@ -1130,7 +1130,7 @@ Sampling 4 chains for 1_000 tune and 3_000 draw iterations (4_000 + 12_000 draws
 <h3 class="anchored" data-anchor-id="step-4">Step 4</h3>
 <p>Thus far, the conclusion is that there is a positive effect of green behaviour on perceptions of femininity in general — the probability that the ratings of femininity are higher for green behaviour is 99.9%, and the BF for the alternative is 48.87. While this indicates the presence of an effect, the overall effect is relatively small, with the upper bound being only around half a rating scale point. This may — or may not — be psychologically practical or relevant.</p>
 <p>It is also possible to examine the posterior predictive distribution of the data, which takes into account both the uncertainty in the sampling of participants, as well as the uncertainty in the parameters of the model. By generating the posterior predictive distribution, it will be possible to examine the differences between green/nongreen behaviour that could be expected in future, as opposed to a focus on the average effect. Examining this may give more insight into the expected size of the effect in actual data-point terms, as opposed to the mean. We conduct this analysis below, focused on the green/non-green difference for femininity ratings.</p>
-<div id="2d7c2c9b" class="cell" data-execution_count="8">
+<div id="30dc9e3a" class="cell" data-execution_count="8">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Take a posterior predictive distribution</span></span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>model.predict(posterior_idata, kind<span class="op">=</span><span class="st">'pps'</span>)</span>
 <span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a></span>

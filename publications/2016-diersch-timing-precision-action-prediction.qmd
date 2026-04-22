@@ -1,0 +1,12 @@
+---
+title: "The timing and precision of action prediction in the aging brain"
+authors: "Diersch, N., Jones, A. L., & Cross, E."
+year: 2016
+date: 2016-01-01
+pub-journal: "Human Brain Mapping"
+volume: "37(1)"
+pages: "54–66"
+doi: "10.1002/hbm.23012"
+pdf: "assets/papers/2016/diersch_etal_2016.pdf"
+categories: [other]
+---

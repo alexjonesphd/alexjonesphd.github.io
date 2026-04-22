@@ -1,0 +1,12 @@
+---
+title: "No credible evidence for links between 2D:4D and COVID-19 outcomes: A probabilistic perspective on digit ratio, ACE variants, and national case fatalities"
+authors: "Jones, A. L., Jaeger, B., & Schild, C."
+year: 2021
+date: 2021-01-01
+pub-journal: "Early Human Development"
+volume: "152"
+pages: "105272"
+doi: "10.1016/j.earlhumdev.2020.105272"
+pdf: "assets/papers/2021/Jones_Schild_Jaeger_2021.pdf"
+categories: [methodology, bayesian]
+---

@@ -1,0 +1,12 @@
+---
+title: "Sequential effects in facial attractiveness judgments using cross-classified models: Investigating perceptual and response biases"
+authors: "Kramer, R., & Jones, A. L."
+year: 2020
+date: 2020-01-01
+pub-journal: "Journal of Experimental Psychology: Human Perception and Performance"
+volume: "46(12)"
+pages: "1476–1489"
+doi: "10.1037/xhp0000869"
+pdf: "assets/papers/2020/Kramer & Jones 2020.pdf"
+categories: [attractiveness, methodology, bayesian]
+---

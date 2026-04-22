@@ -1,0 +1,10 @@
+---
+title: "Wanting or having children predicts age preferences in online dating"
+authors: "Kramer, R., & Jones, A. L."
+year: 2021
+date: 2021-01-01
+pub-journal: "Evolutionary Behavioral Sciences"
+doi: "10.1037/ebs0000274"
+pdf: "assets/papers/2021/Kramer & Jones 2021.pdf"
+categories: [other]
+---

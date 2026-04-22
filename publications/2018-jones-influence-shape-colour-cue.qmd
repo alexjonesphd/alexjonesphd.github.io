@@ -1,0 +1,12 @@
+---
+title: "The influence of shape and colour cue classes on facial health perception"
+authors: "Jones, A. L."
+year: 2018
+date: 2018-01-01
+pub-journal: "Evolution and Human Behavior"
+volume: "39(1)"
+pages: "19–29"
+doi: "10.1016/j.evolhumbehav.2017.09.005"
+pdf: "assets/papers/2018/Jones_2018.pdf"
+categories: [first-impressions, morphometrics]
+---

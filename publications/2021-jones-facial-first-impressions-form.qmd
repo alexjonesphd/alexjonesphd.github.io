@@ -1,0 +1,12 @@
+---
+title: "Facial first impressions form two clusters representing approach-avoidance"
+authors: "Jones, A. L., & Kramer, R."
+year: 2021
+date: 2021-01-01
+pub-journal: "Cognitive Psychology"
+volume: "126"
+pages: "101387"
+doi: "10.1016/j.cogpsych.2021.101387"
+pdf: "assets/papers/2021/Jones & Kramer 2021.pdf"
+categories: [first-impressions, methodology, bayesian]
+---

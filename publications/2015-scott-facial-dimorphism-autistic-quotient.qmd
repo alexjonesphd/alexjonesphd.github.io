@@ -1,0 +1,12 @@
+---
+title: "Facial dimorphism in autistic quotient scores"
+authors: "Scott, N., Jones, A. L., Kramer, R., & Ward, R."
+year: 2015
+date: 2015-01-01
+pub-journal: "Clinical Psychological Science"
+volume: "3(2)"
+pages: "230–241"
+doi: "10.1177/2167702614534238"
+pdf: "assets/papers/2015/scott_etal_2015.pdf"
+categories: [morphometrics]
+---

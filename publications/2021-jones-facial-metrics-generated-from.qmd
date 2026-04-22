@@ -1,0 +1,12 @@
+---
+title: "Facial metrics generated from manually and automatically placed image landmarks are highly correlated"
+authors: "Jones, A. L., Schild, C., & Jones, B."
+year: 2021
+date: 2021-01-01
+pub-journal: "Evolution and Human Behavior"
+volume: "42(3)"
+pages: "186–193"
+doi: "10.1016/j.evolhumbehav.2020.09.002"
+pdf: "assets/papers/2021/Jones_Schild_Jones_2021.pdf"
+categories: [morphometrics, methodology]
+---

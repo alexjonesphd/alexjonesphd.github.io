@@ -1,0 +1,12 @@
+---
+title: "Beyond reliability in first impressions research: Considering validity and the need to \"mix it up with folks\""
+authors: "Satchell, L. P., Jaeger, B., Jones, A. L., López, B., & Schild, C."
+year: 2023
+date: 2023-01-01
+pub-journal: "Social Psychological Bulletin"
+volume: "18"
+pages: "e10211"
+doi: "10.32872/spb.10211"
+pdf: "assets/papers/2023/satchelletal2023.pdf"
+categories: [first-impressions, methodology]
+---

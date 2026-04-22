@@ -1,0 +1,12 @@
+---
+title: "Miscalibrations in judgements of attractiveness with cosmetics"
+authors: "Jones, A. L., Kramer, R., & Ward, R."
+year: 2014
+date: 2014-01-01
+pub-journal: "The Quarterly Journal of Experimental Psychology"
+volume: "67(10)"
+pages: "2060–2068"
+doi: "10.1080/17470218.2014.908932"
+pdf: "assets/papers/2014/jones_etal_2014.pdf"
+categories: [cosmetics, attractiveness]
+---

@@ -1,0 +1,12 @@
+---
+title: "Neurocognitive functioning in comorbid insomnia and sleep apnea patients is better after positive airway pressure therapy, but worse after cognitive behavioral therapy for insomnia: Exploratory analysis of cognitive outcomes from the Multidisciplinary Approach to the Treatment of Insomnia and Comorbid Sleep Apnea study"
+authors: "Turner, A. D., Ong, J. C., Jones, A. L., Tu, A., Salanitro, & Crawford, M. R."
+year: 2023
+date: 2023-01-01
+pub-journal: "Sleep"
+volume: "46"
+pages: "1–12"
+doi: "10.1093/sleep/zsad128"
+pdf: "assets/papers/2023/turneretal2023.pdf"
+categories: [other]
+---

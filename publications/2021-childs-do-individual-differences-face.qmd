@@ -1,0 +1,12 @@
+---
+title: "Do individual differences in face recognition ability moderate the other ethnicity effect?"
+authors: "Childs, M., Jones, A. L., Thwaites, P., Zdravković, S., Thorley, C., Suzuki, A., Shen, R., Ding, Q., Burns, E., Xu, H., & Tree, J."
+year: 2021
+date: 2021-01-01
+pub-journal: "Journal of Experimental Psychology: Human Perception and Performance"
+volume: "47(7)"
+pages: "893–907"
+doi: "10.1037/xhp0000762"
+pdf: "assets/papers/2021/Childs_etal_2021.pdf"
+categories: [face-perception]
+---

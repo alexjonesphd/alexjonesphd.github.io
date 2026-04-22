@@ -1,0 +1,12 @@
+---
+title: "Do 3D face images capture cues of strength, weight, and height better than 2D face images do?"
+authors: "Holzleitner, I., Jones, A. L., O'Shea, K., Cassar, R., Fasolt, V., Shiramizu, V., Jones, B., & DeBruine, L."
+year: 2021
+date: 2021-01-01
+pub-journal: "Adaptive Human Behavior and Physiology"
+volume: "7(3)"
+pages: "209–219"
+doi: "10.1007/s40750-021-00170-8"
+pdf: "assets/papers/2021/Holzleitner_etal_2021.pdf"
+categories: [morphometrics]
+---

@@ -1,0 +1,11 @@
+---
+title: "The psychometrics of rating facial attractiveness using different response scales"
+authors: "Kramer, R. S. S., Ritchie, K. L., Flack, T. R., Mireku, M. O., & Jones, A. L."
+year: 2024
+date: 2024-01-01
+pub-journal: "Perception"
+volume: "1–16"
+doi: "10.1177/03010066241256221"
+pdf: "assets/papers/2024/krameretal2024.pdf"
+categories: [attractiveness, methodology]
+---

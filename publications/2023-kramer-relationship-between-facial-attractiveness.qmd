@@ -1,0 +1,11 @@
+---
+title: "The relationship between facial attractiveness and perceived guilt across crime type"
+authors: "Kramer, R. S. S., Jarvis, J.-L., Green, M., & Jones, A. L."
+year: 2023
+date: 2023-01-01
+pub-journal: "Quarterly Journal of Experimental Psychology"
+volume: "1–9"
+doi: "10.1177/17470218231218651"
+pdf: "assets/papers/2023/kramerjarvisgreenjones2023.pdf"
+categories: [first-impressions, attractiveness]
+---

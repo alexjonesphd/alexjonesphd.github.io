@@ -1,0 +1,12 @@
+---
+title: "Pre-frontal stimulation does not reliably increase reward responsiveness"
+authors: "Hadden, L. M., Penny, H., Jones, A. L., Partridge, A. M., Lancaster, T. M., & Allen, C."
+year: 2023
+date: 2023-01-01
+pub-journal: "Cortex"
+volume: "159"
+pages: "268–285"
+doi: "10.1016/j.cortex.2022.11.011"
+pdf: "assets/papers/2023/haddenetal2023.pdf"
+categories: [other]
+---

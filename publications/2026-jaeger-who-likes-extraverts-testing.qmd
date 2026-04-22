@@ -1,0 +1,12 @@
+---
+title: "Who likes extraverts? Testing the interplay between perceiver needs and target appearance in impression formation"
+authors: "Jaeger, B., Jones, A. L., Satchell, L., Schild, C., & van Leeuwen, F."
+year: 2026
+date: 2026-01-01
+pub-journal: "International Review of Social Psychology"
+volume: "39(1): 2"
+pages: "1–13"
+doi: "10.5334/irsp.996"
+pdf: "assets/papers/2026/jaegeretal2026.pdf"
+categories: [first-impressions]
+---

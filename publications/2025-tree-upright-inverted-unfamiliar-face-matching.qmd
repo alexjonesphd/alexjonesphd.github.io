@@ -1,0 +1,10 @@
+---
+title: "Upright and inverted unfamiliar face-matching tasks — everything correlates everywhere all at once"
+authors: "Tree, J. J., Kramer, R. S. S., & Jones, A. L."
+year: 2025
+date: 2025-01-01
+pub-journal: "Memory & Cognition"
+doi: "10.3758/s13421-025-01725-w"
+pdf: "assets/papers/2025/treekramerjones2025b.pdf"
+categories: [face-perception]
+---

@@ -1,0 +1,10 @@
+---
+title: "Makeup works by modifying factors of facial beauty"
+authors: "Batres, C., Jones, A. L., Barlett, C. P., Porcheron, A., Morizot, F., & Russell, R."
+year: 2022
+date: 2022-01-01
+pub-journal: "Psychology of Aesthetics, Creativity, and the Arts"
+doi: "10.1037/aca0000505"
+pdf: "assets/papers/2022/batresetal2022.pdf"
+categories: [cosmetics, attractiveness]
+---

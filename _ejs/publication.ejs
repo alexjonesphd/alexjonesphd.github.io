@@ -1,0 +1,25 @@
+<%
+let currentYear = null;
+for (const item of items) {
+  let cats = (item.categories || []).join(',');
+  if (item.year !== currentYear) {
+    currentYear = item.year;
+%>
+
+## <%= currentYear %>
+
+<% } %>
+<div class="publication-entry" data-categories="<%= cats %>">
+<p>
+<%
+let authors = item.authors || "";
+let boldedAuthors = authors.replace(/Jones,\s*A\.\s*L\./g, '**Jones, A. L.**');
+%>
+<%- boldedAuthors %> (<%= item.year %>).
+<%= item.title %>.
+<% if (item['pub-journal']) { %>*<%= item['pub-journal'] %>*<% } %><% if (item.volume) { %>, <%= item.volume %><% } %><% if (item.pages) { %>, <%= item.pages %><% } %>.
+<% if (item.doi) { %> [doi:<%= item.doi %>](https://doi.org/<%= item.doi %>)<% } %>
+<% if (item.pdf) { %> [📄](<%= item.pdf %>)<% } %>
+</p>
+</div>
+<% } %>

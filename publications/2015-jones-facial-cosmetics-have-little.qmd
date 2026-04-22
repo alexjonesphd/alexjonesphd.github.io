@@ -1,0 +1,12 @@
+---
+title: "Facial cosmetics have little effect on attractiveness judgments compared with identity"
+authors: "Jones, A. L., & Kramer, R."
+year: 2015
+date: 2015-01-01
+pub-journal: "Perception"
+volume: "44(1)"
+pages: "79–86"
+doi: "10.1068/p7904"
+pdf: "assets/papers/2015/jones_kramer_2015.pdf"
+categories: [cosmetics, attractiveness]
+---

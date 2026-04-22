@@ -1,0 +1,12 @@
+---
+title: "Personality in faces: Implicit associations between appearance and personality"
+authors: "Jones, A. L., Tree, J., & Ward, R."
+year: 2019
+date: 2019-01-01
+pub-journal: "European Journal of Social Psychology"
+volume: "49(3)"
+pages: "658–669"
+doi: "10.1002/ejsp.2534"
+pdf: "assets/papers/2019/Jones_etal_2019.pdf"
+categories: [first-impressions]
+---

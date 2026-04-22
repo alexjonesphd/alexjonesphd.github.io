@@ -1,0 +1,12 @@
+---
+title: "Biological bases of beauty revisited: The effect of symmetry, averageness, and sexual dimorphism on female facial attractiveness"
+authors: "Jones, A. L., & Jaeger, B."
+year: 2019
+date: 2019-01-01
+pub-journal: "Symmetry"
+volume: "11(2)"
+pages: "279"
+doi: "10.3390/sym11020279"
+pdf: "assets/papers/2019/Jones_Jaeger_2019.pdf"
+categories: [attractiveness, morphometrics]
+---

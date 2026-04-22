@@ -1,0 +1,11 @@
+---
+title: "Decoding the language of first impressions: Comparing models of first impressions of faces derived from free-text descriptions and trait ratings"
+authors: "Jones, A. L., Shiramizu, V., & Jones, B. C."
+year: 2024
+date: 2024-01-01
+pub-journal: "British Journal of Psychology"
+volume: "1–16"
+doi: "10.1111/bjop.12717"
+pdf: "assets/papers/2024/jonesetal2024.pdf"
+categories: [first-impressions, methodology]
+---

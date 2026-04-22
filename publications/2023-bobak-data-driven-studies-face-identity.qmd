@@ -1,0 +1,12 @@
+---
+title: "Data-driven studies in face identity processing rely on the quality of the tests and data sets"
+authors: "Bobak, A. K., Jones, A. L., Hilker, Z., Mestry, N., Bate, S., & Hancock, P. J. B."
+year: 2023
+date: 2023-01-01
+pub-journal: "Cortex"
+volume: "166"
+pages: "348–364"
+doi: "10.1016/j.cortex.2023.05.018"
+pdf: "assets/papers/2023/bobakjones2023.pdf"
+categories: [methodology]
+---

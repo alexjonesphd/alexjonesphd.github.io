@@ -1,0 +1,11 @@
+---
+title: "No influence of face familiarity on the cheerleader effect"
+authors: "Kramer, R. S. S., Javorkova, N., & Jones, A. L."
+year: 2024
+date: 2024-01-01
+pub-journal: "Visual Cognition"
+volume: "1–11"
+doi: "10.1080/13506285.2024.2405700"
+pdf: "assets/papers/2024/kramerjavorkovajones2024.pdf"
+categories: [attractiveness]
+---

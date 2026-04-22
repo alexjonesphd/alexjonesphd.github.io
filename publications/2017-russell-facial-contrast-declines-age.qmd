@@ -1,0 +1,10 @@
+---
+title: "Facial contrast declines with age but remains sexually dimorphic throughout adulthood"
+authors: "Russell, R., Kramer, S., & Jones, A. L."
+year: 2017
+date: 2017-01-01
+pub-journal: "Adaptive Human Behavior and Physiology"
+doi: "10.1007/s40750-017-0068-x"
+pdf: "assets/papers/2017/russell_etal_2017.pdf"
+categories: [morphometrics]
+---

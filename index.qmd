@@ -1,8 +1,15 @@
 ---
 title: ""
-pagetitle: "Alex Jones Ph.D"
+pagetitle: "Alex Jones"
 page-layout: full
 toc: false
+listing:
+  - id: recent-papers
+    contents: publications
+    sort: "date desc"
+    type: default
+    max-items: 3
+    fields: [title, authors, year]
 ---
 
 :::: {.hero}
@@ -22,10 +29,7 @@ I work on face perception, facial morphometrics, and the statistical methods use
 
 ## Recent papers
 
-- Jaeger, B., **Jones, A. L.**, Satchell, L., Schild, C., & van Leeuwen, F. (2026). Who likes extraverts? Testing the interplay between perceiver needs and target appearance in impression formation. *International Review of Social Psychology*, 39(1): 2, 1–13. [doi:10.5334/irsp.996](https://doi.org/10.5334/irsp.996) [[📄]](assets/papers/2026/jaegeretal2026.pdf)
-
-- Satchell, L. P., Hall, J., & **Jones, A. L.** (2025). Do we look at a threatening person's face? The relationship between perception and observation of walking strangers. *Quarterly Journal of Experimental Psychology*. [doi:10.1177/17470218251406631](https://doi.org/10.1177/17470218251406631) [[📄]](assets/papers/2025/satchell2025.pdf)
-
-- Kramer, R. S. S., **Jones, A. L.**, Fitousi, D., & Tree, J. J. (2025). AI-generated images of familiar faces are indistinguishable from real photographs. *Cognitive Research: Principles and Implications*, 10(70). [doi:10.1186/s41235-025-00683-w](https://doi.org/10.1186/s41235-025-00683-w) [[📄]](assets/papers/2025/kramerjonesfitousitree2025.pdf)
+::: {#recent-papers}
+:::
 
 See my [full list of publications](publications.qmd).

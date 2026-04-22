@@ -1,0 +1,11 @@
+---
+title: "A role for contrast gain control in skin appearance"
+authors: "Russell, R., Batres, C., Jones, A. L., & Porcheron, A."
+year: 2019
+date: 2019-01-01
+pub-journal: "Journal of Vision"
+volume: "19(11)"
+doi: "10.1167/19.13.11"
+pdf: "assets/papers/2019/Russell_etal_2019.pdf"
+categories: [face-perception]
+---

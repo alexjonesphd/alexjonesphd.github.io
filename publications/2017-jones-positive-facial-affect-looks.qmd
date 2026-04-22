@@ -1,0 +1,11 @@
+---
+title: "Positive facial affect looks healthy"
+authors: "Jones, A. L., Batres, C., Porcheron, A., Sweda, J., Morizot, F., & Russell, R."
+year: 2017
+date: 2017-01-01
+pub-journal: "Visual Cognition"
+volume: "1–12"
+doi: "10.1080/13506285.2017.1369202"
+pdf: "assets/papers/2017/jones_et_al_2017.pdf"
+categories: [first-impressions]
+---

@@ -1,0 +1,10 @@
+---
+title: "Perceptions of individuals who engage in age concealment"
+authors: "Childs, M. J., & Jones, A. L."
+year: 2022
+date: 2022-01-01
+pub-journal: "Evolutionary Behavioral Sciences"
+doi: "10.1037/ebs0000305"
+pdf: "assets/papers/2022/childs&jones2022.pdf"
+categories: [other]
+---

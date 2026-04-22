@@ -1,0 +1,11 @@
+---
+title: "Multidisciplinary, biopsychosocial factors contributing to return to running and running related stress urinary incontinence in postpartum women"
+authors: "Moore, I., James, M., Brockwell, E., Perkins, J., Jones, A. L., & Donnelly, G."
+year: 2021
+date: 2021-01-01
+pub-journal: "British Journal of Sports Medicine"
+volume: "55(22)"
+doi: "10.1136/bjsports-2021-104168"
+pdf: "assets/papers/2021/Moore_etal_2021.pdf"
+categories: [other]
+---

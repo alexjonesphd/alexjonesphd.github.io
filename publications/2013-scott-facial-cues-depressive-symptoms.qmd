@@ -1,0 +1,12 @@
+---
+title: "Facial cues to depressive symptoms and their associated personality attributions"
+authors: "Scott, N., Kramer, R., Jones, A. L., & Ward, R."
+year: 2013
+date: 2013-01-01
+pub-journal: "Psychiatry Research"
+volume: "208(1)"
+pages: "47–53"
+doi: "10.1016/j.psychres.2013.02.027"
+pdf: "assets/papers/2013/scott_etal_2013.pdf"
+categories: [first-impressions]
+---

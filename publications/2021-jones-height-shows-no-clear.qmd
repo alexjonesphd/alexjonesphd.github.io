@@ -1,0 +1,12 @@
+---
+title: "Height shows no clear association with self-serving beliefs about wealth redistribution: A commentary on Richardson (2020)"
+authors: "Jones, A. L."
+year: 2021
+date: 2021-01-01
+pub-journal: "Evolution and Human Behaviour"
+volume: "42"
+pages: "593–596"
+doi: "10.1016/j.evolhumbehav.2021.09.002"
+pdf: "assets/papers/2021/Jones_commentary_2021.pdf"
+categories: [methodology, bayesian]
+---

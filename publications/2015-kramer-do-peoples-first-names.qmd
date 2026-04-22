@@ -1,0 +1,10 @@
+---
+title: "Do people's first names match their faces?"
+authors: "Kramer, R., & Jones, A. L."
+year: 2015
+date: 2015-01-01
+pub-journal: "Journal of Articles in Support of the Null Hypothesis"
+volume: "12(1)"
+pdf: "assets/papers/2015/kramer_jones_2015.pdf"
+categories: [face-perception]
+---

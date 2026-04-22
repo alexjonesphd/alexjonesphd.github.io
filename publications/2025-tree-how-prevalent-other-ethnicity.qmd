@@ -1,0 +1,10 @@
+---
+title: "How prevalent is \"other ethnicity blindness\"? Exploring the extremes of recognition performance across categories of faces"
+authors: "Tree, J. J., & Jones, A. L."
+year: 2025
+date: 2025-01-01
+pub-journal: "Journal of Experimental Psychology: General"
+doi: "10.1037/xge0001730"
+pdf: "assets/papers/2025/tree&jones2025.pdf"
+categories: [face-perception]
+---

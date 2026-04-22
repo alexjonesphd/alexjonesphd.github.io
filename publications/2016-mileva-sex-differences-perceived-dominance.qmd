@@ -1,0 +1,12 @@
+---
+title: "Sex differences in the perceived dominance and prestige of women with and without cosmetics"
+authors: "Mileva, V., Jones, A. L., Russell, R., Little, A., & Jones, A. L."
+year: 2016
+date: 2016-01-01
+pub-journal: "Perception"
+volume: "45(10)"
+pages: "1166–1183"
+doi: "10.1177/0301006616652053"
+pdf: "assets/papers/2016/mileva_etal_2016.pdf"
+categories: [cosmetics, first-impressions]
+---

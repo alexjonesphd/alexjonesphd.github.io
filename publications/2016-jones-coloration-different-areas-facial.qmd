@@ -1,0 +1,12 @@
+---
+title: "Coloration in different areas of facial skin is a cue to health: The role of cheek redness and periorbital luminance in health perception"
+authors: "Jones, A. L., Porcheron, A., Sweda, J., Morizot, F., & Russell, R."
+year: 2016
+date: 2016-01-01
+pub-journal: "Body Image"
+volume: "17"
+pages: "57–66"
+doi: "10.1016/j.bodyim.2016.02.001"
+pdf: "assets/papers/2016/jones_etal_2016.pdf"
+categories: [first-impressions]
+---

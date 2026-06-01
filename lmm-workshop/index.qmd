@@ -1,6 +1,6 @@
 ---
 title: "Linear Mixed Models Workshop"
-description: "A one-day workshop on linear mixed-effects models for psychological and behavioural data, taught in Python."
+description: "A one-day workshop on linear mixed-effects models for psychological and behavioural data"
 toc: true
 toc-depth: 2
 ---

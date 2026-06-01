@@ -6,17 +6,15 @@ toc-depth: 2
 ---
 
 A one-day workshop introducing linear mixed-effects models for psychological and
-behavioural data, taught in Python. Everything you need for the day — slides,
-worksheets, datasets, and the take-home exercise — is below.
+behavioural data, taught in JAMOVI. Everything you need for the day — slides,
+worksheets, datasets, and the exercises — are below.
 
 If you spot a typo or have a question during the day, just grab me. After the
 workshop, email me at [alex.l.jones@swansea.ac.uk](mailto:alex.l.jones@swansea.ac.uk).
 
 ## Morning · Concepts and theory
 
-We start with the why and the what — when to reach for a mixed model, what the
-random effects are doing, and how to read the output. Open the worksheet
-alongside the slides.
+We start with the why and the what — going over the basics of the General Linear Model, why mixed models are useful and what issues they can solve, the differences between fixed and random effects, interpretation, and challenges in their use. The worksheet has some helpful points alongside the slides!
 
 ### Lecture slides
 
@@ -33,9 +31,8 @@ Worked examples and notes to follow along with the lecture.
 
 ## Afternoon · Practical
 
-We move to fitting models in Python on a small, deliberately messy dataset
-(low *n*, missing values). I'll work through the slides live; you follow along
-with the data.
+We move to fitting models in JAMOVI on a small, deliberately messy dataset
+(low *n*, missing values). We can work together on the data as we go through the slides.
 
 ### Practical slides
 
@@ -50,9 +47,9 @@ The dataset used in the practical session — `low_n_missing.csv`.
 
 ## Your turn · Exercise
 
-To consolidate what we've done, work through the face reaction-time exercise.
-The worksheet poses the questions; the CSV is the data to fit your models to.
-Don't peek at solutions until you've had a real go.
+To consolidate what we've done, we'll work through a new example which is about faces and reaction-times.
+The worksheet poses the questions; the CSV is the data to fit your models to in JAMOVI.
+Don't peek at solutions until you've had a real go!
 
 ### Exercise handout
 
@@ -70,4 +67,4 @@ Don't peek at solutions until you've had a real go.
 If you want to keep going after the workshop, my free online course
 [Statistical Modelling with Python](https://alexjonesphd.github.io/statistical_models_python/)
 has a longer treatment of mixed-effects models and the wider modelling toolkit
-(GLMs, factor analysis, clustering), all with runnable code.
+(GLMs, factor analysis, clustering), all with runnable code in Python.

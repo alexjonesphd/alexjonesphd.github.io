@@ -1,0 +1,73 @@
+---
+title: "Linear Mixed Models Workshop"
+description: "A one-day workshop on linear mixed-effects models for psychological and behavioural data, taught in Python."
+toc: true
+toc-depth: 2
+---
+
+A one-day workshop introducing linear mixed-effects models for psychological and
+behavioural data, taught in Python. Everything you need for the day — slides,
+worksheets, datasets, and the take-home exercise — is below.
+
+If you spot a typo or have a question during the day, just grab me. After the
+workshop, email me at [alex.l.jones@swansea.ac.uk](mailto:alex.l.jones@swansea.ac.uk).
+
+## Morning · Concepts and theory
+
+We start with the why and the what — when to reach for a mixed model, what the
+random effects are doing, and how to read the output. Open the worksheet
+alongside the slides.
+
+### Lecture slides
+
+PowerPoint · morning session.
+
+[Download .pptx](files/LMM_morning_lecture.pptx){.btn .btn-primary download="LMM_morning_lecture.pptx"}
+
+### Accompanying worksheet
+
+Worked examples and notes to follow along with the lecture.
+
+[Open worksheet](files/LMM_Workshop_Morning_Worksheet.html){.btn .btn-primary target="_blank"}
+[Download](files/LMM_Workshop_Morning_Worksheet.html){.btn .btn-secondary download="LMM_Workshop_Morning_Worksheet.html"}
+
+## Afternoon · Practical
+
+We move to fitting models in Python on a small, deliberately messy dataset
+(low *n*, missing values). I'll work through the slides live; you follow along
+with the data.
+
+### Practical slides
+
+[Open slides](files/practical_slides.html){.btn .btn-primary target="_blank"}
+[Download](files/practical_slides.html){.btn .btn-secondary download="practical_slides.html"}
+
+### Practical dataset
+
+The dataset used in the practical session — `low_n_missing.csv`.
+
+[Download CSV](files/low_n_missing.csv){.btn .btn-primary download="low_n_missing.csv"}
+
+## Your turn · Exercise
+
+To consolidate what we've done, work through the face reaction-time exercise.
+The worksheet poses the questions; the CSV is the data to fit your models to.
+Don't peek at solutions until you've had a real go.
+
+### Exercise handout
+
+[Open exercise](files/face_rt_exercise_worksheet.html){.btn .btn-primary target="_blank"}
+[Download](files/face_rt_exercise_worksheet.html){.btn .btn-secondary download="face_rt_exercise_worksheet.html"}
+
+### Exercise dataset
+
+`exercise_data.csv`.
+
+[Download CSV](files/exercise_data.csv){.btn .btn-primary download="exercise_data.csv"}
+
+## Where to go next
+
+If you want to keep going after the workshop, my free online course
+[Statistical Modelling with Python](https://alexjonesphd.github.io/statistical_models_python/)
+has a longer treatment of mixed-effects models and the wider modelling toolkit
+(GLMs, factor analysis, clustering), all with runnable code.

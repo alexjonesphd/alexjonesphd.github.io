@@ -7,6 +7,41 @@
     "text": "Bayesian Ordinal Regression in PyMC\n\n\n\nBayesian\n\nPyMC\n\nordinal\n\n\n\nUnravelling the mysteries of ordinal models\n\n\n\n\n\nJul 11, 2023\n\n\n\n\n\n\n\n\n\n\n\n\nOut-of-sample predictions with PyMC: A hieararchical linear model case study\n\n\n\nBayesian\n\nPyMC\n\npredictions\n\n\n\nHow out of sample predictions work with PyMC\n\n\n\n\n\nJun 30, 2023\n\n\n\n\n\n\n\n\n\n\n\n\nCustomer segmentation with Bayes, Spectral Embedding, and a second-place win\n\n\n\nBayesian\n\ncompetition\n\ndimension reduction\n\n\n\n\n\n\n\n\n\nAug 24, 2022\n\n\n\n\n\n\n\n\n\n\n\n\nMulti100 Collaboration Project: Is Eco-Friendly Unmanly?\n\n\n\nBayesian\n\nPyMC\n\nbambi\n\nreanalysis\n\n\n\nA Bayesian hierarchical re-analysis of Brough et al. (2016) for the Centre for Open Science’s Multi100 project, including a Savage-Dickey Bayes Factor.\n\n\n\n\n\nJul 8, 2022\n\n\n\n\n\n\n\n\n\n\n\n\nPredicting Concrete Strength - and winning competitions with Bayes\n\n\n\nBayesian\n\nPyMC\n\nbambi\n\ncompetition\n\n\n\n\n\n\n\n\n\nJul 8, 2022\n\n\n\n\n\n\n\n\n\n\n\n\nCOVID-19 Vaccine Side Effects — a rough night, in data\n\n\n\nPython\n\ndata viz\n\nmatplotlib\n\n\n\nExtracting heart-rate data from a smartwatch after a vaccine-induced bad night, and plotting it in xkcd style.\n\n\n\n\n\nJul 7, 2022\n\n\n\n\n\n\n\n\n\n\n\n\nBayesian Bookshelf\n\n\n\nBayesian\n\nbooks\n\nlearning\n\n\n\nTen books (plus a few) that helped me learn Bayesian inference from scratch, coming from a frequentist background.\n\n\n\n\n\nJul 6, 2022\n\n\n\n\n\nNo matching items"
   },
   {
+    "objectID": "lmm-workshop/index.html",
+    "href": "lmm-workshop/index.html",
+    "title": "Linear Mixed Models Workshop",
+    "section": "",
+    "text": "A one-day workshop introducing linear mixed-effects models for psychological and behavioural data, taught in Python. Everything you need for the day — slides, worksheets, datasets, and the take-home exercise — is below.\nIf you spot a typo or have a question during the day, just grab me. After the workshop, email me at alex.l.jones@swansea.ac.uk."
+  },
+  {
+    "objectID": "lmm-workshop/index.html#morning-concepts-and-theory",
+    "href": "lmm-workshop/index.html#morning-concepts-and-theory",
+    "title": "Linear Mixed Models Workshop",
+    "section": "Morning · Concepts and theory",
+    "text": "Morning · Concepts and theory\nWe start with the why and the what — when to reach for a mixed model, what the random effects are doing, and how to read the output. Open the worksheet alongside the slides.\n\nLecture slides\nPowerPoint · morning session.\nDownload .pptx\n\n\nAccompanying worksheet\nWorked examples and notes to follow along with the lecture.\nOpen worksheet Download"
+  },
+  {
+    "objectID": "lmm-workshop/index.html#afternoon-practical",
+    "href": "lmm-workshop/index.html#afternoon-practical",
+    "title": "Linear Mixed Models Workshop",
+    "section": "Afternoon · Practical",
+    "text": "Afternoon · Practical\nWe move to fitting models in Python on a small, deliberately messy dataset (low n, missing values). I’ll work through the slides live; you follow along with the data.\n\nPractical slides\nOpen slides Download\n\n\nPractical dataset\nThe dataset used in the practical session — low_n_missing.csv.\nDownload CSV"
+  },
+  {
+    "objectID": "lmm-workshop/index.html#your-turn-exercise",
+    "href": "lmm-workshop/index.html#your-turn-exercise",
+    "title": "Linear Mixed Models Workshop",
+    "section": "Your turn · Exercise",
+    "text": "Your turn · Exercise\nTo consolidate what we’ve done, work through the face reaction-time exercise. The worksheet poses the questions; the CSV is the data to fit your models to. Don’t peek at solutions until you’ve had a real go.\n\nExercise handout\nOpen exercise Download\n\n\nExercise dataset\nexercise_data.csv.\nDownload CSV"
+  },
+  {
+    "objectID": "lmm-workshop/index.html#where-to-go-next",
+    "href": "lmm-workshop/index.html#where-to-go-next",
+    "title": "Linear Mixed Models Workshop",
+    "section": "Where to go next",
+    "text": "Where to go next\nIf you want to keep going after the workshop, my free online course Statistical Modelling with Python has a longer treatment of mixed-effects models and the wider modelling toolkit (GLMs, factor analysis, clustering), all with runnable code."
+  },
+  {
     "objectID": "about.html",
     "href": "about.html",
     "title": "About",
@@ -467,5 +502,33 @@
     "title": "Publications",
     "section": "2012",
     "text": "2012\n\n\nKramer, R., Jones, A. L., & Ward, R. (2012). A lack of sexual dimorphism in width-to-height ratio in white european faces using 2D photographs, 3D scans, and anthropometry. PLOS ONE, 7(8), e42705. doi:10.1371/journal.pone.0042705 📄\n\n\n\n\nJones, A. L., Kramer, R., & Ward, R. (2012). Signals of personality and health: The contributions of facial shape, skin texture, and viewing angle. Journal of Experimental Psychology: Human Perception and Performance, 38(6), 1353–1361. doi:10.1037/a0027078 📄\n\n\nNo matching items"
+  },
+  {
+    "objectID": "lmm-workshop/HOW_TO_DEPLOY.html",
+    "href": "lmm-workshop/HOW_TO_DEPLOY.html",
+    "title": "Deploying the LMM workshop page",
+    "section": "",
+    "text": "The folder lmm-workshop/ contains the Quarto source for a new page plus all assets.\n\n\n\nCopy the entire lmm-workshop/ folder into the root of your Quarto project (the source for alexjonesphd.github.io).\nThe folder layout should now look like:\n&lt;site-root&gt;/\n  teaching.qmd\n  publications.qmd\n  ...\n  lmm-workshop/\n    lmm-workshop.qmd\n    files/\n      LMM_morning_lecture.pptx\n      LMM_Workshop_Morning_Worksheet.html\n      practical_slides.html\n      low_n_missing.csv\n      face_rt_exercise_worksheet.html\n      exercise_data.csv\nBuild the site (quarto render locally, or push and let your Actions workflow do it).\nThe page will be live at: https://alexjonesphd.github.io/lmm-workshop/lmm-workshop.html\n\nThat’s the URL you share with attendees.\n\n\nQuarto only copies files into _site/ if it knows about them. The .qmd already references each asset via a relative link, so Quarto’s link-checker will pick them up and copy the files/ folder across. If you ever see broken links after a build, add this to your _quarto.yml project: block:\nproject:\n  resources:\n    - \"lmm-workshop/files/**\"\nThat tells Quarto to always copy the assets, regardless of how they’re referenced.\n\n\n\nIf you’d like the link to be just https://alexjonesphd.github.io/lmm-workshop/, rename lmm-workshop.qmd to index.qmd. Same content, shorter URL.\n\n\n\nEdit teaching.qmd and add a section, e.g.:\n### Linear Mixed Models Workshop\n[alexjonesphd.github.io/lmm-workshop](lmm-workshop/lmm-workshop.html)\n\nA one-day workshop on linear mixed-effects models in Python — slides, worksheets, datasets, exercise.\n\n\n\n\nThe download/open buttons in the .qmd use Quarto’s standard Bootstrap classes (.btn .btn-primary, .btn .btn-secondary) plus the HTML5 download and target=\"_blank\" attributes. Nothing custom — they’ll pick up your site’s theme colours automatically. If you don’t like blue/grey, change the classes (.btn-success, .btn-outline-primary, etc.).\n\n\n\n\n\n\n\n\n\n\nFile\nUsed in\n\n\n\n\nLMM_morning_lecture.pptx\nMorning lecture slides\n\n\nLMM_Workshop_Morning_Worksheet.html\nMorning worksheet (follow-along)\n\n\npractical_slides.html\nAfternoon practical slides\n\n\nlow_n_missing.csv\nDataset for the afternoon practical\n\n\nface_rt_exercise_worksheet.html\nTake-home exercise handout\n\n\nexercise_data.csv\nDataset for the exercise"
+  },
+  {
+    "objectID": "lmm-workshop/HOW_TO_DEPLOY.html#step-by-step",
+    "href": "lmm-workshop/HOW_TO_DEPLOY.html#step-by-step",
+    "title": "Deploying the LMM workshop page",
+    "section": "",
+    "text": "Copy the entire lmm-workshop/ folder into the root of your Quarto project (the source for alexjonesphd.github.io).\nThe folder layout should now look like:\n&lt;site-root&gt;/\n  teaching.qmd\n  publications.qmd\n  ...\n  lmm-workshop/\n    lmm-workshop.qmd\n    files/\n      LMM_morning_lecture.pptx\n      LMM_Workshop_Morning_Worksheet.html\n      practical_slides.html\n      low_n_missing.csv\n      face_rt_exercise_worksheet.html\n      exercise_data.csv\nBuild the site (quarto render locally, or push and let your Actions workflow do it).\nThe page will be live at: https://alexjonesphd.github.io/lmm-workshop/lmm-workshop.html\n\nThat’s the URL you share with attendees.\n\n\nQuarto only copies files into _site/ if it knows about them. The .qmd already references each asset via a relative link, so Quarto’s link-checker will pick them up and copy the files/ folder across. If you ever see broken links after a build, add this to your _quarto.yml project: block:\nproject:\n  resources:\n    - \"lmm-workshop/files/**\"\nThat tells Quarto to always copy the assets, regardless of how they’re referenced.\n\n\n\nIf you’d like the link to be just https://alexjonesphd.github.io/lmm-workshop/, rename lmm-workshop.qmd to index.qmd. Same content, shorter URL.\n\n\n\nEdit teaching.qmd and add a section, e.g.:\n### Linear Mixed Models Workshop\n[alexjonesphd.github.io/lmm-workshop](lmm-workshop/lmm-workshop.html)\n\nA one-day workshop on linear mixed-effects models in Python — slides, worksheets, datasets, exercise."
+  },
+  {
+    "objectID": "lmm-workshop/HOW_TO_DEPLOY.html#a-note-on-the-buttons",
+    "href": "lmm-workshop/HOW_TO_DEPLOY.html#a-note-on-the-buttons",
+    "title": "Deploying the LMM workshop page",
+    "section": "",
+    "text": "The download/open buttons in the .qmd use Quarto’s standard Bootstrap classes (.btn .btn-primary, .btn .btn-secondary) plus the HTML5 download and target=\"_blank\" attributes. Nothing custom — they’ll pick up your site’s theme colours automatically. If you don’t like blue/grey, change the classes (.btn-success, .btn-outline-primary, etc.)."
+  },
+  {
+    "objectID": "lmm-workshop/HOW_TO_DEPLOY.html#whats-in-files",
+    "href": "lmm-workshop/HOW_TO_DEPLOY.html#whats-in-files",
+    "title": "Deploying the LMM workshop page",
+    "section": "",
+    "text": "File\nUsed in\n\n\n\n\nLMM_morning_lecture.pptx\nMorning lecture slides\n\n\nLMM_Workshop_Morning_Worksheet.html\nMorning worksheet (follow-along)\n\n\npractical_slides.html\nAfternoon practical slides\n\n\nlow_n_missing.csv\nDataset for the afternoon practical\n\n\nface_rt_exercise_worksheet.html\nTake-home exercise handout\n\n\nexercise_data.csv\nDataset for the exercise"
   }
 ]
